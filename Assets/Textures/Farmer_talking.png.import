@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpotug2phf3l1"
-path="res://.godot/imported/Farmer_talking.png-d5cb2ef3dd8d1baa6e9fb6d392a71bbd.ctex"
+path="res://.godot/imported/Farmer_talking.png-61927ef676b99b6a4566a262d1a0c4c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Assets/Textures/Farmer_talking.png"
-dest_files=["res://.godot/imported/Farmer_talking.png-d5cb2ef3dd8d1baa6e9fb6d392a71bbd.ctex"]
+source_file="res://Assets/Textures/Farmer_talking.png"
+dest_files=["res://.godot/imported/Farmer_talking.png-61927ef676b99b6a4566a262d1a0c4c0.ctex"]
 
 [params]
 

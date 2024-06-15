@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckhap4al4yqre"
-path="res://.godot/imported/Cherry_tree.png-04622d3e8bc64de63f73c528ade24f01.ctex"
+uid="uid://dib0al288cicj"
+path="res://.godot/imported/Wheat.png-a669dffca005f8d011b8246e6c06bf83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Assets/Textures/Cherry_tree.png"
-dest_files=["res://.godot/imported/Cherry_tree.png-04622d3e8bc64de63f73c528ade24f01.ctex"]
+source_file="res://Assets/Textures/Wheat.png"
+dest_files=["res://.godot/imported/Wheat.png-a669dffca005f8d011b8246e6c06bf83.ctex"]
 
 [params]
 
