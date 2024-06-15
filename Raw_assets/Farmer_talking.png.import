@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eakqje4vc44i"
-path="res://.godot/imported/Wheat_seeds.png-7268d5bb4cba6c5a3848cec8e9a8ff76.ctex"
+uid="uid://bpotug2phf3l1"
+path="res://.godot/imported/Farmer_talking.png-9bc7ec24801b4bbb883952d14dbb63d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw_assets/Wheat_seeds.png"
-dest_files=["res://.godot/imported/Wheat_seeds.png-7268d5bb4cba6c5a3848cec8e9a8ff76.ctex"]
+source_file="res://Raw_assets/Farmer_talking.png"
+dest_files=["res://.godot/imported/Farmer_talking.png-9bc7ec24801b4bbb883952d14dbb63d7.ctex"]
 
 [params]
 
