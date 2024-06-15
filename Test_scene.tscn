@@ -7,5 +7,7 @@
 [node name="Player" parent="." instance=ExtResource("1_07ina")]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -26)
+scale = Vector2(1, 1.02115)
 zoom = Vector2(10, 10)
 position_smoothing_enabled = true
