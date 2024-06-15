@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print($day_end_timer.time_left)
+	pass
 
 
 func _on_timer_timeout():
@@ -16,9 +16,7 @@ func _on_timer_timeout():
 
 func daily_update():
 	$day_end_timer.start()
-	print('daily_update')
 
 func day_skip():
 	$day_end_timer.stop()
 	daily_update()
-	print('day_skip')
