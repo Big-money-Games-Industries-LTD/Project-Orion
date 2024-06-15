@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckhap4al4yqre"
-path="res://.godot/imported/Cherry_tree.png-7be9f19414a14aeea821908f18f01ab5.ctex"
+uid="uid://b04x0qq71vjxu"
+path="res://.godot/imported/Cabbage_result.png-035fdfa52792518d6bb75637094dc839.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw_assets/Cherry_tree.png"
-dest_files=["res://.godot/imported/Cherry_tree.png-7be9f19414a14aeea821908f18f01ab5.ctex"]
+source_file="res://Objects/Assets/Textures/Cabbage_result.png"
+dest_files=["res://.godot/imported/Cabbage_result.png-035fdfa52792518d6bb75637094dc839.ctex"]
 
 [params]
 

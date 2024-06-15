@@ -30,8 +30,8 @@ right={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Everything"
+2d_physics/layer_1="Everything"
+2d_physics/layer_2="Player"
 
 [rendering]
 

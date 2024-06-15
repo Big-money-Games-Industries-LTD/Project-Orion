@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpotug2phf3l1"
-path="res://.godot/imported/Farmer_talking.png-9bc7ec24801b4bbb883952d14dbb63d7.ctex"
+uid="uid://cigko2vk0bdfe"
+path="res://.godot/imported/Cabbage.png-9b65f27b6a0e6e2f9e39d969cb0445a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw_assets/Farmer_talking.png"
-dest_files=["res://.godot/imported/Farmer_talking.png-9bc7ec24801b4bbb883952d14dbb63d7.ctex"]
+source_file="res://Objects/Assets/Textures/Cabbage.png"
+dest_files=["res://.godot/imported/Cabbage.png-9b65f27b6a0e6e2f9e39d969cb0445a1.ctex"]
 
 [params]
 

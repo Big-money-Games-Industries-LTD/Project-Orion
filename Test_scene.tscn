@@ -1,13 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn0psmgmb6aif"]
+[gd_scene load_steps=3 format=3 uid="uid://bn0psmgmb6aif"]
 
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Objects/Entities/Player.tscn" id="1_07ina"]
+[ext_resource type="PackedScene" uid="uid://bkj4ej8aix1ja" path="res://Objects/Assets/Grounds/temporary_ground.tscn" id="2_02hwx"]
 
 [node name="TestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_07ina")]
+position = Vector2(0, -75)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -166)
+position = Vector2(0, -122)
 scale = Vector2(1, 1.02115)
 zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
+
+[node name="TemporaryGround" parent="." instance=ExtResource("2_02hwx")]
+position = Vector2(0, 141)

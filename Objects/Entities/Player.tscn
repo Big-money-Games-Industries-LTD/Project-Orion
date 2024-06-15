@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bg0sekmpwuin1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_0ie2x"]
-[ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Raw_assets/Farmer_talking.png" id="2_mhpid"]
+[ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Objects/Assets/Textures/Farmer_talking.png" id="2_mhpid"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lah01"]
 size = Vector2(52, 90)
@@ -22,7 +22,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 2
+collision_layer = 2
 script = ExtResource("1_0ie2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

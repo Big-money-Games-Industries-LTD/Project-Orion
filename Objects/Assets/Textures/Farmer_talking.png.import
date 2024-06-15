@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi8n1pqfsgqj0"
-path="res://.godot/imported/Cherry_result.png-1bacb67b6c58aee6aad36e809fe5dcdb.ctex"
+uid="uid://bpotug2phf3l1"
+path="res://.godot/imported/Farmer_talking.png-d5cb2ef3dd8d1baa6e9fb6d392a71bbd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw_assets/Cherry_result.png"
-dest_files=["res://.godot/imported/Cherry_result.png-1bacb67b6c58aee6aad36e809fe5dcdb.ctex"]
+source_file="res://Objects/Assets/Textures/Farmer_talking.png"
+dest_files=["res://.godot/imported/Farmer_talking.png-d5cb2ef3dd8d1baa6e9fb6d392a71bbd.ctex"]
 
 [params]
 

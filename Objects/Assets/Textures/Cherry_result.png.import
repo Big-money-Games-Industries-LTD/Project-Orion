@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cigko2vk0bdfe"
-path="res://.godot/imported/Cabbage.png-830a6ad79a5904f28a40069052f5570a.ctex"
+uid="uid://bi8n1pqfsgqj0"
+path="res://.godot/imported/Cherry_result.png-028876fa504b01a40e28c24c9923a4d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw_assets/Cabbage.png"
-dest_files=["res://.godot/imported/Cabbage.png-830a6ad79a5904f28a40069052f5570a.ctex"]
+source_file="res://Objects/Assets/Textures/Cherry_result.png"
+dest_files=["res://.godot/imported/Cherry_result.png-028876fa504b01a40e28c24c9923a4d8.ctex"]
 
 [params]
 

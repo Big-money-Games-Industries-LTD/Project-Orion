@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://bkj4ej8aix1ja"]
+[gd_scene load_steps=3 format=3 uid="uid://bkj4ej8aix1ja"]
 
-[node name="TemporaryGround" type="Node2D"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i6rvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4swu"]
+size = Vector2(1322, 246)
+
+[node name="TemporaryGround" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1322.5, 246.5)
+texture = SubResource("PlaceholderTexture2D_i6rvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m4swu")
