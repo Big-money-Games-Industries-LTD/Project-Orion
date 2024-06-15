@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://bg0sekmpwuin1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_0ie2x"]
-[ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Objects/Assets/Textures/Farmer_talking.png" id="2_mhpid"]
+[ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Objects/Assets/Textures/Farmer_talking.png" id="2_oiclr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lah01"]
 size = Vector2(52, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi0dx"]
-atlas = ExtResource("2_mhpid")
+atlas = ExtResource("2_oiclr")
 region = Rect2(0, 0, 52, 84)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7vj6h"]
@@ -31,3 +31,9 @@ shape = SubResource("RectangleShape2D_lah01")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1, 1.076)
 sprite_frames = SubResource("SpriteFrames_7vj6h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -122)
+scale = Vector2(1, 1.02115)
+zoom = Vector2(1.3, 1.3)
+position_smoothing_enabled = true

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Project Oreon"
-run/main_scene="res://Test_scene.tscn"
+run/main_scene="res://Scenes/home_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+BackgroundScene="*res://Scenes/background_scene.tscn"
 
 [input]
 
