@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3bdh1d14lpse"
-path="res://.godot/imported/Wheat_result.png-40b63b182881d1039d4f98df155bf017.ctex"
+uid="uid://cigko2vk0bdfe"
+path="res://.godot/imported/Cabbage.png-f4225497b9627ffdffaade6065cae243.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Assets/Textures/Wheat_result.png"
-dest_files=["res://.godot/imported/Wheat_result.png-40b63b182881d1039d4f98df155bf017.ctex"]
+source_file="res://Assets/Textures/Cabbage.png"
+dest_files=["res://.godot/imported/Cabbage.png-f4225497b9627ffdffaade6065cae243.ctex"]
 
 [params]
 

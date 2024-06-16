@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dib0al288cicj"
-path="res://.godot/imported/Wheat.png-6cd05b89b5dc58fb142cba06577eb648.ctex"
+uid="uid://bb1400m1d3v4o"
+path="res://.godot/imported/Coin.png-7a8e0a5039d9b79744e03623c34f5e26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Assets/Textures/Wheat.png"
-dest_files=["res://.godot/imported/Wheat.png-6cd05b89b5dc58fb142cba06577eb648.ctex"]
+source_file="res://Raw assets/Coin.png"
+dest_files=["res://.godot/imported/Coin.png-7a8e0a5039d9b79744e03623c34f5e26.ctex"]
 
 [params]
 

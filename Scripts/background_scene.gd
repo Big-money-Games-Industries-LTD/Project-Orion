@@ -12,7 +12,7 @@ class Bed:
 		time_remaining = _time_remaining
 		fading_probability = _fading_probability
 	
-	func daily_update():
+	func update():
 		if type == 'empty_bed':#checking if we need to do our daily routines at all
 			return
 		if is_faded:
@@ -28,7 +28,6 @@ class Bed:
 		if not time_remaining:
 			ready_to_harvest = true
 			
-		
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,11 +41,11 @@ func _process(delta):
 
 
 func _on_timer_timeout():
-	daily_update()
+	update()
 
-func daily_update():
+func update():
 	$day_end_timer.start()
 
 func day_skip():
 	$day_end_timer.stop()
-	daily_update()
+	update()
