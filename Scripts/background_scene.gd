@@ -1,4 +1,6 @@
 extends Node2D
+const day_lenght = 900
+var seconds_to_next_day:int = day_lenght
 
 class Bed:
 	var type
@@ -21,31 +23,46 @@ class Bed:
 		if randf_range(0,1)<fading_probability:#see if it fades
 			is_faded = true
 			ready_to_harvest = false
+			fading_probability = 0
 			return
 			
-		if time_remaining:#decreasing timer if it isn't zero and making harvesting availible if it is
+		if time_remaining and not ready_to_harvest:#decreasing timer if it isn't zero and making harvesting availible if it is
 			time_remaining-=1
-		if not time_remaining:
+		if not time_remaining and not ready_to_harvest:
 			ready_to_harvest = true
 			
 
+var beds_list = []
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	randomize()
+	
+	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		beds_list.append([])
+		file_name = dir.get_next()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	pass
 
 
 func _on_timer_timeout():
-	update()
+	update(true)
 
-func update():
-	$day_end_timer.start()
+func update(timer_flag):
+	for i in beds_list:
+		for j in i:
+			j.update()
+	if timer_flag:
+		$day_end_timer.start()
 
 func day_skip():
 	$day_end_timer.stop()
-	update()
+	for i in range(abs(seconds_to_next_day-1)): #if player have some time left, we simulate remaining time
+		update(false)#NOTE maybe we should decrease fading probability for this case
+	update(true)
