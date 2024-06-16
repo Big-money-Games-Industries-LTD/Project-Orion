@@ -38,7 +38,7 @@ var beds_list = []
 func _ready():
 	randomize()
 	
-	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array
+	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name != "":
