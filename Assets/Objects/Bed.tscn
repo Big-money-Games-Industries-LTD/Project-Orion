@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://sscsq3sgtfwa"]
+[gd_scene load_steps=16 format=3 uid="uid://sscsq3sgtfwa"]
 
 [ext_resource type="Texture2D" uid="uid://dib0al288cicj" path="res://Assets/Textures/Wheat.png" id="1_xsc6a"]
+[ext_resource type="Texture2D" uid="uid://cigko2vk0bdfe" path="res://Assets/Textures/Cabbage.png" id="2_gmvay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxec7"]
 atlas = ExtResource("1_xsc6a")
@@ -26,6 +27,30 @@ region = Rect2(176, 0, 44, 128)
 atlas = ExtResource("1_xsc6a")
 region = Rect2(220, 0, 44, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7s03"]
+atlas = ExtResource("2_gmvay")
+region = Rect2(0, 0, 48, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn13l"]
+atlas = ExtResource("2_gmvay")
+region = Rect2(48, 0, 48, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfgxe"]
+atlas = ExtResource("2_gmvay")
+region = Rect2(96, 0, 48, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk580"]
+atlas = ExtResource("2_gmvay")
+region = Rect2(144, 0, 48, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2elx"]
+atlas = ExtResource("2_gmvay")
+region = Rect2(192, 0, 48, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78fm8"]
+atlas = ExtResource("2_gmvay")
+region = Rect2(240, 0, 48, 42)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_kw3hr"]
 animations = [{
 "frames": [{
@@ -50,13 +75,44 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7s03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn13l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfgxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk580")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2elx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78fm8")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="Bed" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -38)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_kw3hr")
 frame = 5
 speed_scale = 0.0
+centered = false
+offset = Vector2(0, -128)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(13, -12.375)
+scale = Vector2(0.570895, 0.589286)
+texture = ExtResource("2_gmvay")
+hframes = 6
