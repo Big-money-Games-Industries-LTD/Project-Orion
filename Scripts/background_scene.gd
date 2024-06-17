@@ -40,11 +40,14 @@ func _on_timer_timeout():
 	$day_end_timer.start()
 	
 
-func update(timer_flag):
+func update(timer_flag):#update every known bed and restart timer if needed
 	for i in beds_list:
 		for j in i:
 			j.update()
 	if timer_flag:
+		if not $day_end_timer.is_stopped():
+			printerr('Attempted to start day timer while it was running')
+			push_error('Attempted to start day timer while it was running')
 		$day_end_timer.start()
 
 func day_skip():
@@ -57,7 +60,6 @@ func day_skip():
 
 func _ready():
 	randomize()
-	
 	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
