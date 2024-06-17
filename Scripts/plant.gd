@@ -16,7 +16,7 @@ func _ready():
 	
 	var sprite #setting frames variable, so we know how many frames do we have
 	for i in scene_list:
-		if i.name.begins_with('Sprite'):
+		if i is Sprite2D:
 			sprite = i
 			break
 	frames = sprite.hframes

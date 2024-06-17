@@ -24,6 +24,7 @@ class Bed:
 			is_faded = true
 			ready_to_harvest = false
 			fading_probability = 0
+			time_remaining = -1#to prevent it from making crops ready to harvest
 			return
 			
 		if time_remaining and not ready_to_harvest:#decreasing timer if it isn't zero and making harvesting availible if it is
