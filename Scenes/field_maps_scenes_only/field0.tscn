@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc62uqe3o5c4a"]
+[gd_scene load_steps=6 format=3 uid="uid://cc62uqe3o5c4a"]
 
 [ext_resource type="Script" path="res://Scripts/field.gd" id="1_2t4jh"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_0afti"]
 [ext_resource type="PackedScene" uid="uid://sscsq3sgtfwa" path="res://Assets/Objects/Plants/bed.tscn" id="3_ba0xk"]
-[ext_resource type="PackedScene" uid="uid://cw2cjeof2lx5u" path="res://Assets/Objects/Plants/cabbage.tscn" id="4_glo0w"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt5m5"]
 
@@ -37,6 +36,3 @@ position = Vector2(661, 0)
 
 [node name="Bed2" parent="." instance=ExtResource("3_ba0xk")]
 position = Vector2(777, 0)
-
-[node name="Cabbage" parent="." instance=ExtResource("4_glo0w")]
-position = Vector2(545, 0)

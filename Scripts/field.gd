@@ -5,20 +5,38 @@ const types_dict = {#preloading plant textures
 	}
 
 var self_index = int(self.name.right(1))
+var frames:int
+var beds_list
+ 
+func create_plant(type:String, coordinates:Vector2, bed_pointer):#bed pointer is [field_number, bed_number]
+	var plant = types_dict[type].instantiate()#instantiate reqred crop texture
+	plant.position = coordinates
+	plant.set_meta('bed_pointer',bed_pointer)
+	plant.add_to_group('Plants')
+	$".".add_child(plant)
+
+func get_plant(bed_pointer):
+	var plants_list = get_tree().get_nodes_in_group('Plants')
+	for i in plants_list:
+		if i.get_meta('bed_pointer') == bed_pointer:
+			return i
+	printerr('Attempted to remove nonexisting plant')
+
+func remove_plant(bed_pointer):
+	get_plant(bed_pointer).queue_free()
+
+func update_plant_frame(frame_number, bed_pointer):
+	pass
+	
 
 func _ready():
+	beds_list = get_tree().get_nodes_in_group('Beds')
 	if not BackgroundScene.beds_list[self_index]: #make BackgroundScene know about our beds unless it knows already
-		var beds_list_local = get_tree().get_nodes_in_group('Beds')
-		for i in beds_list_local:
+		for i in beds_list:
 			BackgroundScene.beds_list[self_index].append(BackgroundScene.Bed.new('empty_bed',-1,float(0)))
- 
+	for i in beds_list:
+		i.delayed_ready()
 
 
 func _process(delta):
 	pass
-
-func create_plant(type:String, coordinates:Vector2, bed_pointer:int):#bed pointer is ether bed.get_instance_id() or just something like [field_number, bed_number]; pretty much anything that we can use to find the bed
-	var plant = types_dict[type].instantiate()
-	plant.position = coordinates
-	plant.set_meta('bed_pointer',bed_pointer)#if we stick to the second variant, dont forget to change meta type to 'list'
-	$".".add_child(plant)

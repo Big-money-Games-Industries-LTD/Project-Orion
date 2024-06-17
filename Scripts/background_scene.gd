@@ -13,7 +13,7 @@ class Bed:
 		time_remaining = _time_remaining
 		fading_probability = _fading_probability
 	
-	func update():
+	func update(absolute_time):
 		if type == 'empty_bed':#checking if we need to do our daily routines at all
 			return
 		if is_faded:
@@ -30,7 +30,7 @@ class Bed:
 			time_remaining-=1
 		if not time_remaining and not ready_to_harvest:
 			ready_to_harvest = true
-			
+
 
 var beds_list = []
 
@@ -43,11 +43,10 @@ func _on_timer_timeout():
 func update(timer_flag):#update every known bed and restart timer if needed
 	for i in beds_list:
 		for j in i:
-			j.update()
+			j.update(absolute_time)
 	if timer_flag:
 		if not $day_end_timer.is_stopped():
-			printerr('Attempted to start day timer while it was running')
-			push_error('Attempted to start day timer while it was running')
+			printerr('Start day timer restarted while it was running')
 		$day_end_timer.start()
 
 func day_skip():
