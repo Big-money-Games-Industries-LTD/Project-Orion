@@ -1,7 +1,8 @@
 extends Node2D
 
 const types_dict = {#preloading plant textures
-		'cabbage':preload("res://Assets/Objects/Plants/cabbage.tscn")
+		'cabbage':preload('res://Assets/Objects/Plants/cabbage.tscn'),
+		'carrot':preload('res://Assets/Objects/Plants/carrot.tscn')
 	}
 
 var self_index = int(self.name.right(1))
@@ -36,6 +37,7 @@ func _ready():
 			BackgroundScene.beds_list[self_index].append(BackgroundScene.Bed.new('empty'))
 	for i in beds_list:
 		i.delayed_ready()
+	create_plant('carrot',Vector2(0,0),-1)
 
 
 func _process(delta):

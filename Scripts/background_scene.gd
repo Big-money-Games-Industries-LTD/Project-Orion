@@ -2,24 +2,24 @@ extends Node2D
 
 var global_time:int = 0
 
-func tts(time): #seconds to tics
-	return time*ProjectSettings.get_setting("/common/physics_ticks_per_second")
-func ttm(time): #minutes to tics
-	return time*ProjectSettings.get_setting("/common/physics_ticks_per_second")*60
-func tth(time): #hours to tics
-	return time*ProjectSettings.get_setting("/common/physics_ticks_per_second")*60**2
+func seconds_to_ticks(time): #seconds to tics
+	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
+func minutes_to_ticks(time): #minutes to tics
+	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")*60
+func hours_to_ticks(time): #hours to tics
+	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")*60**2
 
 class Bed:
 	var types_dict = {#preloading plant textures
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.ttm(7),
+			'growth_time': BackgroundScene.seconds_to_ticks(30),
 			'fading_probability': 0.1},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.ttm(5),
+			'growth_time': BackgroundScene.seconds_to_ticks(20),
 			'fading_probability': 0.1}
 		}
 	var type: String
@@ -76,7 +76,7 @@ func _on_timer_timeout():
 func update(timer_flag):#update every known bed and restart timer if needed
 	for i in beds_list:
 		for j in i:
-			j.update(global_time)
+			j.update()
 	if timer_flag:
 		if not $day_end_timer.is_stopped():
 			printerr('Start day timer restarted while it was running')
@@ -99,6 +99,7 @@ func _ready():
 		beds_list.append([])
 		file_name = dir.get_next()
 	
+	
 
 
 func _process(delta):
@@ -106,7 +107,4 @@ func _process(delta):
 	
 func _physics_process(delta):
 	global_time+=1
-	for i in beds_list:
-		for j in beds_list:
-			j.time(global_time)
 	update(false)
