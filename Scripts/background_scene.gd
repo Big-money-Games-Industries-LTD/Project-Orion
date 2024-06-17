@@ -52,6 +52,8 @@ func _process(delta):
 
 
 func _on_timer_timeout():
+	if not seconds_to_next_day:
+		print('next day started')
 	update(true)
 
 func update(timer_flag):
