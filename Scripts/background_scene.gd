@@ -35,25 +35,9 @@ class Bed:
 var beds_list = []
 
 
-func _ready():
-	randomize()
-	
-	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while file_name != "":
-		beds_list.append([])
-		file_name = dir.get_next()
-
-
-
-func _process(delta):
-	pass
-
-
 func _on_timer_timeout():
 	if not seconds_to_next_day:
-		print('next day started')
+		print('next day started')#replace with some fancy UI notification
 	update(true)
 
 func update(timer_flag):
@@ -68,3 +52,18 @@ func day_skip():
 	for i in range(abs(seconds_to_next_day-1)): #if player have some time left, we simulate remaining time
 		update(false)#NOTE maybe we should decrease fading probability for this case
 	update(true)
+
+
+func _ready():
+	randomize()
+	
+	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		beds_list.append([])
+		file_name = dir.get_next()
+
+
+func _process(delta):
+	pass
