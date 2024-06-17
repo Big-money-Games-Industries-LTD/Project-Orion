@@ -1,6 +1,5 @@
 extends Node2D
-const day_lenght = 900
-var seconds_to_next_day:int = day_lenght
+var absolute_time:int = 0
 
 class Bed:
 	var type
@@ -37,9 +36,9 @@ var beds_list = []
 
 
 func _on_timer_timeout():
-	if not seconds_to_next_day:
-		print('next day started')#replace with some fancy UI notification
-	update(true)
+	print('next day started')#replace with some fancy UI notification
+	$day_end_timer.start()
+	
 
 func update(timer_flag):
 	for i in beds_list:
@@ -49,8 +48,9 @@ func update(timer_flag):
 		$day_end_timer.start()
 
 func day_skip():
+	var time_left = $day_end_timer.get_time_left()
 	$day_end_timer.stop()
-	for i in range(abs(seconds_to_next_day-1)): #if player have some time left, we simulate remaining time
+	for i in range(snapped(time_left, 1)): #if player have some time left, we simulate remaining time
 		update(false)#NOTE maybe we should decrease fading probability for this case
 	update(true)
 
@@ -64,7 +64,12 @@ func _ready():
 	while file_name != "":
 		beds_list.append([])
 		file_name = dir.get_next()
+	
 
 
 func _process(delta):
 	pass
+	
+func _physics_process(delta):
+	absolute_time+=1
+	update(false)
