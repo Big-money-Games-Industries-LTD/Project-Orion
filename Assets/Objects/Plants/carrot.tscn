@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://csmef23d8djkm"]
+
+[ext_resource type="Texture2D" uid="uid://cudflpqi8aktj" path="res://Assets/Textures/Carrot.png" id="1_h3n3h"]
+
+[node name="Carrot" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, -11)
+texture = ExtResource("1_h3n3h")
+hframes = 6
+frame = 5

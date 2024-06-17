@@ -1,36 +1,69 @@
 extends Node2D
-var absolute_time:int = 0
+
+var global_time:int = 0
+
+func tts(time): #seconds to tics
+	return time*ProjectSettings.get_setting("/common/physics_ticks_per_second")
+func ttm(time): #minutes to tics
+	return time*ProjectSettings.get_setting("/common/physics_ticks_per_second")*60
+func tth(time): #hours to tics
+	return time*ProjectSettings.get_setting("/common/physics_ticks_per_second")*60**2
 
 class Bed:
-	var type
-	var time_remaining:int
-	var fading_probability:float
-	var is_faded:bool = false
-	var ready_to_harvest:bool = false
+	var types_dict = {#preloading plant textures
+		'cabbage':{
+			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
+			'frames': 6,
+			'growth_time': BackgroundScene.ttm(7),
+			'fading_probability': 0.1},
+		'carrot':{
+			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
+			'frames': 6,
+			'growth_time': BackgroundScene.ttm(5),
+			'fading_probability': 0.1}
+		}
+	var type: String
+	var next_step_time: int
+	var frame: int
+	var frames: int
+	var is_faded:bool
+	var ready_to_harvest:bool
+	var fading_probability: float
+	var multiplier: float
 	
-	func _init(_type, _time_remaining:int, _fading_probability:float):
+	func _init(_type):
 		type = _type
-		time_remaining = _time_remaining
-		fading_probability = _fading_probability
 	
-	func update(absolute_time):
-		if type == 'empty_bed':#checking if we need to do our daily routines at all
+	func update():
+		if type == 'empty':#checking if we need to do our daily routines at all
 			return
-		if is_faded:
+		elif ready_to_harvest:
 			return
-		
+		elif is_faded:
+			return
+		elif next_step_time != BackgroundScene.global_time:
+			return
+
+		frame += 1
+		if frame + 1 == frames:
+			ready_to_harvest = true
+		else:
+			next_step_time = BackgroundScene.global_time + (types_dict[type]['growth_time']/types_dict[type]['frames'])*(frame+1)*2*multiplier
 		if randf_range(0,1)<fading_probability:#see if it fades
 			is_faded = true
 			ready_to_harvest = false
-			fading_probability = 0
-			time_remaining = -1#to prevent it from making crops ready to harvest
 			return
 			
-		if time_remaining and not ready_to_harvest:#decreasing timer if it isn't zero and making harvesting availible if it is
-			time_remaining-=1
-		if not time_remaining and not ready_to_harvest:
-			ready_to_harvest = true
-
+	func plant(_type):
+		type = _type
+		next_step_time = BackgroundScene.global_time + (types_dict[type]['growth_time'] / types_dict[type]['frames']) * multiplier * 2
+		frame = 0
+		is_faded = false
+		ready_to_harvest = false
+		fading_probability = types_dict[type]['fading_probability']
+		
+	func water():
+		next_step_time = next_step_time-(next_step_time - BackgroundScene.global_time)/2
 
 var beds_list = []
 
@@ -43,7 +76,7 @@ func _on_timer_timeout():
 func update(timer_flag):#update every known bed and restart timer if needed
 	for i in beds_list:
 		for j in i:
-			j.update(absolute_time)
+			j.update(global_time)
 	if timer_flag:
 		if not $day_end_timer.is_stopped():
 			printerr('Start day timer restarted while it was running')
@@ -72,5 +105,8 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
-	absolute_time+=1
+	global_time+=1
+	for i in beds_list:
+		for j in beds_list:
+			j.time(global_time)
 	update(false)

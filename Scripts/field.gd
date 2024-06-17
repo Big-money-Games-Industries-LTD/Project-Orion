@@ -33,7 +33,7 @@ func _ready():
 	beds_list = get_tree().get_nodes_in_group('Beds')
 	if not BackgroundScene.beds_list[self_index]: #make BackgroundScene know about our beds unless it knows already
 		for i in beds_list:
-			BackgroundScene.beds_list[self_index].append(BackgroundScene.Bed.new('empty_bed',-1,float(0)))
+			BackgroundScene.beds_list[self_index].append(BackgroundScene.Bed.new('empty'))
 	for i in beds_list:
 		i.delayed_ready()
 
