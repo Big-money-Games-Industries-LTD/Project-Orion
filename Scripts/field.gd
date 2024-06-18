@@ -15,13 +15,15 @@ func create_plant(type:String, coordinates:Vector2, bed_pointer):#bed pointer is
 	plant.set_meta('bed_pointer',bed_pointer)
 	plant.add_to_group('Plants')
 	$".".add_child(plant)
+	print(get_plant([0,0]).get_meta('bed_pointer'))
+	BackgroundScene.beds_list[bed_pointer[0]][bed_pointer[1]].plant(type)
 
 func get_plant(bed_pointer):
 	var plants_list = get_tree().get_nodes_in_group('Plants')
 	for i in plants_list:
 		if i.get_meta('bed_pointer') == bed_pointer:
 			return i
-	printerr('Attempted to remove nonexisting plant')
+	printerr('Attempted to get nonexisting plant')
 
 func remove_plant(bed_pointer):
 	get_plant(bed_pointer).queue_free()
@@ -37,7 +39,7 @@ func _ready():
 			BackgroundScene.beds_list[self_index].append(BackgroundScene.Bed.new('empty'))
 	for i in beds_list:
 		i.delayed_ready()
-	create_plant('carrot',Vector2(0,0),-1)
+	create_plant('cabbage',Vector2(0,0),[0,0])
 
 
 func _process(delta):

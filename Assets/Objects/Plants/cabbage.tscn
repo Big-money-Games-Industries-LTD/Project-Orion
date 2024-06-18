@@ -5,6 +5,7 @@
 
 [node name="Cabbage" type="Node2D"]
 script = ExtResource("1_84qun")
+metadata/bed_pointer = [-1, -1]
 
 [node name="Sprite0" type="Sprite2D" parent="."]
 position = Vector2(-40, -21)

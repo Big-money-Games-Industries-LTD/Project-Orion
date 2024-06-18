@@ -33,6 +33,8 @@ class Bed:
 	
 	func _init(_type):
 		type = _type
+		if _type != 'empty':
+			printerr('Created Bed object with type other than empty')
 	
 	func update():
 		if type == 'empty':#checking if we need to do our daily routines at all
@@ -45,6 +47,7 @@ class Bed:
 			return
 
 		frame += 1
+		print('added_frame')
 		if frame + 1 == frames:
 			ready_to_harvest = true
 		else:
