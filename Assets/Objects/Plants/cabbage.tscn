@@ -11,17 +11,14 @@ metadata/bed_pointer = [-1, -1]
 position = Vector2(-40, -21)
 texture = ExtResource("1_onwak")
 hframes = 6
-frame = 4
 
 [node name="Sprite1" type="Sprite2D" parent="."]
 position = Vector2(0, -21)
 texture = ExtResource("1_onwak")
 hframes = 6
-frame = 4
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 position = Vector2(40, -21)
 texture = ExtResource("1_onwak")
 hframes = 6
-frame = 4
 metadata/bed_pointer = -1

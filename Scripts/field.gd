@@ -15,6 +15,7 @@ func create_plant(type:String, coordinates:Vector2, bed_pointer):#bed pointer is
 	plant.set_meta('bed_pointer',bed_pointer)
 	plant.add_to_group('Plants')
 	$".".add_child(plant)
+	print(BackgroundScene.beds_list)
 	BackgroundScene.beds_list[bed_pointer[0]][bed_pointer[1]].plant(type)
 
 func get_plant(bed_pointer):
@@ -38,7 +39,6 @@ func _ready():
 			BackgroundScene.beds_list[self_index].append(BackgroundScene.Bed.new('empty'))
 	for i in beds_list:
 		i.delayed_ready()
-	create_plant('cabbage',Vector2(0,0),[0,0])
 
 
 func _process(delta):
