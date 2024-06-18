@@ -43,3 +43,4 @@ func _ready():
 
 func _process(delta):
 	pass
+	#print(BackgroundScene.beds_list[0][0].frame)

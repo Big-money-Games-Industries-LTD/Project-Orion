@@ -14,7 +14,7 @@ class Bed:
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(30),
+			'growth_time': BackgroundScene.seconds_to_ticks(10),
 			'fading_probability': 0.1},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
@@ -29,7 +29,7 @@ class Bed:
 	var is_faded:bool
 	var ready_to_harvest:bool
 	var fading_probability: float
-	var multiplier: float
+	var multiplier: float = 1
 	
 	func _init(_type):
 		type = _type
@@ -40,18 +40,20 @@ class Bed:
 		if type == 'empty':#checking if we need to do our daily routines at all
 			return
 		elif ready_to_harvest:
+			print('harvest')
 			return
 		elif is_faded:
+			print('fad')
 			return
 		elif next_step_time != BackgroundScene.global_time:
 			return
 
 		frame += 1
-		print('added_frame')
+		print(frame)
 		if frame + 1 == frames:
 			ready_to_harvest = true
 		else:
-			next_step_time = BackgroundScene.global_time + (types_dict[type]['growth_time']/types_dict[type]['frames'])*(frame+1)*2*multiplier
+			next_step_time = BackgroundScene.global_time + (types_dict[type]['growth_time']/types_dict[type]['frames'])*multiplier
 		if randf_range(0,1)<fading_probability:#see if it fades
 			is_faded = true
 			ready_to_harvest = false
@@ -59,8 +61,9 @@ class Bed:
 			
 	func plant(_type):
 		type = _type
-		next_step_time = BackgroundScene.global_time + (types_dict[type]['growth_time'] / types_dict[type]['frames']) * multiplier * 2
+		next_step_time = BackgroundScene.global_time + (types_dict[_type]['growth_time']/types_dict[_type]['frames'])*multiplier
 		frame = 0
+		frames = types_dict[type]['frames']
 		is_faded = false
 		ready_to_harvest = false
 		fading_probability = types_dict[type]['fading_probability']
