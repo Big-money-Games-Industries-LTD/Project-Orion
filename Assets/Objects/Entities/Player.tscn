@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg0sekmpwuin1"]
+[gd_scene load_steps=7 format=3 uid="uid://bg0sekmpwuin1"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_0ie2x"]
 [ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Assets/Textures/Farmer_talking.png" id="2_oiclr"]
+[ext_resource type="PackedScene" uid="uid://bwxa58w1xhf8x" path="res://UI/UI.tscn" id="3_47lt4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lah01"]
 size = Vector2(52, 90)
@@ -37,3 +38,6 @@ position = Vector2(0, -122)
 scale = Vector2(1, 1.02115)
 zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
+
+[node name="Ui" parent="." instance=ExtResource("3_47lt4")]
+position = Vector2(-1, 0)

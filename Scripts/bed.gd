@@ -3,8 +3,10 @@ extends Node2D
 var self_pointer
 
 func _on_area_2d_body_entered(body):
+	print(body)
 	if body is Player:
-		pass
+		print('body_entered')
+		%Player.Ui.plant_hint_on()
 
 func _process(delta):
 	pass

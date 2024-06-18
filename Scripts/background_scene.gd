@@ -40,16 +40,13 @@ class Bed:
 		if type == 'empty':#checking if we need to do our daily routines at all
 			return
 		elif ready_to_harvest:
-			print('harvest')
 			return
 		elif is_faded:
-			print('fad')
 			return
 		elif next_step_time != BackgroundScene.global_time:
 			return
 
 		frame += 1
-		print(frame)
 		if frame + 1 == frames:
 			ready_to_harvest = true
 		else:
