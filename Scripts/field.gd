@@ -15,7 +15,6 @@ func create_plant(type:String, coordinates:Vector2, bed_pointer):#bed pointer is
 	plant.set_meta('bed_pointer',bed_pointer)
 	plant.add_to_group('Plants')
 	$".".add_child(plant)
-	print(get_plant([0,0]).get_meta('bed_pointer'))
 	BackgroundScene.beds_list[bed_pointer[0]][bed_pointer[1]].plant(type)
 
 func get_plant(bed_pointer):
