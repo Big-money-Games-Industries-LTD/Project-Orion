@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn0psmgmb6aif"]
+
+[ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="1_07ina"]
+[ext_resource type="PackedScene" uid="uid://ckku6k14kr3dw" path="res://Scenes/background_scene.tscn" id="2_02hwx"]
+[ext_resource type="Script" path="res://Scripts/CameraPosition.gd" id="2_o2p7v"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="3_v5vms"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_07ina")]
+position = Vector2(0, -75)
+
+[node name="CameraPosition" type="Marker2D" parent="Player"]
+position = Vector2(147, 75)
+script = ExtResource("2_o2p7v")
+
+[node name="Camera2D" type="Camera2D" parent="Player/CameraPosition" node_paths=PackedStringArray("player")]
+position = Vector2(-147, 1)
+drag_left_margin = 0.05
+drag_top_margin = 0.0
+drag_right_margin = 0.05
+drag_bottom_margin = 0.0
+script = ExtResource("3_v5vms")
+player = NodePath("../..")
+smoothingCam_enabled = true
+smoothing_distnace = 10
+
+[node name="TemporaryGround" parent="." instance=ExtResource("2_02hwx")]
+position = Vector2(0, 141)

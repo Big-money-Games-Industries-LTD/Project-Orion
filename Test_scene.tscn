@@ -1,12 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn0psmgmb6aif"]
+[gd_scene load_steps=6 format=3 uid="uid://bn0psmgmb6aif"]
 
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="1_07ina"]
-[ext_resource type="PackedScene" path="res://Objects/Assets/Grounds/temporary_ground.tscn" id="2_02hwx"]
 
-[node name="TestScene" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_f5pok"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_42d0x"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_karlr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57e68"]
+size = Vector2(1374, 218)
+
+[node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_07ina")]
 position = Vector2(0, -75)
 
-[node name="TemporaryGround" parent="." instance=ExtResource("2_02hwx")]
-position = Vector2(0, 141)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_f5pok")
+position = Vector2(-695, -3)
+scale = Vector2(0.994221, 1)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+material = SubResource("CanvasItemMaterial_42d0x")
+position = Vector2(686.875, 108)
+scale = Vector2(1372.25, 215.5)
+texture = SubResource("PlaceholderTexture2D_karlr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(687, 107)
+shape = SubResource("RectangleShape2D_57e68")
+debug_color = Color(0, 0.6, 0.701961, 0.466667)

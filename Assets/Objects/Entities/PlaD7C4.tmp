@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg0sekmpwuin1"]
+[gd_scene load_steps=12 format=3 uid="uid://bg0sekmpwuin1"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_igcq3"]
-[ext_resource type="Script" path="res://Scripts/Player/Camera/camera_position.gd" id="2_53gp8"]
+[ext_resource type="Script" path="res://Scripts/Player/Camera/CameraPosition.gd" id="2_2ftql"]
 [ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Assets/Textures/Farmer_talking.png" id="2_oiclr"]
+[ext_resource type="Script" path="res://Scripts/Player/Camera/Camera2D.gd" id="3_nvu7u"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/FSM.gd" id="3_stjxx"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/idle.gd" id="4_ktqxl"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/walk.gd" id="5_opbk1"]
@@ -31,14 +32,19 @@ collision_layer = 2
 script = ExtResource("1_igcq3")
 
 [node name="CameraPosition" type="Marker2D" parent="."]
-script = ExtResource("2_53gp8")
+position = Vector2(147, 75)
+script = ExtResource("2_2ftql")
 
-[node name="Camera2D" type="Camera2D" parent="CameraPosition"]
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 20.0
-drag_left_margin = 0.16
+[node name="Camera2D" type="Camera2D" parent="CameraPosition" node_paths=PackedStringArray("player")]
+position = Vector2(-147, 1)
+drag_left_margin = 0.05
 drag_top_margin = 0.0
+drag_right_margin = 0.05
+drag_bottom_margin = 0.0
+script = ExtResource("3_nvu7u")
+player = NodePath("../..")
+smoothingCam_enabled = true
+smoothing_distnace = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lah01")
