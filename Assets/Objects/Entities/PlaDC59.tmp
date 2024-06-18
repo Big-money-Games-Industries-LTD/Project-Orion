@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg0sekmpwuin1"]
+[gd_scene load_steps=9 format=3 uid="uid://bg0sekmpwuin1"]
 
-[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_igcq3"]
-[ext_resource type="Script" path="res://Scripts/Player/Camera/camera_position.gd" id="2_53gp8"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_0ie2x"]
 [ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Assets/Textures/Farmer_talking.png" id="2_oiclr"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/FSM.gd" id="3_stjxx"]
-[ext_resource type="Script" path="res://Scripts/Player/FSM/idle.gd" id="4_ktqxl"]
+[ext_resource type="Script" path="res://Scripts/Player/FSM/Idle.gd" id="4_ktqxl"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/walk.gd" id="5_opbk1"]
-[ext_resource type="Script" path="res://Scripts/Player/FSM/air.gd" id="6_mq80u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lah01"]
 size = Vector2(52, 90)
@@ -28,17 +26,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_igcq3")
-
-[node name="CameraPosition" type="Marker2D" parent="."]
-script = ExtResource("2_53gp8")
-
-[node name="Camera2D" type="Camera2D" parent="CameraPosition"]
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 20.0
-drag_left_margin = 0.16
-drag_top_margin = 0.0
+script = ExtResource("1_0ie2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lah01")
@@ -49,13 +37,10 @@ sprite_frames = SubResource("SpriteFrames_7vj6h")
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("3_stjxx")
-start_state = NodePath("Air")
+start_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="FSM"]
 script = ExtResource("4_ktqxl")
 
 [node name="Walk" type="Node" parent="FSM"]
 script = ExtResource("5_opbk1")
-
-[node name="Air" type="Node" parent="FSM"]
-script = ExtResource("6_mq80u")
