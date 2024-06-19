@@ -24,3 +24,4 @@ func _ready():
 func _process(delta):
 	for i in sprites:
 		i.frame = BackgroundScene.beds_list[bed_pointer[0]][bed_pointer[1]].frame
+		

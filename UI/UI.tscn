@@ -5,9 +5,18 @@
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="plant_hint" type="RichTextLabel" parent="."]
+visible = false
 offset_left = -70.0
 offset_top = -213.0
 offset_right = 229.0
 offset_bottom = -173.0
 text = "Press E to plant"
+
+[node name="harvest_hint" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -78.0
+offset_top = -212.0
+offset_right = 139.0
+offset_bottom = -172.0
+text = "Press E to harvest"

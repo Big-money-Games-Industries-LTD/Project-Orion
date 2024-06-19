@@ -9,18 +9,31 @@ func minutes_to_ticks(time): #minutes to tics
 func hours_to_ticks(time): #hours to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")*60**2
 
+class set: #implementation of set(bcs godot don't have one), i need it in player
+	var dict={}
+	func add(a):
+		dict[a] = null
+	func remove(a):
+		dict.erase(a)
+	func has(a):
+		dict.has(a)
+	func _to_string():
+		return str(dict)
+	func len():
+		return len(dict)
+
 class Bed:
 	var types_dict = {#preloading plant textures
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
 			'growth_time': BackgroundScene.seconds_to_ticks(10),
-			'fading_probability': 0.1},
+			'fading_probability': 0.01},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
 			'frames': 6,
 			'growth_time': BackgroundScene.seconds_to_ticks(20),
-			'fading_probability': 0.1}
+			'fading_probability': 0.01}
 		}
 	var type: String
 	var next_step_time: int

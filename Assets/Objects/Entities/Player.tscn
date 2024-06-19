@@ -32,6 +32,7 @@ collision_layer = 2
 script = ExtResource("1_igcq3")
 
 [node name="CameraPosition" type="Marker2D" parent="."]
+position = Vector2(0, -232)
 script = ExtResource("2_53gp8")
 
 [node name="Camera2D" type="Camera2D" parent="CameraPosition"]
