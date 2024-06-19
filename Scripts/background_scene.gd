@@ -118,9 +118,9 @@ func _ready():
 	
 
 
-func _process(delta):
+func _process(_delta):
 	pass
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	global_time+=1
 	update(false)
