@@ -21,6 +21,9 @@ class set: #implementation of set(bcs godot don't have one), i need it in player
 		return str(dict)
 	func len():
 		return len(dict)
+		
+
+
 
 class Bed:
 	var types_dict = {#preloading plant textures
@@ -82,7 +85,26 @@ class Bed:
 		next_step_time = next_step_time-(next_step_time - BackgroundScene.global_time)/2
 
 var beds_list = []
-
+var inventory = [false, false, false, false, false]
+#[['cabbage_seed', 1], ['cabbage', 3], [false], [false]]
+var inventory_pos = 0
+func add_to_inventory(object, amount):
+	if not inventory[inventory_pos]:
+		inventory[inventory_pos] = [object, amount]
+	elif inventory[inventory_pos][0] == object:
+		inventory[inventory_pos][1] += amount
+	else:
+		for idx in inventory.size():
+			if not inventory[idx]:
+				inventory[idx] = [object, amount]
+				break
+			elif inventory[idx][0]:
+				inventory[idx][1] += amount
+				break
+	print(inventory)
+func remove_from_inventory(position = inventory_pos):
+	inventory[position] = false
+	print(inventory)
 
 func _on_timer_timeout():
 	print('next day started')#replace with some fancy UI notification
