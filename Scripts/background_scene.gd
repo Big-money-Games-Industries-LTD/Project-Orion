@@ -1,6 +1,8 @@
 extends Node2D
 
 var global_time:int = 0
+var scenes_list = []
+var current_scene_index:int = 1
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -102,6 +104,7 @@ func add_to_inventory(object, amount):
 				inventory[idx][1] += amount
 				break
 	print(inventory)
+
 func remove_from_inventory(position = inventory_pos):
 	inventory[position] = false
 	print(inventory)
@@ -130,18 +133,22 @@ func day_skip():
 
 func _ready():
 	randomize()
+	scenes_list.append("res://Scenes/home_scene.tscn")
 	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
-	while file_name != "":
+	while file_name != "":#basicly acts like 'for i in files_in_the_folder'
+		scenes_list.append("res://Scenes/field_maps_scenes_only/"+file_name) #add scene to scenes_list so it will have all scenes
 		beds_list.append([])
 		file_name = dir.get_next()
-	
-	
-
 
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("scene_change_down") and not current_scene_index == 0:#scene changing script; we do ante-list_index_out_of_range check and then change scene
+		current_scene_index -= 1
+		get_tree().change_scene_to_file(scenes_list[current_scene_index])
+	if Input.is_action_just_pressed("scene_change_up") and not current_scene_index == len(scenes_list)-1:#
+		current_scene_index += 1
+		get_tree().change_scene_to_file(scenes_list[current_scene_index])
 	
 func _physics_process(_delta):
 	global_time+=1
