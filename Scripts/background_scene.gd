@@ -100,7 +100,7 @@ func add_to_inventory(object, amount):
 			if not inventory[idx]:
 				inventory[idx] = [object, amount]
 				break
-			elif inventory[idx][0]:
+			elif inventory[idx][0] == object:
 				inventory[idx][1] += amount
 				break
 	print(inventory)

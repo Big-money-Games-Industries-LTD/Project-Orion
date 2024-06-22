@@ -7,7 +7,6 @@
 script = ExtResource("1_wy3ne")
 
 [node name="plant_hint" type="RichTextLabel" parent="."]
-visible = false
 offset_left = -63.0
 offset_top = -16.0
 offset_right = 236.0
@@ -15,7 +14,6 @@ offset_bottom = 24.0
 text = "Press E to plant"
 
 [node name="harvest_hint" type="RichTextLabel" parent="."]
-visible = false
 offset_left = -72.0
 offset_top = -16.0
 offset_right = 145.0
@@ -23,6 +21,6 @@ offset_bottom = 24.0
 text = "Press E to harvest"
 
 [node name="seed_type" type="Sprite2D" parent="."]
-position = Vector2(505, 257)
+position = Vector2(534, 276)
 scale = Vector2(1.57143, 1.57143)
 texture = ExtResource("2_crptn")
