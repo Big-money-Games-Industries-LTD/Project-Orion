@@ -149,6 +149,14 @@ func _process(_delta):
 	if Input.is_action_just_pressed("scene_change_up") and not current_scene_index == len(scenes_list)-1:#
 		current_scene_index += 1
 		get_tree().change_scene_to_file(scenes_list[current_scene_index])
+	if Input.is_action_just_pressed("scroll_up"):
+		inventory_pos -= 1
+	if Input.is_action_just_pressed("scroll_down"):
+		inventory_pos += 1
+	if inventory_pos > 4:
+		inventory_pos = 0
+	if inventory_pos < 0:
+		inventory_pos = 4
 	
 func _physics_process(_delta):
 	global_time+=1

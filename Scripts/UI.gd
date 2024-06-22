@@ -10,11 +10,13 @@ var icons_list_index:int
 var current_seed_type:String
 
 func plant_hint_on():
-	$plant_hint.visible = true
+	$hint.visible = true
+	$hint.text = "Press E to plant"
 	plant_hint_timer = 10
 
 func harvest_hint_on():
-	$harvest_hint.visible = true
+	$hint.visible = true
+	$hint.text = "Press E to harvest"
 	harvest_hint_timer = 10
 
 func change_seed_type():
@@ -32,12 +34,17 @@ func _process(delta):
 	harvest_hint_timer-=1
 	plant_hint_timer-=1
 	if plant_hint_timer<=0:
-		$plant_hint.visible = false
+		$hint.visible = false
 	if harvest_hint_timer<=0:
-		$harvest_hint.visible = false
+		$hint.visible = false
 	
 	if Input.is_action_just_pressed("change_seed_type"):
 		change_seed_type()
+
+	$inventory.frame = BackgroundScene.inventory_pos
+	
+	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540)
+	
 
 
 

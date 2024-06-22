@@ -1,26 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=4 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_wy3ne"]
 [ext_resource type="Texture2D" uid="uid://b04x0qq71vjxu" path="res://Assets/Textures/Cabbage_result.png" id="2_crptn"]
+[ext_resource type="Texture2D" uid="uid://d0hsyvi6w2id6" path="res://Raw assets/Inventory.png" id="3_173rp"]
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
 
-[node name="plant_hint" type="RichTextLabel" parent="."]
-offset_left = -63.0
-offset_top = -16.0
-offset_right = 236.0
-offset_bottom = 24.0
+[node name="hint" type="RichTextLabel" parent="."]
+offset_left = 882.0
+offset_top = 585.0
+offset_right = 1181.0
+offset_bottom = 625.0
 text = "Press E to plant"
 
-[node name="harvest_hint" type="RichTextLabel" parent="."]
-offset_left = -72.0
-offset_top = -16.0
-offset_right = 145.0
-offset_bottom = 24.0
-text = "Press E to harvest"
-
 [node name="seed_type" type="Sprite2D" parent="."]
-position = Vector2(534, 276)
-scale = Vector2(1.57143, 1.57143)
+position = Vector2(1740, 968)
+scale = Vector2(2, 2)
 texture = ExtResource("2_crptn")
+
+[node name="inventory" type="Sprite2D" parent="."]
+position = Vector2(953, 967)
+scale = Vector2(6, 6)
+texture = ExtResource("3_173rp")
+vframes = 5

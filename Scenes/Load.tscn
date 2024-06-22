@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://btn6k4s4xve5s"]
+
+[ext_resource type="Texture2D" uid="uid://dwsc1tj7p6lla" path="res://Raw assets/Food_van.png" id="1_m5s58"]
+[ext_resource type="Texture2D" uid="uid://copq21xtpkela" path="res://Raw assets/Pallet.png" id="2_fexbp"]
+[ext_resource type="Texture2D" uid="uid://b6twkwk535baf" path="res://Raw assets/Loader.png" id="3_c53br"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4ik5g"]
+size = Vector2(200, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c8w8n"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5rdpo"]
+size = Vector2(24, 24)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_4ik5g")
+centered = false
+
+[node name="Van" type="Sprite2D" parent="."]
+position = Vector2(0, -34)
+texture = ExtResource("1_m5s58")
+centered = false
+hframes = 2
+
+[node name="Pallet" type="Sprite2D" parent="."]
+position = Vector2(99, -21)
+texture = ExtResource("2_fexbp")
+centered = false
+hframes = 11
+frame = 10
+
+[node name="Area2D" type="Area2D" parent="Pallet"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pallet/Area2D"]
+position = Vector2(7, 9)
+shape = SubResource("RectangleShape2D_c8w8n")
+
+[node name="Loader" type="Sprite2D" parent="."]
+position = Vector2(132, -21)
+texture = ExtResource("3_c53br")
+centered = false
+
+[node name="Area2D" type="Area2D" parent="Loader"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Loader/Area2D"]
+position = Vector2(6, 9)
+shape = SubResource("RectangleShape2D_5rdpo")

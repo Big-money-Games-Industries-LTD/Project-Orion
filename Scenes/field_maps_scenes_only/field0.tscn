@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_cgop1")
 
 [node name="Player" parent="." instance=ExtResource("2_0afti")]
 unique_name_in_owner = true
-position = Vector2(247, -58)
+position = Vector2(256, -303)
 
 [node name="Bed0" parent="." instance=ExtResource("3_ba0xk")]
 position = Vector2(545, 0)
