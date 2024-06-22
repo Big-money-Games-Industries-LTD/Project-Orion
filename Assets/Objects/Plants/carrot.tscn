@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://csmef23d8djkm"]
+[gd_scene load_steps=3 format=3 uid="uid://csmef23d8djkm"]
 
 [ext_resource type="Texture2D" uid="uid://cudflpqi8aktj" path="res://Assets/Textures/Carrot.png" id="1_h3n3h"]
+[ext_resource type="Script" path="res://Scripts/plant.gd" id="1_m8et3"]
 
 [node name="Carrot" type="Node2D"]
+script = ExtResource("1_m8et3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9, -11)

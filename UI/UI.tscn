@@ -1,22 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=3 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_wy3ne"]
+[ext_resource type="Texture2D" uid="uid://b04x0qq71vjxu" path="res://Assets/Textures/Cabbage_result.png" id="2_crptn"]
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
 
 [node name="plant_hint" type="RichTextLabel" parent="."]
 visible = false
-offset_left = -70.0
-offset_top = -213.0
-offset_right = 229.0
-offset_bottom = -173.0
+offset_left = -63.0
+offset_top = -16.0
+offset_right = 236.0
+offset_bottom = 24.0
 text = "Press E to plant"
 
 [node name="harvest_hint" type="RichTextLabel" parent="."]
 visible = false
-offset_left = -78.0
-offset_top = -212.0
-offset_right = 139.0
-offset_bottom = -172.0
+offset_left = -72.0
+offset_top = -16.0
+offset_right = 145.0
+offset_bottom = 24.0
 text = "Press E to harvest"
+
+[node name="seed_type" type="Sprite2D" parent="."]
+position = Vector2(505, 257)
+scale = Vector2(1.57143, 1.57143)
+texture = ExtResource("2_crptn")

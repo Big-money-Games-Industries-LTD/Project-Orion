@@ -11,7 +11,7 @@ func minutes_to_ticks(time): #minutes to tics
 func hours_to_ticks(time): #hours to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")*60**2
 
-class set: #implementation of set(bcs godot don't have one), i need it in player
+class Set: #implementation of set(bcs godot don't have one), i need it in player
 	var dict={}
 	func add(a):
 		dict[a] = null

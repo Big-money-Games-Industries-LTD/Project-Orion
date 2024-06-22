@@ -17,14 +17,15 @@ func _on_area_2d_body_exited(body):
 		print(body.beds_i_touch.len())
 
 func _process(_delta):
-	var not_more_than_one_bed = %Player.beds_i_touch.len()<2#see if we are the only bed player touches, if not, dont allow him to harvest or to plant anything
+	var not_more_than_one_bed = %Player.beds_i_touch.len()<2#see if we are the only bed player touches, if not, dont allow him to harvest or plant anything
 	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
 	if not_more_than_one_bed and player_in_the_area and plant and (bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded):
 		player_in_the_area.harvest_hint_on()#allowing him to harvest crop if it is ready or faded
 		if Input.is_action_just_pressed('action0'):
 			if bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded: 
 				if bed_in_beds_list.ready_to_harvest:
-					BackgroundScene.add_to_inventory('cabbage', 1) #TODO: add a more_than_one prob.
+					print(bed_in_beds_list.type)
+					BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
 				plant = false
 				$"..".remove_plant(self_pointer)
 
@@ -33,7 +34,7 @@ func _process(_delta):
 		if Input.is_action_just_pressed('action0'):
 			if plant:
 				printerr('Planted two plants at once')#we need to replace this with menu
-			plant = $"..".create_plant('cabbage',self.position,self_pointer) #create plant and put it into our plant variable so we can know wich plant belongs to us
+			plant = $"..".create_plant(player_in_the_area.get_seed_type(),self.position,self_pointer) #create plant and put it into our plant variable so we can know wich plant belongs to us
 
 func _ready():
 	pass 

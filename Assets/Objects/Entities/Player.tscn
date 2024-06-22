@@ -42,6 +42,9 @@ position_smoothing_speed = 20.0
 drag_left_margin = 0.16
 drag_top_margin = 0.0
 
+[node name="Ui" parent="CameraPosition" instance=ExtResource("8_7cfog")]
+unique_name_in_owner = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_lah01")
 
@@ -61,5 +64,3 @@ script = ExtResource("5_opbk1")
 
 [node name="Air" type="Node" parent="FSM"]
 script = ExtResource("6_mq80u")
-
-[node name="Ui" parent="." instance=ExtResource("8_7cfog")]

@@ -8,7 +8,7 @@ const ACCELERATION = 1
 const RUN_INNERT = 10
 const JUMP_INNERT = 8
 
-var beds_i_touch = BackgroundScene.set.new()
+var beds_i_touch = BackgroundScene.Set.new()
 
 signal PlayerTurn
 
@@ -20,12 +20,14 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func plant_hint_on():
 	if true:
-		$Ui.plant_hint_on()
+		%Ui.plant_hint_on()
 
 func harvest_hint_on():
 	if true:
-		$Ui.harvest_hint_on()
+		%Ui.harvest_hint_on()
 
+func get_seed_type():
+	return %Ui.current_seed_type
 
 #func _physics_process(delta):
 	## Add the gravity.
