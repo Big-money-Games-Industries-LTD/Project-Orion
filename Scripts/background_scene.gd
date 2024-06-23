@@ -25,8 +25,6 @@ class Set: #implementation of set(bcs godot don't have one), i need it in player
 		return len(dict)
 		
 
-
-
 class Bed:
 	var types_dict = {#preloading plant textures
 		'cabbage':{

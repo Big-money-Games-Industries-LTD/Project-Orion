@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc62uqe3o5c4a"]
+[gd_scene load_steps=6 format=3 uid="uid://cc62uqe3o5c4a"]
 
 [ext_resource type="Script" path="res://Scripts/field.gd" id="1_2t4jh"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_0afti"]
@@ -8,8 +8,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgop1"]
 size = Vector2(1374, 218)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7jaml"]
 
 [node name="Field0" type="Node2D"]
 script = ExtResource("1_2t4jh")
@@ -39,8 +37,3 @@ position = Vector2(661, 0)
 
 [node name="Bed2" parent="." instance=ExtResource("3_ba0xk")]
 position = Vector2(777, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(530, -265)
-scale = Vector2(-81, -5)
-texture = SubResource("PlaceholderTexture2D_7jaml")
