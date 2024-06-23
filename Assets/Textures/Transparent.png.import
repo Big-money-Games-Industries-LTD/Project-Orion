@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckhap4al4yqre"
-path="res://.godot/imported/Cherry_tree.png-4ad70e281ec2ac4b67f404affefbdf69.ctex"
+uid="uid://rerdrfkf7o2m"
+path="res://.godot/imported/Transparent.png-8fb2c289d235b887d94d5f8cbbef0f65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Cherry_tree.png"
-dest_files=["res://.godot/imported/Cherry_tree.png-4ad70e281ec2ac4b67f404affefbdf69.ctex"]
+source_file="res://Assets/Textures/Transparent.png"
+dest_files=["res://.godot/imported/Transparent.png-8fb2c289d235b887d94d5f8cbbef0f65.ctex"]
 
 [params]
 

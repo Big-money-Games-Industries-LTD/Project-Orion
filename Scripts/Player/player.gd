@@ -17,18 +17,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animation = $AnimatedSprite2D
 
-
-func plant_hint_on():
-	if true:
-		%Ui.plant_hint_on()
-
-func harvest_hint_on():
-	if true:
-		%Ui.harvest_hint_on()
-
-func get_seed_type():
-	return %Ui.current_seed_type
-
 #func _physics_process(delta):
 	## Add the gravity.
 	#if not is_on_floor():

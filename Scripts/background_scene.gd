@@ -32,12 +32,12 @@ class Bed:
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(10),
+			'growth_time': BackgroundScene.seconds_to_ticks(5),
 			'fading_probability': 0.01},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(20),
+			'growth_time': BackgroundScene.seconds_to_ticks(5),
 			'fading_probability': 0.01}
 		}
 	var type: String
@@ -87,11 +87,11 @@ class Bed:
 		next_step_time = next_step_time-(next_step_time - BackgroundScene.global_time)/2
 
 var beds_list = []
-var inventory = [false, false, false, false, false]
+var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], false, false, false]
 #[['cabbage_seed', 1], ['cabbage', 3], [false], [false]]
 var inventory_pos = 0
 func add_to_inventory(object, amount):
-	if not inventory[inventory_pos]:
+	if not inventory[inventory_pos]: #TODO: firstly find same existed object from first slot and if impossible then put it to empty current slot
 		inventory[inventory_pos] = [object, amount]
 	elif inventory[inventory_pos][0] == object:
 		inventory[inventory_pos][1] += amount
@@ -106,7 +106,9 @@ func add_to_inventory(object, amount):
 	print(inventory)
 
 func remove_from_inventory(position = inventory_pos):
-	inventory[position] = false
+	inventory[position][1] -= 1
+	if inventory[position][1] <= 0:
+		inventory[position] = false
 	print(inventory)
 
 func _on_timer_timeout():

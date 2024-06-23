@@ -20,22 +20,24 @@ func _process(_delta):
 	var not_more_than_one_bed = %Player.beds_i_touch.len()<2#see if we are the only bed player touches, if not, dont allow him to harvest or plant anything
 	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
 	if not_more_than_one_bed and player_in_the_area and plant and (bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded):
-		player_in_the_area.harvest_hint_on()#allowing him to harvest crop if it is ready or faded
 		if Input.is_action_just_pressed('action0'):
 			if bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded: 
 				if bed_in_beds_list.ready_to_harvest:
-					print(bed_in_beds_list.type)
 					BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
+					BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
 				plant = false
 				$"..".remove_plant(self_pointer)
 
 	elif not_more_than_one_bed and player_in_the_area and not plant:
-		player_in_the_area.plant_hint_on()#allowing him to plant if nothing is planted already
-		if Input.is_action_just_pressed('action0'):
-			if plant:
-				printerr('Planted two plants at once')#we need to replace this with menu
-			plant = $"..".create_plant(player_in_the_area.get_seed_type(),self.position,self_pointer) #create plant and put it into our plant variable so we can know wich plant belongs to us
-
+		if BackgroundScene.inventory[BackgroundScene.inventory_pos]:
+			print(BackgroundScene.inventory[BackgroundScene.inventory_pos][0])
+			if BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true).size() > 1:
+				if 	BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true)[1] == 'seed':
+					if Input.is_action_just_pressed('action0'):
+						if plant:
+							printerr('Planted two plants at once')#we need to replace this with menu
+						plant = $"..".create_plant(BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true)[0],self.position,self_pointer) #create plant and put it into our plant variable so we can know wich plant belongs to us
+						BackgroundScene.remove_from_inventory()
 func _ready():
 	pass 
 

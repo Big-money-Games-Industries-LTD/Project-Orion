@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_wy3ne"]
-[ext_resource type="Texture2D" uid="uid://b04x0qq71vjxu" path="res://Assets/Textures/Cabbage_result.png" id="2_crptn"]
 [ext_resource type="Texture2D" uid="uid://d0hsyvi6w2id6" path="res://Raw assets/Inventory.png" id="3_173rp"]
+[ext_resource type="Texture2D" uid="uid://eakqje4vc44i" path="res://Assets/Textures/Wheat_seeds.png" id="3_lqiol"]
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
@@ -14,13 +14,131 @@ offset_right = 1181.0
 offset_bottom = 625.0
 text = "Press E to plant"
 
-[node name="seed_type" type="Sprite2D" parent="."]
-position = Vector2(1740, 968)
-scale = Vector2(2, 2)
-texture = ExtResource("2_crptn")
+[node name="Pallet" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="inventory" type="Sprite2D" parent="."]
+[node name="Loader" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tractorman" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Main_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="inventory" type="Sprite2D" parent="Main_UI"]
 position = Vector2(953, 967)
 scale = Vector2(6, 6)
 texture = ExtResource("3_173rp")
 vframes = 5
+
+[node name="slots" type="Control" parent="Main_UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="slot0" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 936.0
+offset_right = 797.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot0"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="slot1" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 936.0
+offset_right = 893.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 41.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="slot2" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 936.0
+offset_right = 989.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -32.0
+offset_bottom = -39.0
+
+[node name="slot3" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 936.0
+offset_right = 1085.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -32.0
+offset_bottom = -39.0
+
+[node name="slot4" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 936.0
+offset_right = 1181.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -32.0
+offset_bottom = -39.0

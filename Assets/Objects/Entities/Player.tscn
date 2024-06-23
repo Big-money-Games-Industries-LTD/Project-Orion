@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bwxa58w1xhf8x" path="res://UI/UI.tscn" id="8_7cfog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lah01"]
-size = Vector2(52, 90)
+size = Vector2(52, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wi0dx"]
 atlas = ExtResource("2_oiclr")
@@ -48,7 +48,6 @@ shape = SubResource("RectangleShape2D_lah01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 255.192)
-scale = Vector2(1, 1.076)
 sprite_frames = SubResource("SpriteFrames_7vj6h")
 
 [node name="FSM" type="Node" parent="."]
