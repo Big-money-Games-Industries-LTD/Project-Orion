@@ -55,6 +55,7 @@ hframes = 2
 [node name="Pallet" type="Area2D" parent="."]
 position = Vector2(1473, -84)
 scale = Vector2(4, 4)
+collision_mask = 3
 
 [node name="Pallet" type="Sprite2D" parent="Pallet"]
 texture = ExtResource("2_fexbp")
@@ -69,6 +70,7 @@ shape = SubResource("RectangleShape2D_c8w8n")
 [node name="Loader" type="Area2D" parent="."]
 position = Vector2(1609, -84)
 scale = Vector2(4, 4)
+collision_mask = 3
 script = ExtResource("3_68i60")
 
 [node name="Loader" type="Sprite2D" parent="Loader"]
@@ -109,3 +111,4 @@ position = Vector2(2201, -20)
 shape = SubResource("RectangleShape2D_jyf87")
 
 [connection signal="body_entered" from="Loader" to="Loader" method="_on_body_entered"]
+[connection signal="body_exited" from="Loader" to="Loader" method="_on_body_exited"]

@@ -13,17 +13,41 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Label" type="Label" parent="Pallet"]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 591.0
+offset_right = 983.0
+offset_bottom = 614.0
+text = "PALLET"
+
 [node name="Loader" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Label" type="Label" parent="Loader"]
+layout_mode = 0
+offset_left = 932.0
+offset_top = 635.0
+offset_right = 995.0
+offset_bottom = 658.0
+text = "LOADER"
+
 [node name="Tractorman" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Tractorman"]
+layout_mode = 0
+offset_left = 916.0
+offset_top = 691.0
+offset_right = 1026.0
+offset_bottom = 714.0
+text = "TRACTORMAN"
 
 [node name="Main_UI" type="Control" parent="."]
 layout_mode = 3

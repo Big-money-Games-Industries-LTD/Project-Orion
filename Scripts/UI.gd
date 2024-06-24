@@ -11,6 +11,34 @@ var icons = {
 	'wheat': preload("res://Assets/Textures/Wheat_result.png"),
 	'transparent': preload("res://Assets/Textures/Transparent.png")
 }
+func main_UI():
+	for i in $".".get_children():
+		if not i.name == 'Main_UI':
+			i.visible = false
+		else:
+			i.visible = true
+			
+func tractorman_UI():
+	for i in $".".get_children():
+		if not i.name == 'Tractorman':
+			i.visible = false
+		else:
+			i.visible = true
+	
+func loader_UI():
+	for i in $".".get_children():
+		if not i.name == 'Loader':
+			i.visible = false
+		else:
+			i.visible = true
+	
+func pallet_UI():
+	for i in $".".get_children():
+		if not i.name == 'Pallet':
+			i.visible = false
+		else:
+			i.visible = true
+	
 func _process(_delta):
 	$Main_UI/inventory.frame = BackgroundScene.inventory_pos
 	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540) #attach UI to screen
