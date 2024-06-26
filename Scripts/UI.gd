@@ -51,3 +51,6 @@ func _process(_delta):
 		else:
 			i.texture = icons['transparent']
 			i.get_child(0).text = ""
+			
+func _ready():
+	main_UI()

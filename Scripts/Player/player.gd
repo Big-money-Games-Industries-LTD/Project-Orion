@@ -1,6 +1,6 @@
 class_name Player
 extends CharacterBody2D
-
+#TODO: a var in background scene or here to disable player movement
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -280.0
