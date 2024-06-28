@@ -141,6 +141,7 @@ func _ready():
 		scenes_list.append("res://Scenes/field_maps_scenes_only/"+file_name) #add scene to scenes_list so it will have all scenes
 		beds_list.append([])
 		file_name = dir.get_next()
+	scenes_list.append("res://Scenes/Load.tscn")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("scene_change_down") and not current_scene_index == 0:#scene changing script; we do ante-list_index_out_of_range check and then change scene

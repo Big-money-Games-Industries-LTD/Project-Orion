@@ -17,6 +17,10 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Sprite2D" type="Sprite2D" parent="Pallet"]
+position = Vector2(955.75, 539.75)
+scale = Vector2(1912.5, 1080.5)
+
 [node name="Pallet_slots" type="Node2D" parent="Pallet"]
 
 [node name="slot_1" type="Sprite2D" parent="Pallet/Pallet_slots"]
