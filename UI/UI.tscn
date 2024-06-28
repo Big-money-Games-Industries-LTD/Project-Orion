@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=6 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_wy3ne"]
 [ext_resource type="Texture2D" uid="uid://d0hsyvi6w2id6" path="res://Raw assets/Inventory.png" id="3_173rp"]
 [ext_resource type="Texture2D" uid="uid://eakqje4vc44i" path="res://Assets/Textures/Wheat_seeds.png" id="3_lqiol"]
+[ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/settings_inventory.tres" id="4_sul3h"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ocy5y"]
+size = Vector2(96, 96)
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
@@ -13,15 +17,373 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Pallet"]
+[node name="Pallet_slots" type="Node2D" parent="Pallet"]
+
+[node name="slot_1" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(584, 288)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_2" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(712, 288)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_3" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(840, 288)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_4" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(968, 288)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_5" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(1096, 288)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_6" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(584, 432)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_7" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(712, 432)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_8" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(840, 432)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_9" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(968, 432)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_10" type="Sprite2D" parent="Pallet/Pallet_slots"]
+position = Vector2(1096, 432)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="Pallet_slots_icons" type="Control" parent="Pallet"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="slot_1" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 584.0
+offset_top = 288.0
+offset_right = 648.0
+offset_bottom = 352.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_1"]
 layout_mode = 0
-offset_left = 939.0
-offset_top = 591.0
-offset_right = 983.0
-offset_bottom = 614.0
-text = "PALLET"
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_2" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 712.0
+offset_top = 288.0
+offset_right = 776.0
+offset_bottom = 352.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_2"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "34"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_3" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 840.0
+offset_top = 288.0
+offset_right = 904.0
+offset_bottom = 352.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_3"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "56"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_4" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 968.0
+offset_top = 288.0
+offset_right = 1032.0
+offset_bottom = 352.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_4"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "78"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_5" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 1096.0
+offset_top = 288.0
+offset_right = 1160.0
+offset_bottom = 352.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_5"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "90"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_6" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 584.0
+offset_top = 432.0
+offset_right = 648.0
+offset_bottom = 496.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_6"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_7" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 712.0
+offset_top = 432.0
+offset_right = 776.0
+offset_bottom = 496.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_7"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "34"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_8" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 840.0
+offset_top = 432.0
+offset_right = 904.0
+offset_bottom = 496.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_8"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "56"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_9" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 968.0
+offset_top = 432.0
+offset_right = 1032.0
+offset_bottom = 496.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_9"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "78"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_10" type="TextureRect" parent="Pallet/Pallet_slots_icons"]
+offset_left = 1096.0
+offset_top = 432.0
+offset_right = 1160.0
+offset_bottom = 496.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots_icons/slot_10"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "90"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="Inventory_slots" type="Node2D" parent="Pallet"]
+
+[node name="slot_1" type="Sprite2D" parent="Pallet/Inventory_slots"]
+position = Vector2(584, 704)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_2" type="Sprite2D" parent="Pallet/Inventory_slots"]
+position = Vector2(712, 704)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_3" type="Sprite2D" parent="Pallet/Inventory_slots"]
+position = Vector2(840, 704)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_4" type="Sprite2D" parent="Pallet/Inventory_slots"]
+position = Vector2(968, 704)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="slot_5" type="Sprite2D" parent="Pallet/Inventory_slots"]
+position = Vector2(1096, 704)
+texture = SubResource("PlaceholderTexture2D_ocy5y")
+centered = false
+
+[node name="Inventory_slots_icons" type="Control" parent="Pallet"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="slot_1" type="TextureRect" parent="Pallet/Inventory_slots_icons"]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 704.0
+offset_right = 648.0
+offset_bottom = 768.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots_icons/slot_1"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_2" type="TextureRect" parent="Pallet/Inventory_slots_icons"]
+layout_mode = 0
+offset_left = 712.0
+offset_top = 704.0
+offset_right = 776.0
+offset_bottom = 768.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots_icons/slot_2"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "34"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_3" type="TextureRect" parent="Pallet/Inventory_slots_icons"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 704.0
+offset_right = 904.0
+offset_bottom = 768.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots_icons/slot_3"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "56"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_4" type="TextureRect" parent="Pallet/Inventory_slots_icons"]
+layout_mode = 0
+offset_left = 968.0
+offset_top = 704.0
+offset_right = 1032.0
+offset_bottom = 768.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots_icons/slot_4"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "78"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_5" type="TextureRect" parent="Pallet/Inventory_slots_icons"]
+layout_mode = 0
+offset_left = 1096.0
+offset_top = 704.0
+offset_right = 1160.0
+offset_bottom = 768.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots_icons/slot_5"]
+layout_mode = 0
+offset_top = 69.3333
+offset_right = 64.0
+offset_bottom = 101.333
+text = "90"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
 
 [node name="Loader" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -36,6 +398,7 @@ offset_bottom = 658.0
 text = "LOADER"
 
 [node name="Tractorman" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -50,6 +413,7 @@ offset_bottom = 714.0
 text = "TRACTORMAN"
 
 [node name="Main_UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -76,17 +440,21 @@ texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Main_UI/slots/slot0"]
-layout_direction = 2
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -10.0
-offset_top = -23.0
+offset_left = -19.0
+offset_top = -26.0
 grow_horizontal = 0
 grow_vertical = 0
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="slot1" type="TextureRect" parent="Main_UI/slots"]
 layout_mode = 0
@@ -98,16 +466,20 @@ texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Main_UI/slots/slot1"]
+layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 34.0
-offset_top = 41.0
-offset_right = 2.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "34"
+label_settings = ExtResource("4_sul3h")
 
 [node name="slot2" type="TextureRect" parent="Main_UI/slots"]
 layout_mode = 0
@@ -119,14 +491,20 @@ texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Main_UI/slots/slot2"]
+layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -32.0
-offset_bottom = -39.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "56"
+label_settings = ExtResource("4_sul3h")
 
 [node name="slot3" type="TextureRect" parent="Main_UI/slots"]
 layout_mode = 0
@@ -138,14 +516,20 @@ texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Main_UI/slots/slot3"]
+layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -32.0
-offset_bottom = -39.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "78"
+label_settings = ExtResource("4_sul3h")
 
 [node name="slot4" type="TextureRect" parent="Main_UI/slots"]
 layout_mode = 0
@@ -157,11 +541,17 @@ texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="Main_UI/slots/slot4"]
+layout_direction = 2
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -32.0
-offset_bottom = -39.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "90"
+label_settings = ExtResource("4_sul3h")
