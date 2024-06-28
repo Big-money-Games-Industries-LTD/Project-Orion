@@ -35,6 +35,19 @@ func update_plant_frame(frame_number, bed_pointer):
 	pass
 	
 
+func _on_border_left_body_entered(body):
+	if body is Player:
+		print(1)
+		if not BackgroundScene.current_scene_index == 0:#scene changing script; we do ante-list_index_out_of_range check and then change scene
+			BackgroundScene.current_scene_index -= 1
+			get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index])
+
+func _on_border_right_body_entered(body):
+	if body is Player:
+		if not BackgroundScene.current_scene_index == len(BackgroundScene.scenes_list)-1:#
+			BackgroundScene.current_scene_index += 1
+			get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index])
+
 func _ready():
 	beds_list = get_tree().get_nodes_in_group('Beds')
 	if not BackgroundScene.beds_list[self_index]: #make BackgroundScene know about our beds unless it knows already
@@ -47,3 +60,9 @@ func _ready():
 func _process(delta):
 	pass
 	#print(BackgroundScene.beds_list[0][0].frame)
+
+
+
+
+
+
