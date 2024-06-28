@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc62uqe3o5c4a"]
+[gd_scene load_steps=7 format=3 uid="uid://cc62uqe3o5c4a"]
 
 [ext_resource type="Script" path="res://Scripts/field.gd" id="1_2t4jh"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_0afti"]
@@ -8,6 +8,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgop1"]
 size = Vector2(1374, 218)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_faqae"]
+size = Vector2(44, 882)
 
 [node name="Field0" type="Node2D"]
 script = ExtResource("1_2t4jh")
@@ -37,3 +40,24 @@ position = Vector2(661, 0)
 
 [node name="Bed2" parent="." instance=ExtResource("3_ba0xk")]
 position = Vector2(777, 0)
+
+[node name="Border_left" type="Area2D" parent="."]
+position = Vector2(-104, -287)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border_left"]
+position = Vector2(126, -3)
+shape = SubResource("RectangleShape2D_faqae")
+
+[node name="Border_right" type="Area2D" parent="."]
+position = Vector2(1472, -297)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
+position = Vector2(-124, 3)
+shape = SubResource("RectangleShape2D_faqae")
+
+[connection signal="body_entered" from="Border_left" to="." method="_on_border_left_body_entered"]
+[connection signal="body_entered" from="Border_right" to="." method="_on_border_right_body_entered"]
