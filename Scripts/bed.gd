@@ -18,7 +18,6 @@ func _process(_delta):
 	var not_more_than_one_bed = %Player.beds_i_touch.len()<2#see if we are the only bed player touches, if not, dont allow him to harvest or plant anything
 	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
 	if not_more_than_one_bed and player_in_the_area and plant and (bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded):
-		print(1)
 		$AnimatedSprite2D.visible = true
 		$AnimatedSprite2D.play("default")
 		if Input.is_action_just_pressed('action0'):
@@ -33,7 +32,6 @@ func _process(_delta):
 		if BackgroundScene.inventory[BackgroundScene.inventory_pos]:
 			if BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true).size() > 1:
 				if 	BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true)[1] == 'seed':
-					print(2)
 					$AnimatedSprite2D.visible = true
 					$AnimatedSprite2D.play("default")
 					if Input.is_action_just_pressed('action0'):
@@ -41,6 +39,15 @@ func _process(_delta):
 							printerr('Planted two plants at once')#we need to replace this with menu
 						plant = $"..".create_plant(BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true)[0],self.position,self_pointer) #create plant and put it into our plant variable so we can know wich plant belongs to us
 						BackgroundScene.remove_from_inventory()
+				else:
+					$AnimatedSprite2D.visible = false
+					$AnimatedSprite2D.stop()
+			else:
+				$AnimatedSprite2D.visible = false
+				$AnimatedSprite2D.stop()
+		else:
+			$AnimatedSprite2D.visible = false
+			$AnimatedSprite2D.stop()
 	else:
 		$AnimatedSprite2D.visible = false
 		$AnimatedSprite2D.stop()
