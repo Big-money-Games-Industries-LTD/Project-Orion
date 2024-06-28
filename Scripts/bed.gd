@@ -57,6 +57,9 @@ func _ready():
 
 func delayed_ready():#we want this to be done after field is ready
 	self_pointer = [$"..".self_index,int(self.name.right(1))]
+	var self_type = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].type
+	if self_type != 'empty':
+		plant = $"..".create_plant_sprite(self_type,self.position,self_pointer)
 	
 
 

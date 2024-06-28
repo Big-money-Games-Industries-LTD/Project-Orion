@@ -31,7 +31,7 @@ class Bed:
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
 			'growth_time': BackgroundScene.seconds_to_ticks(5),
-			'fading_probability': 0.01},
+			'fading_probability': 0},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
 			'frames': 6,
@@ -101,13 +101,11 @@ func add_to_inventory(object, amount):
 			elif inventory[idx][0] == object:
 				inventory[idx][1] += amount
 				break
-	print(inventory)
 
 func remove_from_inventory(position = inventory_pos):
 	inventory[position][1] -= 1
 	if inventory[position][1] <= 0:
 		inventory[position] = false
-	print(inventory)
 
 func _on_timer_timeout():
 	print('next day started')#replace with some fancy UI notification
@@ -115,6 +113,7 @@ func _on_timer_timeout():
 	
 
 func update(timer_flag):#update every known bed and restart timer if needed
+	global_time+=1
 	for i in beds_list:
 		for j in i:
 			j.update()
@@ -122,6 +121,7 @@ func update(timer_flag):#update every known bed and restart timer if needed
 		if not $day_end_timer.is_stopped():
 			printerr('Start day timer restarted while it was running')
 		$day_end_timer.start()
+#	print($day_end_timer.get_time_left())
 
 func day_skip():
 	var time_left = $day_end_timer.get_time_left()
@@ -159,5 +159,4 @@ func _process(_delta):
 		inventory_pos = 4
 	
 func _physics_process(_delta):
-	global_time+=1
 	update(false)

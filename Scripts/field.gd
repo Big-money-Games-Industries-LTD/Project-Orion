@@ -10,12 +10,15 @@ var frames:int
 var beds_list
  
 func create_plant(type:String, coordinates:Vector2, bed_pointer):#bed pointer is [field_number, bed_number]
+	BackgroundScene.beds_list[bed_pointer[0]][bed_pointer[1]].plant(type)
+	return create_plant_sprite(type, coordinates, bed_pointer)
+
+func create_plant_sprite(type:String, coordinates:Vector2, bed_pointer):
 	var plant = types_dict[type].instantiate()#instantiate reqred crop texture
 	plant.position = coordinates
 	plant.set_meta('bed_pointer',bed_pointer)
 	plant.add_to_group('Plants')
 	$".".add_child(plant)
-	BackgroundScene.beds_list[bed_pointer[0]][bed_pointer[1]].plant(type)
 	return plant
 
 func get_plant(bed_pointer):
