@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc62uqe3o5c4a"]
+[gd_scene load_steps=7 format=3 uid="uid://ct4mlbmqti4mn"]
 
-[ext_resource type="Script" path="res://Scripts/field.gd" id="1_2t4jh"]
-[ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_0afti"]
-[ext_resource type="PackedScene" uid="uid://sscsq3sgtfwa" path="res://Assets/Objects/Plants/bed.tscn" id="3_ba0xk"]
+[ext_resource type="Script" path="res://Scripts/field.gd" id="1_g4iwp"]
+[ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_82we4"]
+[ext_resource type="PackedScene" uid="uid://sscsq3sgtfwa" path="res://Assets/Objects/Plants/bed.tscn" id="3_65vdb"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mt5m5"]
 
@@ -12,8 +12,8 @@ size = Vector2(1374, 218)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_faqae"]
 size = Vector2(44, 882)
 
-[node name="Field0" type="Node2D"]
-script = ExtResource("1_2t4jh")
+[node name="Field1" type="Node2D"]
+script = ExtResource("1_g4iwp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -28,17 +28,17 @@ visible = false
 position = Vector2(687, 107)
 shape = SubResource("RectangleShape2D_cgop1")
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_0afti")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_82we4")]
 unique_name_in_owner = true
 position = Vector2(256, -303)
 
-[node name="Bed0" parent="." instance=ExtResource("3_ba0xk")]
+[node name="Bed0" parent="." instance=ExtResource("3_65vdb")]
 position = Vector2(545, 0)
 
-[node name="Bed1" parent="." instance=ExtResource("3_ba0xk")]
+[node name="Bed1" parent="." instance=ExtResource("3_65vdb")]
 position = Vector2(661, 0)
 
-[node name="Bed2" parent="." instance=ExtResource("3_ba0xk")]
+[node name="Bed2" parent="." instance=ExtResource("3_65vdb")]
 position = Vector2(777, 0)
 
 [node name="Border_left" type="Area2D" parent="."]
@@ -58,11 +58,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
 position = Vector2(-124, 3)
 shape = SubResource("RectangleShape2D_faqae")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(447, -248)
-scale = Vector2(36.5627, 87.75)
-texture = SubResource("PlaceholderTexture2D_mt5m5")
 
 [connection signal="body_entered" from="Border_left" to="." method="_on_border_left_body_entered"]
 [connection signal="body_entered" from="Border_right" to="." method="_on_border_right_body_entered"]

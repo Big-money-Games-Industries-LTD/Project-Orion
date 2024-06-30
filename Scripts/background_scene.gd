@@ -4,6 +4,7 @@ var global_time:int = 0
 var scenes_list = []
 var current_scene_index:int = 1
 var is_movement_available: bool = true
+var position_saver
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -165,12 +166,18 @@ func _ready():
 	scenes_list.append("res://Scenes/Load.tscn")
 
 func _process(_delta):
-	if Input.is_action_just_pressed("scene_change_down") and not current_scene_index == 0:#scene changing script; we do ante-list_index_out_of_range check and then change scene
-		current_scene_index -= 1
-		get_tree().change_scene_to_file(scenes_list[current_scene_index])
-	if Input.is_action_just_pressed("scene_change_up") and not current_scene_index == len(scenes_list)-1:#
-		current_scene_index += 1
-		get_tree().change_scene_to_file(scenes_list[current_scene_index])
+#	if Input.is_action_just_pressed("scene_change_down") and not current_scene_index == 1:#scene changing script; we do ante-list_index_out_of_range check and then change scene
+#		position = get_tree().get_first_node_in_group('Player').get_position()
+#		current_scene_index -= 1
+#		get_tree().change_scene_to_file(scenes_list[current_scene_index])
+#		get_tree().get_first_node_in_group('Player').set_position(position)
+#	if Input.is_action_just_pressed("scene_change_up") and not current_scene_index == len(scenes_list)-2:#
+#		print(get_tree_string())
+#		print(get_tree().get_first_node_in_group('Player'))
+#		current_scene_index += 1
+#		get_tree().change_scene_to_file(scenes_list[current_scene_index])
+#		print(position)
+#		print(get_tree_string())#.get_first_node_in_group('Player')#.set_position(position)
 	if Input.is_action_just_pressed("scroll_up"):
 		inventory_pos -= 1
 	if Input.is_action_just_pressed("scroll_down"):

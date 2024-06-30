@@ -9,6 +9,8 @@ const RUN_INNERT = 10
 const JUMP_INNERT = 8
 
 var beds_i_touch = BackgroundScene.Set.new()
+var scenes_list
+var current_scene_index
 
 signal PlayerTurn
 
@@ -16,6 +18,32 @@ signal PlayerTurn
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animation = $AnimatedSprite2D
+
+func _ready():
+	%Ui.visible = true
+	if BackgroundScene.position_saver:
+		position = BackgroundScene.position_saver
+
+func delayed_ready():
+	scenes_list = BackgroundScene.scenes_list
+
+func _process(delta):
+	if not scenes_list:
+		scenes_list = BackgroundScene.scenes_list
+		print(scenes_list)
+		current_scene_index = BackgroundScene.current_scene_index
+	if Input.is_action_just_pressed("scene_change_down") and not( current_scene_index == 1 or current_scene_index == 0 or current_scene_index == len(scenes_list)-1):#scene changing script; we do ante-list_index_out_of_range check and then change scene
+		print(1)
+		print(current_scene_index)
+		BackgroundScene.position_saver = position
+		BackgroundScene.current_scene_index -= 1
+		get_tree().change_scene_to_file(scenes_list[current_scene_index-1])
+	if Input.is_action_just_pressed("scene_change_up") and not( current_scene_index == len(scenes_list)-2 or current_scene_index == 0 or current_scene_index == len(scenes_list)-1):#
+		print(2)
+		print(current_scene_index)
+		BackgroundScene.position_saver = position
+		BackgroundScene.current_scene_index += 1
+		get_tree().change_scene_to_file(scenes_list[current_scene_index+1])
 
 #func _physics_process(delta):
 	## Add the gravity.

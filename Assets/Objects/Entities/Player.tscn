@@ -48,6 +48,7 @@ sprite_frames = SubResource("SpriteFrames_7vj6h")
 
 [node name="Ui" parent="." instance=ExtResource("8_7cfog")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-960, -540)
 
 [node name="FSM" type="Node" parent="."]

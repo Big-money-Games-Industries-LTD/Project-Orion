@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://btn6k4s4xve5s"]
+[gd_scene load_steps=24 format=3 uid="uid://btn6k4s4xve5s"]
 
 [ext_resource type="Texture2D" uid="uid://dwsc1tj7p6lla" path="res://Raw assets/Food_van.png" id="1_m5s58"]
+[ext_resource type="Script" path="res://Scripts/Load.gd" id="1_x2jvd"]
 [ext_resource type="Texture2D" uid="uid://copq21xtpkela" path="res://Raw assets/Pallet.png" id="2_fexbp"]
 [ext_resource type="Script" path="res://Scenes/Pallet.gd" id="2_ukk25"]
 [ext_resource type="Script" path="res://Scripts/Loader.gd" id="3_68i60"]
@@ -76,7 +77,11 @@ size = Vector2(5, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jyf87"]
 size = Vector2(20, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pps8n"]
+size = Vector2(44, 882)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_x2jvd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -141,7 +146,7 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_pl11p")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(1045, 25)
+position = Vector2(924, 23)
 
 [node name="Garage" type="Sprite2D" parent="StaticBody2D2"]
 position = Vector2(-175, -80)
@@ -166,10 +171,20 @@ texture = SubResource("PlaceholderTexture2D_3uiph")
 position = Vector2(2201, -20)
 shape = SubResource("RectangleShape2D_jyf87")
 
-[node name="Player" parent="." instance=ExtResource("4_scs88")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("4_scs88")]
 position = Vector2(1964, -238)
+
+[node name="Border_left" type="Area2D" parent="."]
+position = Vector2(717, -259)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border_left"]
+position = Vector2(126, -3)
+shape = SubResource("RectangleShape2D_pps8n")
 
 [connection signal="body_entered" from="Pallet" to="Pallet" method="_on_body_entered"]
 [connection signal="body_exited" from="Pallet" to="Pallet" method="_on_body_exited"]
 [connection signal="body_entered" from="Loader" to="Loader" method="_on_body_entered"]
 [connection signal="body_exited" from="Loader" to="Loader" method="_on_body_exited"]
+[connection signal="body_entered" from="Border_left" to="." method="_on_border_left_body_entered"]
