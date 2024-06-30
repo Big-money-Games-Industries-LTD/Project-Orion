@@ -154,9 +154,6 @@ position = Vector2(-169, -52.5)
 scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_ekut0")
 
-[node name="Player" parent="." instance=ExtResource("4_scs88")]
-position = Vector2(1876, -307)
-
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(-197, 0)
 
@@ -168,6 +165,9 @@ texture = SubResource("PlaceholderTexture2D_3uiph")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 position = Vector2(2201, -20)
 shape = SubResource("RectangleShape2D_jyf87")
+
+[node name="Player" parent="." instance=ExtResource("4_scs88")]
+position = Vector2(1964, -238)
 
 [connection signal="body_entered" from="Pallet" to="Pallet" method="_on_body_entered"]
 [connection signal="body_exited" from="Pallet" to="Pallet" method="_on_body_exited"]

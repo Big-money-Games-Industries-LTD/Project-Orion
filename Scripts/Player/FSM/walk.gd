@@ -1,17 +1,19 @@
 #walk.gd
 extends StatePlayer
 
-func enter(_msg: Dictionary={}):
+var is_movement_available
+
+func enter(_msg: Dictionary={}): #HACK: Delete or complete
 	pass
 
-func inner_physics_process(delta):
-	
+func inner_physics_process(_delta):
+	is_movement_available = BackgroundScene.is_movement_available
 	if not player.is_on_floor():
 		state_machine.change_to("Air")
 	
 	
 	var direction = Input.get_axis("left", "right")
-	if direction:
+	if direction and is_movement_available:
 		player.velocity.x = lerp(player.velocity.x, direction * player.SPEED, 0.5)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.SPEED/10)

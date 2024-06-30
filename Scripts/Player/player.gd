@@ -35,3 +35,4 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 #
 	#move_and_slide()
+	

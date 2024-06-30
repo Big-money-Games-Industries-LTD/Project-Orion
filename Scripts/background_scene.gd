@@ -3,6 +3,7 @@ extends Node2D
 var global_time:int = 0
 var scenes_list = []
 var current_scene_index:int = 1
+var is_movement_available: bool = true
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -85,10 +86,13 @@ class Bed:
 		next_step_time = next_step_time-(next_step_time - BackgroundScene.global_time)/2
 
 var beds_list = []
+
+
+
 var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], false, false, false]
 #[['cabbage_seed', 1], ['cabbage', 3], [false], [false]]
 var inventory_pos = 0
-func add_to_inventory(object, amount):
+func add_to_inventory(object, amount = 1):
 	if not inventory[inventory_pos]: #TODO: firstly find same existed object from first slot and if impossible then put it to empty current slot
 		inventory[inventory_pos] = [object, amount]
 	elif inventory[inventory_pos][0] == object:
@@ -102,10 +106,27 @@ func add_to_inventory(object, amount):
 				inventory[idx][1] += amount
 				break
 
-func remove_from_inventory(position = inventory_pos):
-	inventory[position][1] -= 1
-	if inventory[position][1] <= 0:
-		inventory[position] = false
+func remove_from_inventory(pos = inventory_pos, amount = 1):
+	inventory[pos][1] -= amount
+	if inventory[pos][1] <= 0:
+		inventory[pos] = false
+	print(inventory)
+		
+		
+var pallet_inventory = [false, false, false, false, false, false, false, false, false, false]
+func add_to_pallet_inventory(object, _idx, amount = 1):
+	for idx in pallet_inventory.size():
+		if not pallet_inventory[idx]:
+			pallet_inventory[idx] = [object, amount]
+			remove_from_inventory(_idx, amount)
+			break
+		elif pallet_inventory[idx][0] == object:
+			pallet_inventory[idx][1] += amount
+			break
+func remove_from_pallet_inventory(pos, amount = 1):
+	pallet_inventory[pos][1] -= amount
+	if pallet_inventory[pos][1] <= 0:
+		pallet_inventory[pos] = false
 
 func _on_timer_timeout():
 	print('next day started')#replace with some fancy UI notification

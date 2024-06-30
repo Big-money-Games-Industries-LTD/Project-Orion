@@ -1,7 +1,7 @@
 extends StatePlayer
 
 
-func enter(msg: Dictionary={}):
+func enter(msg: Dictionary={}): #HACK: Delete or comlete
 	pass
 
 

@@ -1,19 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4ktn17l1n2mi"]
+[gd_scene load_steps=9 format=3 uid="uid://c4ktn17l1n2mi"]
 
 [ext_resource type="Script" path="res://Scripts/house.gd" id="1_6cbpi"]
 [ext_resource type="Script" path="res://Scripts/home_scene.gd" id="1_yoip0"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_58bpr"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k25vr"]
+size = Vector2(700, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1hvp"]
-size = Vector2(845, 235.75)
+size = Vector2(700, 100)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3it5s"]
+size = Vector2(200, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfw1a"]
-size = Vector2(122, 199)
+size = Vector2(200, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrry"]
-size = Vector2(44, 882)
+size = Vector2(44, 94)
 
 [node name="HomeScene" type="Node2D"]
 script = ExtResource("1_yoip0")
@@ -22,12 +26,12 @@ script = ExtResource("1_yoip0")
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="ground"]
-position = Vector2(-257, 117.875)
-scale = Vector2(850, 236.25)
+position = Vector2(-300, 0)
 texture = SubResource("PlaceholderTexture2D_k25vr")
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
-position = Vector2(-254.5, 118.125)
+position = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_m1hvp")
 
 [node name="house" type="Area2D" parent="."]
@@ -35,24 +39,16 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_6cbpi")
 
-[node name="texture" type="Sprite2D" parent="house"]
-position = Vector2(-618, -101)
-scale = Vector2(121.719, 199.625)
-texture = SubResource("PlaceholderTexture2D_k25vr")
+[node name="Sprite2D" type="Sprite2D" parent="house"]
+position = Vector2(300, -85)
+texture = SubResource("PlaceholderTexture2D_3it5s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="house"]
-position = Vector2(-619, -100)
+position = Vector2(300, -85)
 shape = SubResource("RectangleShape2D_gfw1a")
 
-[node name="TextEdit" type="TextEdit" parent="house"]
-offset_left = -696.0
-offset_top = -297.0
-offset_right = -529.0
-offset_bottom = -251.0
-text = "Дом"
-
 [node name="Player" parent="." instance=ExtResource("2_58bpr")]
-position = Vector2(-168, -307)
+position = Vector2(-228, -238)
 
 [node name="Border_right" type="Area2D" parent="."]
 position = Vector2(305, -209)
@@ -60,7 +56,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
-position = Vector2(-124, 3)
+position = Vector2(-583, 162)
 shape = SubResource("RectangleShape2D_lrrry")
 
 [connection signal="body_entered" from="house" to="house" method="_on_body_entered"]

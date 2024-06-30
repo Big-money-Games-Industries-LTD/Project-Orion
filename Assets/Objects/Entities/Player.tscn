@@ -30,10 +30,6 @@ animations = [{
 collision_layer = 2
 script = ExtResource("1_igcq3")
 
-[node name="Ui" parent="." instance=ExtResource("8_7cfog")]
-unique_name_in_owner = true
-position = Vector2(-960, -540)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 process_callback = 0
@@ -43,12 +39,16 @@ drag_left_margin = 0.16
 drag_top_margin = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 255.192)
+position = Vector2(0, 196)
 shape = SubResource("RectangleShape2D_lah01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 255.192)
+position = Vector2(0, 196)
 sprite_frames = SubResource("SpriteFrames_7vj6h")
+
+[node name="Ui" parent="." instance=ExtResource("8_7cfog")]
+unique_name_in_owner = true
+position = Vector2(-960, -540)
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("3_stjxx")
