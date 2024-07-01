@@ -25,6 +25,7 @@ func _process(_delta):
 				if bed_in_beds_list.ready_to_harvest:
 					BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
 					BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
+				BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].type = 'empty'
 				plant = false
 				$"..".remove_plant(self_pointer)
 
