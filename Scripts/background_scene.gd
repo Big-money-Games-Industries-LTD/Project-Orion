@@ -155,7 +155,7 @@ func day_skip():
 
 func _ready():
 	randomize()
-	scenes_list.append("res://Scenes/home_scene.tscn")
+	scenes_list.append("res://Scenes/Load.tscn")
 	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
@@ -163,7 +163,8 @@ func _ready():
 		scenes_list.append("res://Scenes/field_maps_scenes_only/"+file_name) #add scene to scenes_list so it will have all scenes
 		beds_list.append([])
 		file_name = dir.get_next()
-	scenes_list.append("res://Scenes/Load.tscn")
+	scenes_list.append("res://Scenes/home_scene.tscn")
+	print(scenes_list)
 
 func _process(_delta):
 #	if Input.is_action_just_pressed("scene_change_down") and not current_scene_index == 1:#scene changing script; we do ante-list_index_out_of_range check and then change scene
