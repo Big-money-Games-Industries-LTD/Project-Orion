@@ -8,7 +8,7 @@
 size = Vector2(900, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgop1"]
-size = Vector2(1374, 218)
+size = Vector2(3598, 218)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_faqae"]
 size = Vector2(46, 400)
@@ -26,8 +26,7 @@ texture = SubResource("PlaceholderTexture2D_mt5m5")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(687, 107)
+position = Vector2(1799, 107)
 shape = SubResource("RectangleShape2D_cgop1")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_82we4")]
