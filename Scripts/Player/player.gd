@@ -38,7 +38,6 @@ func _process(delta):
 		
 		BackgroundScene.position_saver = position
 		BackgroundScene.current_scene_index -= 1
-		var scene = load(scenes_list[current_scene_index-1])
 		get_tree().change_scene_to_file(scenes_list[current_scene_index-1])
 	if Input.is_action_just_pressed("scene_change_up") and not( current_scene_index == len(scenes_list)-2 or current_scene_index == 0 or current_scene_index == len(scenes_list)-1):#
 		
