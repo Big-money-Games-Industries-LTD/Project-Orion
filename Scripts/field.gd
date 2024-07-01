@@ -5,7 +5,7 @@ const types_dict = {#preloading plant textures
 		'carrot':preload('res://Assets/Objects/Plants/carrot.tscn')
 	}
 
-var self_index = int(self.name.right(1))
+@onready var self_index = int(self.name.right(1))
 var frames:int
 var beds_list
  

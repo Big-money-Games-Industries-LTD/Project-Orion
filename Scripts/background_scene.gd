@@ -111,7 +111,7 @@ func remove_from_inventory(pos = inventory_pos, amount = 1):
 	inventory[pos][1] -= amount
 	if inventory[pos][1] <= 0:
 		inventory[pos] = false
-	print(inventory)
+
 		
 		
 var pallet_inventory = [false, false, false, false, false, false, false, false, false, false]
@@ -164,7 +164,7 @@ func _ready():
 		beds_list.append([])
 		file_name = dir.get_next()
 	scenes_list.append("res://Scenes/home_scene.tscn")
-	print(scenes_list)
+
 
 func _process(_delta):
 #	if Input.is_action_just_pressed("scene_change_down") and not current_scene_index == 1:#scene changing script; we do ante-list_index_out_of_range check and then change scene
