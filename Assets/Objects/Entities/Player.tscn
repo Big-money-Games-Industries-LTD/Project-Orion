@@ -33,6 +33,7 @@ script = ExtResource("1_igcq3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -242)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
@@ -41,17 +42,17 @@ drag_top_margin = 0.0
 script = ExtResource("2_oy13l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 196)
+position = Vector2(0, -42)
 shape = SubResource("RectangleShape2D_lah01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 196)
+position = Vector2(0, -42)
 sprite_frames = SubResource("SpriteFrames_7vj6h")
 
 [node name="Ui" parent="." instance=ExtResource("8_7cfog")]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-960, -540)
+position = Vector2(-960, -736)
 
 [node name="FSM" type="Node" parent="."]
 script = ExtResource("3_stjxx")
