@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d0hsyvi6w2id6" path="res://Raw assets/Inventory.png" id="3_173rp"]
 [ext_resource type="Texture2D" uid="uid://eakqje4vc44i" path="res://Assets/Textures/Wheat_seeds.png" id="3_lqiol"]
 [ext_resource type="Script" path="res://UI/Pallet_slots.gd" id="3_ty4nt"]
-[ext_resource type="LabelSettings" path="res://Assets/Textures/settings_inventory.tres" id="4_sul3h"]
+[ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/settings_inventory.tres" id="4_sul3h"]
 [ext_resource type="Script" path="res://UI/Inventory_slots.gd" id="5_d7gim"]
 
 [node name="Ui" type="Node2D"]
