@@ -12,7 +12,7 @@ size = Vector2(1374, 218)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_faqae"]
 size = Vector2(44, 882)
 
-[node name="Field0" type="Node2D"]
+[node name="Field1" type="Node2D"]
 script = ExtResource("1_g4iwp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -58,6 +58,13 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
 position = Vector2(108, -7)
 shape = SubResource("RectangleShape2D_faqae")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 345.0
+offset_top = -237.0
+offset_right = 525.0
+offset_bottom = -205.0
+text = "1"
 
 [connection signal="body_entered" from="Border_left" to="." method="_on_border_left_body_entered"]
 [connection signal="body_entered" from="Border_right" to="." method="_on_border_right_body_entered"]

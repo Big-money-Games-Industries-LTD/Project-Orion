@@ -23,13 +23,15 @@ func _ready():
 
 
 func delayed_ready():
-	if BackgroundScene.position_saver == 'left':
-		position = $"..".border_left_get_position()
-	elif BackgroundScene.position_saver == 'right':
-		position = $"..".border_right_get_position()
-	elif BackgroundScene.position_saver:
+	if BackgroundScene.position_saver is Vector2:
 		position = BackgroundScene.position_saver
-	BackgroundScene.position_saver = false
+	elif BackgroundScene.position_saver is String:
+		if BackgroundScene.position_saver == 'left':
+			position = $".."/Border_left.get_position()
+		elif BackgroundScene.position_saver == 'right':
+			position = $".."/Border_right.get_position()
+		else:
+			printerr('wrong string BackgroundScene.position_saver')
 	scenes_list = BackgroundScene.scenes_list
 
 func _process(delta):

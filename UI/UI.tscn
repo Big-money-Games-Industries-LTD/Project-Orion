@@ -1,17 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=9 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_wy3ne"]
 [ext_resource type="Texture2D" uid="uid://kr15lntfahmw" path="res://Raw assets/Pallet_UI.png" id="2_oavo6"]
 [ext_resource type="Texture2D" uid="uid://d0hsyvi6w2id6" path="res://Raw assets/Inventory.png" id="3_173rp"]
 [ext_resource type="Texture2D" uid="uid://eakqje4vc44i" path="res://Assets/Textures/Wheat_seeds.png" id="3_lqiol"]
 [ext_resource type="Script" path="res://UI/Pallet_slots.gd" id="3_ty4nt"]
-[ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/settings_inventory.tres" id="4_sul3h"]
+[ext_resource type="LabelSettings" path="res://Assets/Textures/settings_inventory.tres" id="4_sul3h"]
 [ext_resource type="Script" path="res://UI/Inventory_slots.gd" id="5_d7gim"]
+[ext_resource type="Script" path="res://UI/scene_indicator.gd" id="8_h7sdr"]
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
 
 [node name="Pallet" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -356,7 +358,6 @@ offset_bottom = 714.0
 text = "TRACTORMAN"
 
 [node name="Main_UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -498,3 +499,11 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "90"
 label_settings = ExtResource("4_sul3h")
+
+[node name="scene_indicator" type="RichTextLabel" parent="Main_UI"]
+layout_mode = 0
+offset_left = 1255.0
+offset_top = 83.0
+offset_right = 1866.0
+offset_bottom = 158.0
+script = ExtResource("8_h7sdr")
