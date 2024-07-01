@@ -2,6 +2,7 @@
 extends StatePlayer
 
 var is_movement_available
+var is_first_step = true
 
 func enter(_msg: Dictionary={}): #HACK: Delete or complete
 	pass
@@ -14,6 +15,9 @@ func inner_physics_process(_delta):
 	
 	var direction = Input.get_axis("left", "right")
 	if direction and is_movement_available:
+		if is_first_step:
+			is_first_step = false
+			%Camera2D.position_smoothing_enabled = true
 		player.velocity.x = lerp(player.velocity.x, direction * player.SPEED, 0.5)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.SPEED/10)

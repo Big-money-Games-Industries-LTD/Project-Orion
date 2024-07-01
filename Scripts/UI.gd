@@ -38,11 +38,8 @@ func pallet_UI():
 			i.visible = false
 		else:
 			i.visible = true
-	
-	
-func _process(_delta):
-	$Main_UI/inventory.frame = BackgroundScene.inventory_pos
-	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540) #attach UI to screen
+
+func update_UI():
 	var enumerate = 0
 	for i in $"Main_UI/slots".get_children():
 		if BackgroundScene.inventory[enumerate]:
@@ -70,6 +67,12 @@ func _process(_delta):
 			i.texture = icons['transparent']
 			i.get_child(0).text = ""
 		enumerate += 1
+	
+func _process(_delta):
+	$Main_UI/inventory.frame = BackgroundScene.inventory_pos
+	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540) #attach UI to screen
+	update_UI()
 			
 func _ready():
 	main_UI()
+	update_UI()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bg0sekmpwuin1"]
+[gd_scene load_steps=12 format=3 uid="uid://bg0sekmpwuin1"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_igcq3"]
 [ext_resource type="Texture2D" uid="uid://bpotug2phf3l1" path="res://Assets/Textures/Farmer_talking.png" id="2_oiclr"]
+[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="2_oy13l"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/FSM.gd" id="3_stjxx"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/idle.gd" id="4_ktqxl"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/walk.gd" id="5_opbk1"]
@@ -37,6 +38,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 drag_left_margin = 0.16
 drag_top_margin = 0.0
+script = ExtResource("2_oy13l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 196)

@@ -78,7 +78,7 @@ size = Vector2(5, 10)
 size = Vector2(20, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pps8n"]
-size = Vector2(44, 882)
+size = Vector2(44, 400)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_x2jvd")
@@ -160,7 +160,7 @@ scale = Vector2(4, 4)
 shape = SubResource("RectangleShape2D_ekut0")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(140, 0)
+position = Vector2(64, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
 position = Vector2(2201, -20)
@@ -172,7 +172,7 @@ position = Vector2(2201, -20)
 shape = SubResource("RectangleShape2D_jyf87")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("4_scs88")]
-position = Vector2(1964, -238)
+position = Vector2(2184, -238)
 
 [node name="Border_left" type="Area2D" parent="."]
 position = Vector2(2177, -212)
@@ -180,7 +180,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_left"]
-position = Vector2(126, -3)
+position = Vector2(56, 212)
 shape = SubResource("RectangleShape2D_pps8n")
 
 [connection signal="body_entered" from="Pallet" to="Pallet" method="_on_body_entered"]
