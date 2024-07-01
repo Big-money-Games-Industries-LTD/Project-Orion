@@ -17,4 +17,4 @@ func _on_border_left_body_entered(body):
 		
 		BackgroundScene.current_scene_index = 1
 		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index])
-		BackgroundScene.position_saver = position
+		BackgroundScene.position_saver = 'left'

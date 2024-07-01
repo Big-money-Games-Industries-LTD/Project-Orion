@@ -47,6 +47,12 @@ func _on_border_right_body_entered(body):
 		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index]) #FIXME: leads to errors
 		BackgroundScene.position_saver = false
 
+func border_left_get_position():
+	return $Border_left.get_position()
+
+func border_right_get_position():
+	return $Border_right.get_position()
+
 func _ready():
 	beds_list = get_tree().get_nodes_in_group('Beds')
 	if not BackgroundScene.beds_list[self_index]: #make BackgroundScene know about our beds unless it knows already

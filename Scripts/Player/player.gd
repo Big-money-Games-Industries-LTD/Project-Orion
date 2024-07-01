@@ -18,13 +18,18 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation = $AnimatedSprite2D
 	
 func _ready():
-	if BackgroundScene.position_saver:
-		position = BackgroundScene.position_saver
 	current_scene_index = BackgroundScene.current_scene_index
 	%Ui.visible = true
 
 
 func delayed_ready():
+	if BackgroundScene.position_saver == 'left':
+		position = $"..".border_left_get_position()
+	elif BackgroundScene.position_saver == 'right':
+		position = $"..".border_right_get_position()
+	elif BackgroundScene.position_saver:
+		position = BackgroundScene.position_saver
+	BackgroundScene.position_saver = false
 	scenes_list = BackgroundScene.scenes_list
 
 func _process(delta):

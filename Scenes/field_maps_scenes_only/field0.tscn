@@ -30,7 +30,7 @@ shape = SubResource("RectangleShape2D_cgop1")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_0afti")]
 unique_name_in_owner = true
-position = Vector2(256, -303)
+position = Vector2(265, -294)
 
 [node name="Bed0" parent="." instance=ExtResource("3_ba0xk")]
 position = Vector2(545, 0)
@@ -42,21 +42,21 @@ position = Vector2(661, 0)
 position = Vector2(777, 0)
 
 [node name="Border_left" type="Area2D" parent="."]
-position = Vector2(-104, -287)
+position = Vector2(85, -261)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_left"]
-position = Vector2(126, -3)
+position = Vector2(-109, 4)
 shape = SubResource("RectangleShape2D_faqae")
 
 [node name="Border_right" type="Area2D" parent="."]
-position = Vector2(1472, -297)
+position = Vector2(1287, -284)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
-position = Vector2(-124, 3)
+position = Vector2(108, -7)
 shape = SubResource("RectangleShape2D_faqae")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
