@@ -27,9 +27,9 @@ func delayed_ready():
 		position = BackgroundScene.position_saver
 	elif BackgroundScene.position_saver is String:
 		if BackgroundScene.position_saver == 'left':
-			position = $".."/Border_left.get_position()
+			position = $".."/Border_left.get_position() + Vector2(60, 0)
 		elif BackgroundScene.position_saver == 'right':
-			position = $".."/Border_right.get_position()
+			position = $".."/Border_right.get_position() + Vector2(-60, 0)
 		else:
 			printerr('wrong string BackgroundScene.position_saver')
 	scenes_list = BackgroundScene.scenes_list

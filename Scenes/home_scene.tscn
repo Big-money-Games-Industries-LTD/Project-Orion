@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_58bpr"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k25vr"]
-size = Vector2(700, 100)
+size = Vector2(175, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1hvp"]
-size = Vector2(700, 100)
+size = Vector2(700, 192)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3it5s"]
 size = Vector2(200, 170)
@@ -17,7 +17,7 @@ size = Vector2(200, 170)
 size = Vector2(200, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrry"]
-size = Vector2(44, 381)
+size = Vector2(44, 384)
 
 [node name="HomeScene" type="Node2D"]
 script = ExtResource("1_yoip0")
@@ -27,11 +27,12 @@ collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="ground"]
 position = Vector2(-300, 0)
+scale = Vector2(4, 4)
 texture = SubResource("PlaceholderTexture2D_k25vr")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
-position = Vector2(50, 50)
+position = Vector2(50, 96)
 shape = SubResource("RectangleShape2D_m1hvp")
 
 [node name="house" type="Area2D" parent="."]
@@ -49,7 +50,7 @@ position = Vector2(-199, -88)
 shape = SubResource("RectangleShape2D_gfw1a")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_58bpr")]
-position = Vector2(42, -330)
+position = Vector2(-228, 0)
 
 [node name="Border_right" type="Area2D" parent="."]
 position = Vector2(-941, -212)
@@ -57,7 +58,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
-position = Vector2(622, 20)
+position = Vector2(663, 212)
 shape = SubResource("RectangleShape2D_lrrry")
 
 [connection signal="body_entered" from="house" to="house" method="_on_body_entered"]

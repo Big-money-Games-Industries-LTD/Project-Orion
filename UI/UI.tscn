@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=26 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_wy3ne"]
 [ext_resource type="Texture2D" uid="uid://kr15lntfahmw" path="res://Raw assets/Pallet_UI.png" id="2_oavo6"]
@@ -7,7 +7,62 @@
 [ext_resource type="Script" path="res://UI/Pallet_slots.gd" id="3_ty4nt"]
 [ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/settings_inventory.tres" id="4_sul3h"]
 [ext_resource type="Script" path="res://UI/Inventory_slots.gd" id="5_d7gim"]
+[ext_resource type="Texture2D" uid="uid://d1f45075waw0f" path="res://Raw assets/Loader_UI.png" id="7_kjniq"]
 [ext_resource type="Script" path="res://UI/scene_indicator.gd" id="8_h7sdr"]
+[ext_resource type="Texture2D" uid="uid://d4mdxdfae0lhc" path="res://Raw assets/Seeds_button.png" id="8_ltmer"]
+[ext_resource type="Texture2D" uid="uid://3g3wismm50ad" path="res://Raw assets/Delivery_button.png" id="9_q1xm8"]
+[ext_resource type="Texture2D" uid="uid://kki7evf7gduw" path="res://Raw assets/Tasks_button.png" id="10_t0af8"]
+[ext_resource type="FontFile" uid="uid://cw8mcnxusknuo" path="res://Assets/Fonts/Minecraft.ttf" id="11_6hcat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fpyh"]
+atlas = ExtResource("8_ltmer")
+region = Rect2(0, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7tht"]
+atlas = ExtResource("8_ltmer")
+region = Rect2(640, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iblk8"]
+atlas = ExtResource("8_ltmer")
+region = Rect2(320, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx66j"]
+atlas = ExtResource("9_q1xm8")
+region = Rect2(320, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yu3fh"]
+atlas = ExtResource("9_q1xm8")
+region = Rect2(960, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eck68"]
+atlas = ExtResource("9_q1xm8")
+region = Rect2(640, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4oqw"]
+atlas = ExtResource("9_q1xm8")
+region = Rect2(0, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_813ij"]
+atlas = ExtResource("10_t0af8")
+region = Rect2(0, 0, 720, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xkcn"]
+atlas = ExtResource("10_t0af8")
+region = Rect2(1440, 0, 720, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkvvk"]
+atlas = ExtResource("10_t0af8")
+region = Rect2(720, 0, 720, 240)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oyc40"]
+font = ExtResource("11_6hcat")
+font_size = 105
+font_color = Color(0.713726, 0.768627, 0.878431, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b34qr"]
+font = ExtResource("11_6hcat")
+font_size = 105
+font_color = Color(0.713726, 0.768627, 0.878431, 1)
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
@@ -328,19 +383,95 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Loader" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Loader"]
+[node name="Sprite2D" type="Sprite2D" parent="Loader"]
+texture = ExtResource("7_kjniq")
+centered = false
+
+[node name="Seeds_button" type="TextureButton" parent="Loader"]
 layout_mode = 0
-offset_left = 932.0
-offset_top = 635.0
-offset_right = 995.0
-offset_bottom = 658.0
-text = "LOADER"
+offset_left = 1181.0
+offset_top = 520.0
+offset_right = 1501.0
+offset_bottom = 760.0
+texture_normal = SubResource("AtlasTexture_3fpyh")
+texture_pressed = SubResource("AtlasTexture_k7tht")
+texture_hover = SubResource("AtlasTexture_iblk8")
+
+[node name="Delivery_button" type="TextureButton" parent="Loader"]
+layout_mode = 0
+offset_left = 1181.0
+offset_top = 268.0
+offset_right = 1501.0
+offset_bottom = 508.0
+texture_normal = SubResource("AtlasTexture_gx66j")
+texture_pressed = SubResource("AtlasTexture_yu3fh")
+texture_hover = SubResource("AtlasTexture_eck68")
+texture_disabled = SubResource("AtlasTexture_k4oqw")
+
+[node name="Tasks_button" type="TextureButton" parent="Loader"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 520.0
+offset_right = 1152.0
+offset_bottom = 760.0
+texture_normal = SubResource("AtlasTexture_813ij")
+texture_pressed = SubResource("AtlasTexture_0xkcn")
+texture_hover = SubResource("AtlasTexture_lkvvk")
+
+[node name="Pallet_load_window" type="Control" parent="Loader"]
+anchors_preset = 0
+offset_left = 464.0
+offset_top = 304.0
+offset_right = 768.0
+offset_bottom = 448.0
+
+[node name="Pallet_load" type="Label" parent="Loader/Pallet_load_window"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -59.0
+offset_right = -16.0
+offset_bottom = 87.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "123"
+label_settings = SubResource("LabelSettings_oyc40")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Profit_window" type="Control" parent="Loader"]
+anchors_preset = 0
+offset_left = 816.0
+offset_top = 304.0
+offset_right = 1120.0
+offset_bottom = 448.0
+
+[node name="Profit" type="Label" parent="Loader/Profit_window"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -59.0
+offset_right = -16.0
+offset_bottom = 85.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "999"
+label_settings = SubResource("LabelSettings_b34qr")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="Tractorman" type="Control" parent="."]
 visible = false
@@ -358,6 +489,7 @@ offset_bottom = 714.0
 text = "TRACTORMAN"
 
 [node name="Main_UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
