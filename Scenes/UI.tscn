@@ -1,36 +1,104 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=34 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
+[ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
 [ext_resource type="Texture2D" uid="uid://kr15lntfahmw" path="res://Assets/Textures/UI/Pallet_UI.png" id="2_oavo6"]
 [ext_resource type="Texture2D" uid="uid://d0hsyvi6w2id6" path="res://Assets/Textures/UI/Player/Inventory.png" id="3_173rp"]
 [ext_resource type="Texture2D" uid="uid://eakqje4vc44i" path="res://Assets/Textures/Plants/Seed/Wheat_seeds.png" id="3_lqiol"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet_slots.gd" id="3_ty4nt"]
 [ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/UI/Player/settings_inventory.tres" id="4_sul3h"]
 [ext_resource type="Script" path="res://Scripts/UI/Inventory_slots.gd" id="5_d7gim"]
+[ext_resource type="Script" path="res://Scripts/UI/Main_UI.gd" id="7_2fciu"]
+[ext_resource type="Texture2D" uid="uid://d1f45075waw0f" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="7_dsusq"]
 [ext_resource type="Script" path="res://Scripts/UI/scene_indicator.gd" id="8_h7sdr"]
+[ext_resource type="Texture2D" uid="uid://3g3wismm50ad" path="res://Assets/Textures/UI/Loader/Delivery_button.png" id="9_no2up"]
+[ext_resource type="Texture2D" uid="uid://kki7evf7gduw" path="res://Assets/Textures/UI/Loader/Tasks_button.png" id="10_eixa3"]
+[ext_resource type="Script" path="res://Scripts/UI/Loader.gd" id="11_47f2h"]
+[ext_resource type="FontFile" uid="uid://cw8mcnxusknuo" path="res://Assets/Fonts/Minecraft.ttf" id="11_akgup"]
+[ext_resource type="Texture2D" uid="uid://6b52ospwdx8m" path="res://Assets/Textures/UI/Loader/Upgrades_button.png" id="11_sj0bb"]
+[ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="12_h2465"]
+[ext_resource type="Script" path="res://Scripts/UI/Tasks.gd" id="12_ouqkw"]
+[ext_resource type="Script" path="res://Scripts/UI/Upgrades.gd" id="13_es01d"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kkyum"]
+size = Vector2(100, 100)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yomax"]
+size = Vector2(100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11def"]
+atlas = ExtResource("10_eixa3")
+region = Rect2(0, 0, 720, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nilxr"]
+atlas = ExtResource("10_eixa3")
+region = Rect2(1440, 0, 720, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igiaw"]
+atlas = ExtResource("10_eixa3")
+region = Rect2(720, 0, 720, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b884o"]
+atlas = ExtResource("11_sj0bb")
+region = Rect2(0, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj7oe"]
+atlas = ExtResource("11_sj0bb")
+region = Rect2(640, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84cx6"]
+atlas = ExtResource("11_sj0bb")
+region = Rect2(320, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxyem"]
+atlas = ExtResource("9_no2up")
+region = Rect2(320, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d7ls"]
+atlas = ExtResource("9_no2up")
+region = Rect2(960, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ekxg"]
+atlas = ExtResource("9_no2up")
+region = Rect2(640, 0, 320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41dk0"]
+atlas = ExtResource("9_no2up")
+region = Rect2(0, 0, 320, 240)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rfbui"]
+font = ExtResource("11_akgup")
+font_size = 90
+font_color = Color(0.796078, 0.858824, 0.988235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rf4xw"]
+font = ExtResource("11_akgup")
+font_size = 90
+font_color = Color(0.796078, 0.858824, 0.988235, 1)
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
 
-[node name="Pallet" type="Control" parent="."]
+[node name="Pallet_UI" type="Control" parent="."]
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("2_g3ksp")
 
-[node name="Background" type="Sprite2D" parent="Pallet"]
+[node name="Background" type="Sprite2D" parent="Pallet_UI"]
 scale = Vector2(1, 1.00023)
 texture = ExtResource("2_oavo6")
 centered = false
 
-[node name="Pallet_slots" type="Control" parent="Pallet"]
+[node name="Pallet_slots" type="Control" parent="Pallet_UI"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_ty4nt")
 
-[node name="slot_0" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_0" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +112,7 @@ grow_vertical = 2
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_0"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_0"]
 layout_mode = 0
 offset_top = -80.0
 offset_right = 80.0
@@ -53,7 +121,7 @@ text = "12"
 label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 
-[node name="slot_1" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_1" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +135,7 @@ grow_vertical = 2
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_1"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_1"]
 layout_mode = 0
 offset_top = -80.0
 offset_right = 80.0
@@ -76,7 +144,7 @@ text = "34"
 label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 
-[node name="slot_2" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_2" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 920.0
 offset_top = 268.0
@@ -85,7 +153,7 @@ offset_bottom = 348.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_2"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_2"]
 layout_mode = 0
 offset_top = -80.0
 offset_right = 80.0
@@ -94,7 +162,7 @@ text = "56"
 label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 
-[node name="slot_3" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_3" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 1064.0
 offset_top = 268.0
@@ -103,7 +171,7 @@ offset_bottom = 348.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_3"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_3"]
 layout_mode = 0
 offset_top = -80.0
 offset_right = 80.0
@@ -112,7 +180,7 @@ text = "78"
 label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 
-[node name="slot_4" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_4" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 1208.0
 offset_top = 268.0
@@ -121,7 +189,7 @@ offset_bottom = 348.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_4"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_4"]
 layout_mode = 0
 offset_top = -80.0
 offset_right = 80.0
@@ -130,7 +198,7 @@ text = "90"
 label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 
-[node name="slot_5" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_5" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 632.0
 offset_top = 412.0
@@ -139,7 +207,7 @@ offset_bottom = 492.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_5"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_5"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -149,7 +217,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_6" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_6" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 776.0
 offset_top = 412.0
@@ -158,7 +226,7 @@ offset_bottom = 492.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_6"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_6"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -168,7 +236,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_7" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_7" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 920.0
 offset_top = 412.0
@@ -177,7 +245,7 @@ offset_bottom = 492.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_7"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_7"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -187,7 +255,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_8" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_8" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 1064.0
 offset_top = 412.0
@@ -196,7 +264,7 @@ offset_bottom = 492.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_8"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_8"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -206,7 +274,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_9" type="TextureRect" parent="Pallet/Pallet_slots"]
+[node name="slot_9" type="TextureRect" parent="Pallet_UI/Pallet_slots"]
 layout_mode = 0
 offset_left = 1208.0
 offset_top = 412.0
@@ -215,7 +283,7 @@ offset_bottom = 492.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_9"]
+[node name="Label" type="Label" parent="Pallet_UI/Pallet_slots/slot_9"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -225,14 +293,14 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Inventory_slots" type="Control" parent="Pallet"]
+[node name="Inventory_slots" type="Control" parent="Pallet_UI"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("5_d7gim")
 
-[node name="slot_0" type="TextureRect" parent="Pallet/Inventory_slots"]
+[node name="slot_0" type="TextureRect" parent="Pallet_UI/Inventory_slots"]
 layout_mode = 0
 offset_left = 632.0
 offset_top = 684.0
@@ -241,7 +309,7 @@ offset_bottom = 764.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_0"]
+[node name="Label" type="Label" parent="Pallet_UI/Inventory_slots/slot_0"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -251,7 +319,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_1" type="TextureRect" parent="Pallet/Inventory_slots"]
+[node name="slot_1" type="TextureRect" parent="Pallet_UI/Inventory_slots"]
 layout_mode = 0
 offset_left = 776.0
 offset_top = 684.0
@@ -260,7 +328,7 @@ offset_bottom = 764.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_1"]
+[node name="Label" type="Label" parent="Pallet_UI/Inventory_slots/slot_1"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -270,7 +338,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_2" type="TextureRect" parent="Pallet/Inventory_slots"]
+[node name="slot_2" type="TextureRect" parent="Pallet_UI/Inventory_slots"]
 layout_mode = 0
 offset_left = 920.0
 offset_top = 684.0
@@ -279,7 +347,7 @@ offset_bottom = 764.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_2"]
+[node name="Label" type="Label" parent="Pallet_UI/Inventory_slots/slot_2"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -289,7 +357,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_3" type="TextureRect" parent="Pallet/Inventory_slots"]
+[node name="slot_3" type="TextureRect" parent="Pallet_UI/Inventory_slots"]
 layout_mode = 0
 offset_left = 1064.0
 offset_top = 684.0
@@ -298,7 +366,7 @@ offset_bottom = 764.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_3"]
+[node name="Label" type="Label" parent="Pallet_UI/Inventory_slots/slot_3"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -308,7 +376,7 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="slot_4" type="TextureRect" parent="Pallet/Inventory_slots"]
+[node name="slot_4" type="TextureRect" parent="Pallet_UI/Inventory_slots"]
 layout_mode = 0
 offset_left = 1208.0
 offset_top = 684.0
@@ -317,7 +385,7 @@ offset_bottom = 764.0
 texture = ExtResource("3_lqiol")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_4"]
+[node name="Label" type="Label" parent="Pallet_UI/Inventory_slots/slot_4"]
 layout_mode = 0
 offset_top = 128.0
 offset_right = 80.0
@@ -327,41 +395,13 @@ label_settings = ExtResource("4_sul3h")
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="Loader" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Loader"]
-layout_mode = 0
-offset_left = 932.0
-offset_top = 635.0
-offset_right = 995.0
-offset_bottom = 658.0
-text = "LOADER"
-
-[node name="Tractorman" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="Tractorman"]
-layout_mode = 0
-offset_left = 916.0
-offset_top = 691.0
-offset_right = 1026.0
-offset_bottom = 714.0
-text = "TRACTORMAN"
-
 [node name="Main_UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("7_2fciu")
 
 [node name="inventory" type="Sprite2D" parent="Main_UI"]
 position = Vector2(953, 967)
@@ -507,3 +547,133 @@ offset_top = 83.0
 offset_right = 1866.0
 offset_bottom = 158.0
 script = ExtResource("8_h7sdr")
+
+[node name="Loader_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("11_47f2h")
+
+[node name="Tasks_UI" type="Control" parent="Loader_UI"]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("12_ouqkw")
+
+[node name="Button" type="Button" parent="Loader_UI/Tasks_UI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "(TASKS)
+EXIT"
+icon = SubResource("PlaceholderTexture2D_kkyum")
+
+[node name="Upgrades_UI" type="Control" parent="Loader_UI"]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("13_es01d")
+
+[node name="Button" type="Button" parent="Loader_UI/Upgrades_UI"]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 432.0
+offset_right = 940.0
+offset_bottom = 540.0
+text = "(UPGRADES)
+EXIT"
+icon = SubResource("PlaceholderTexture2D_yomax")
+
+[node name="Main_loader_UI" type="Control" parent="Loader_UI"]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("12_h2465")
+
+[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Main_loader_UI"]
+texture = ExtResource("7_dsusq")
+centered = false
+
+[node name="Tasks_button" type="TextureButton" parent="Loader_UI/Main_loader_UI"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 536.0
+offset_right = 1152.0
+offset_bottom = 776.0
+texture_normal = SubResource("AtlasTexture_11def")
+texture_pressed = SubResource("AtlasTexture_nilxr")
+texture_hover = SubResource("AtlasTexture_igiaw")
+
+[node name="Upgrades_button" type="TextureButton" parent="Loader_UI/Main_loader_UI"]
+layout_mode = 0
+offset_left = 1176.0
+offset_top = 536.0
+offset_right = 1496.0
+offset_bottom = 776.0
+texture_normal = SubResource("AtlasTexture_b884o")
+texture_pressed = SubResource("AtlasTexture_pj7oe")
+texture_hover = SubResource("AtlasTexture_84cx6")
+
+[node name="Delivery_button" type="TextureButton" parent="Loader_UI/Main_loader_UI"]
+layout_mode = 0
+offset_left = 1176.0
+offset_top = 268.0
+offset_right = 1496.0
+offset_bottom = 508.0
+texture_normal = SubResource("AtlasTexture_xxyem")
+texture_pressed = SubResource("AtlasTexture_1d7ls")
+texture_hover = SubResource("AtlasTexture_8ekxg")
+texture_disabled = SubResource("AtlasTexture_41dk0")
+
+[node name="Weight" type="Control" parent="Loader_UI/Main_loader_UI"]
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 304.0
+offset_right = 752.0
+offset_bottom = 448.0
+
+[node name="Label" type="Label" parent="Loader_UI/Main_loader_UI/Weight"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -34.0
+offset_bottom = 57.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "999"
+label_settings = SubResource("LabelSettings_rfbui")
+horizontal_alignment = 2
+
+[node name="Profit" type="Control" parent="Loader_UI/Main_loader_UI"]
+anchors_preset = 0
+offset_left = 912.0
+offset_top = 304.0
+offset_right = 1104.0
+offset_bottom = 448.0
+
+[node name="Label2" type="Label" parent="Loader_UI/Main_loader_UI/Profit"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -34.0
+offset_bottom = 57.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "999"
+label_settings = SubResource("LabelSettings_rf4xw")
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Loader_UI/Tasks_UI/Button" to="Loader_UI/Tasks_UI" method="_on_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Button" to="Loader_UI/Upgrades_UI" method="_on_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Main_loader_UI/Tasks_button" to="Loader_UI/Main_loader_UI" method="_on_tasks_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]

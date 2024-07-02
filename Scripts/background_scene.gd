@@ -6,6 +6,7 @@ var current_scene_index:int = 1
 var is_movement_available: bool = true
 var position_saver
 var scene_saver = false
+var current_UI
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -89,8 +90,9 @@ class Bed:
 
 var beds_list = []
 
-
-
+#////////////////////////////////////////////////////////////////////////////
+#///////////////////INVENTORY SECTION////////////////////////////////////////
+#////////////////////////////////////////////////////////////////////////////
 var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], false, false, false]
 #[['cabbage_seed', 1], ['cabbage', 3], [false], [false]]
 var inventory_pos = 0
@@ -114,8 +116,24 @@ func remove_from_inventory(pos = inventory_pos, amount = 1):
 		inventory[pos] = false
 
 		
-		
+#////////////////////////////////////////////////////////////////////////////
+#///////////////////PALLET SECTION////////////////////////////////////////
+#////////////////////////////////////////////////////////////////////////////
 var pallet_inventory = [false, false, false, false, false, false, false, false, false, false]
+func pallet_inventory_amount(is_full = false):
+	var counter = 0
+	for i in pallet_inventory:
+		if i:
+			counter += 1
+	if is_full:
+		if counter == pallet_inventory.size():
+			return true
+		else:
+			return false
+	else:
+		return counter
+		
+		
 func add_to_pallet_inventory(object, _idx, amount = 1):
 	for idx in pallet_inventory.size():
 		if not pallet_inventory[idx]:
@@ -125,10 +143,13 @@ func add_to_pallet_inventory(object, _idx, amount = 1):
 		elif pallet_inventory[idx][0] == object:
 			pallet_inventory[idx][1] += amount
 			break
+			
+			
 func remove_from_pallet_inventory(pos, amount = 1):
 	pallet_inventory[pos][1] -= amount
 	if pallet_inventory[pos][1] <= 0:
 		pallet_inventory[pos] = false
+
 
 func _on_timer_timeout():
 	print('next day started')#replace with some fancy UI notification
@@ -180,9 +201,10 @@ func _process(_delta):
 #		get_tree().change_scene_to_file(scenes_list[current_scene_index])
 #		print(position)
 #		print(get_tree_string())#.get_first_node_in_group('Player')#.set_position(position)
-	if Input.is_action_just_pressed("scroll_up"):
+	
+	if Input.is_action_just_pressed("scroll_up") and current_UI == 'Main_UI':
 		inventory_pos -= 1
-	if Input.is_action_just_pressed("scroll_down"):
+	if Input.is_action_just_pressed("scroll_down") and current_UI == 'Main_UI':
 		inventory_pos += 1
 	if inventory_pos > 4:
 		inventory_pos = 0

@@ -20,13 +20,13 @@ func _on_body_exited(body):
 		$AnimatedSprite2D.stop()
 		action_enable = false
 		player = null
-		UI.main_UI()
+		UI.change_UI('Main_UI')
 #asdasddal;dalsldsl;dsaldks
 func _process(_delta):
 	if action_enable and Input.is_action_just_pressed("action0"):
-		UI.loader_UI()
+		UI.change_UI('Loader_UI')
 		is_ui_active = true
 		BackgroundScene.is_movement_available = false
 	if is_ui_active and Input.is_action_just_pressed("esc"):
-		UI.main_UI()
+		UI.change_UI('Main_UI')
 		BackgroundScene.is_movement_available = true
