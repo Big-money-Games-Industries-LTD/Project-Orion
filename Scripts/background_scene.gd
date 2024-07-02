@@ -5,6 +5,7 @@ var scenes_list = []
 var current_scene_index:int = 1
 var is_movement_available: bool = true
 var position_saver
+var scene_saver = false
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")

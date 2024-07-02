@@ -37,12 +37,14 @@ func update_plant_frame(frame_number, bed_pointer): #HACK: Delete or complete
 
 func _on_border_left_body_entered(body):
 	if body is Player:
+		BackgroundScene.scene_saver = self_index+1
 		BackgroundScene.current_scene_index = 0
 		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index])
 		BackgroundScene.position_saver = false
 
 func _on_border_right_body_entered(body):
 	if body is Player:
+		BackgroundScene.scene_saver = self_index+1
 		BackgroundScene.current_scene_index = len(BackgroundScene.scenes_list)-1
 		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index]) #FIXME: leads to errors
 		BackgroundScene.position_saver = false

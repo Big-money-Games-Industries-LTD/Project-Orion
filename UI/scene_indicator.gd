@@ -13,7 +13,6 @@ func _ready():
 		else:
 			scenes_table[i] = 'Layer '+str(i)
 		i+=1
-	print(scenes_table)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

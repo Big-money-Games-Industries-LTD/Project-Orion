@@ -32,12 +32,11 @@ func delayed_ready():
 			position = $".."/Border_right.get_position() + Vector2(-60, 0)
 		else:
 			printerr('wrong string BackgroundScene.position_saver')
-	scenes_list = BackgroundScene.scenes_list
+	
 
 func _process(delta):
 	if not scenes_list:
 		scenes_list = BackgroundScene.scenes_list
-		print(scenes_list)
 		current_scene_index = BackgroundScene.current_scene_index
 	if Input.is_action_just_pressed("scene_change_down") and not( current_scene_index == 1 or current_scene_index == 0 or current_scene_index == len(scenes_list)-1):#scene changing script; we do ante-list_index_out_of_range check and then change scene
 		%Camera2D.position_smoothing_enabled = false
