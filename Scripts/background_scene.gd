@@ -157,11 +157,11 @@ func day_skip():
 func _ready():
 	randomize()
 	scenes_list.append("res://Scenes/Load.tscn")
-	var dir = DirAccess.open("res://Scenes/field_maps_scenes_only/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
+	var dir = DirAccess.open("res://Scenes/fields/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name != "":#basicly acts like 'for i in files_in_the_folder'
-		scenes_list.append("res://Scenes/field_maps_scenes_only/"+file_name) #add scene to scenes_list so it will have all scenes
+		scenes_list.append("res://Scenes/fields/"+file_name) #add scene to scenes_list so it will have all scenes
 		beds_list.append([])
 		file_name = dir.get_next()
 	scenes_list.append("res://Scenes/home_scene.tscn")

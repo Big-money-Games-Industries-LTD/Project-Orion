@@ -1,0 +1,509 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwxa58w1xhf8x"]
+
+[ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
+[ext_resource type="Texture2D" uid="uid://kr15lntfahmw" path="res://Assets/Textures/UI/Pallet_UI.png" id="2_oavo6"]
+[ext_resource type="Texture2D" uid="uid://d0hsyvi6w2id6" path="res://Assets/Textures/UI/Player/Inventory.png" id="3_173rp"]
+[ext_resource type="Texture2D" uid="uid://eakqje4vc44i" path="res://Assets/Textures/Plants/Seed/Wheat_seeds.png" id="3_lqiol"]
+[ext_resource type="Script" path="res://Scripts/UI/Pallet_slots.gd" id="3_ty4nt"]
+[ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/UI/Player/settings_inventory.tres" id="4_sul3h"]
+[ext_resource type="Script" path="res://Scripts/UI/Inventory_slots.gd" id="5_d7gim"]
+[ext_resource type="Script" path="res://Scripts/UI/scene_indicator.gd" id="8_h7sdr"]
+
+[node name="Ui" type="Node2D"]
+script = ExtResource("1_wy3ne")
+
+[node name="Pallet" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="Pallet"]
+scale = Vector2(1, 1.00023)
+texture = ExtResource("2_oavo6")
+centered = false
+
+[node name="Pallet_slots" type="Control" parent="Pallet"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_ty4nt")
+
+[node name="slot_0" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 632.0
+offset_top = 268.0
+offset_right = 672.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_0"]
+layout_mode = 0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -48.0
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_1" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 776.0
+offset_top = 268.0
+offset_right = 816.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_1"]
+layout_mode = 0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -48.0
+text = "34"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_2" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 268.0
+offset_right = 1000.0
+offset_bottom = 348.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_2"]
+layout_mode = 0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -48.0
+text = "56"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_3" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 268.0
+offset_right = 1144.0
+offset_bottom = 348.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_3"]
+layout_mode = 0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -48.0
+text = "78"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_4" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 1208.0
+offset_top = 268.0
+offset_right = 1288.0
+offset_bottom = 348.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_4"]
+layout_mode = 0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = -48.0
+text = "90"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+
+[node name="slot_5" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 412.0
+offset_right = 712.0
+offset_bottom = 492.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_5"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_6" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 412.0
+offset_right = 856.0
+offset_bottom = 492.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_6"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "34"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_7" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 412.0
+offset_right = 1000.0
+offset_bottom = 492.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_7"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "56"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_8" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 412.0
+offset_right = 1144.0
+offset_bottom = 492.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_8"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "78"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_9" type="TextureRect" parent="Pallet/Pallet_slots"]
+layout_mode = 0
+offset_left = 1208.0
+offset_top = 412.0
+offset_right = 1288.0
+offset_bottom = 492.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Pallet_slots/slot_9"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "90"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Inventory_slots" type="Control" parent="Pallet"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_d7gim")
+
+[node name="slot_0" type="TextureRect" parent="Pallet/Inventory_slots"]
+layout_mode = 0
+offset_left = 632.0
+offset_top = 684.0
+offset_right = 712.0
+offset_bottom = 764.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_0"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_1" type="TextureRect" parent="Pallet/Inventory_slots"]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 684.0
+offset_right = 856.0
+offset_bottom = 764.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_1"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "34"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_2" type="TextureRect" parent="Pallet/Inventory_slots"]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 684.0
+offset_right = 1000.0
+offset_bottom = 764.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_2"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "56"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_3" type="TextureRect" parent="Pallet/Inventory_slots"]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = 684.0
+offset_right = 1144.0
+offset_bottom = 764.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_3"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "78"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="slot_4" type="TextureRect" parent="Pallet/Inventory_slots"]
+layout_mode = 0
+offset_left = 1208.0
+offset_top = 684.0
+offset_right = 1288.0
+offset_bottom = 764.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Pallet/Inventory_slots/slot_4"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 80.0
+offset_bottom = 168.0
+text = "90"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Loader" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Loader"]
+layout_mode = 0
+offset_left = 932.0
+offset_top = 635.0
+offset_right = 995.0
+offset_bottom = 658.0
+text = "LOADER"
+
+[node name="Tractorman" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Tractorman"]
+layout_mode = 0
+offset_left = 916.0
+offset_top = 691.0
+offset_right = 1026.0
+offset_bottom = 714.0
+text = "TRACTORMAN"
+
+[node name="Main_UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="inventory" type="Sprite2D" parent="Main_UI"]
+position = Vector2(953, 967)
+scale = Vector2(6, 6)
+texture = ExtResource("3_173rp")
+vframes = 5
+
+[node name="slots" type="Control" parent="Main_UI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="slot0" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 936.0
+offset_right = 797.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot0"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "12"
+label_settings = ExtResource("4_sul3h")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="slot1" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 936.0
+offset_right = 893.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot1"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "34"
+label_settings = ExtResource("4_sul3h")
+
+[node name="slot2" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 917.0
+offset_top = 936.0
+offset_right = 989.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot2"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "56"
+label_settings = ExtResource("4_sul3h")
+
+[node name="slot3" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 936.0
+offset_right = 1085.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot3"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "78"
+label_settings = ExtResource("4_sul3h")
+
+[node name="slot4" type="TextureRect" parent="Main_UI/slots"]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 936.0
+offset_right = 1181.0
+offset_bottom = 998.0
+texture = ExtResource("3_lqiol")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Main_UI/slots/slot4"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -23.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "90"
+label_settings = ExtResource("4_sul3h")
+
+[node name="scene_indicator" type="RichTextLabel" parent="Main_UI"]
+layout_mode = 0
+offset_left = 1255.0
+offset_top = 83.0
+offset_right = 1866.0
+offset_bottom = 158.0
+script = ExtResource("8_h7sdr")

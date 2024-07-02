@@ -1,13 +1,20 @@
 [gd_scene load_steps=19 format=3 uid="uid://bg0sekmpwuin1"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_igcq3"]
-[ext_resource type="Script" path="res://Scripts/Camera2D.gd" id="2_oy13l"]
-[ext_resource type="Texture2D" uid="uid://d11c00a1d8v2n" path="res://Raw assets/farmer_kal.png" id="3_b8of6"]
+[ext_resource type="Texture2D" uid="uid://d11c00a1d8v2n" path="res://Assets/Textures/Entities/farmer_kal.png" id="3_b8of6"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/FSM.gd" id="3_stjxx"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/idle.gd" id="4_ktqxl"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/walk.gd" id="5_opbk1"]
 [ext_resource type="Script" path="res://Scripts/Player/FSM/air.gd" id="6_mq80u"]
-[ext_resource type="PackedScene" uid="uid://bwxa58w1xhf8x" path="res://UI/UI.tscn" id="8_7cfog"]
+[ext_resource type="PackedScene" uid="uid://bwxa58w1xhf8x" path="res://Scenes/UI.tscn" id="8_7cfog"]
+
+[sub_resource type="GDScript" id="GDScript_efhdy"]
+script/source = "extends Camera2D
+
+
+func _init():
+	position_smoothing_enabled = false
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lah01"]
 size = Vector2(54, 104)
@@ -88,7 +95,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 drag_left_margin = 0.16
 drag_top_margin = 0.0
-script = ExtResource("2_oy13l")
+script = SubResource("GDScript_efhdy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -52)

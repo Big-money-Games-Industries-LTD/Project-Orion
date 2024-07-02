@@ -1,13 +1,13 @@
 [gd_scene load_steps=24 format=3 uid="uid://btn6k4s4xve5s"]
 
-[ext_resource type="Texture2D" uid="uid://dwsc1tj7p6lla" path="res://Raw assets/Food_van.png" id="1_m5s58"]
-[ext_resource type="Script" path="res://Scripts/Load.gd" id="1_x2jvd"]
-[ext_resource type="Texture2D" uid="uid://copq21xtpkela" path="res://Raw assets/Pallet.png" id="2_fexbp"]
-[ext_resource type="Script" path="res://Pallet.gd" id="2_ukk25"]
-[ext_resource type="Script" path="res://Scripts/Loader.gd" id="3_68i60"]
-[ext_resource type="Texture2D" uid="uid://b6twkwk535baf" path="res://Raw assets/Loader.png" id="3_c53br"]
+[ext_resource type="Texture2D" uid="uid://dwsc1tj7p6lla" path="res://Assets/Textures/Objects/Food_van.png" id="1_m5s58"]
+[ext_resource type="Script" path="res://Scripts/Supply_scene/Load.gd" id="1_x2jvd"]
+[ext_resource type="Texture2D" uid="uid://copq21xtpkela" path="res://Assets/Textures/Objects/Pallet.png" id="2_fexbp"]
+[ext_resource type="Script" path="res://Scripts/Supply_scene/Pallet.gd" id="2_ukk25"]
+[ext_resource type="Script" path="res://Scripts/Supply_scene/Loader.gd" id="3_68i60"]
+[ext_resource type="Texture2D" uid="uid://b6twkwk535baf" path="res://Assets/Textures/Entities/Loader.png" id="3_c53br"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="4_scs88"]
-[ext_resource type="Texture2D" uid="uid://b2mijn7ra1fl0" path="res://Raw assets/E-button.png" id="4_shci3"]
+[ext_resource type="Texture2D" uid="uid://b2mijn7ra1fl0" path="res://Assets/Textures/UI/Plant/E-button.png" id="4_shci3"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4ik5g"]
 size = Vector2(900, 50)

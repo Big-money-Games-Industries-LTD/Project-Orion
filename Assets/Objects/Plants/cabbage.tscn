@@ -1,24 +1,24 @@
 [gd_scene load_steps=3 format=3 uid="uid://cw2cjeof2lx5u"]
 
-[ext_resource type="Script" path="res://Scripts/plant.gd" id="1_84qun"]
-[ext_resource type="Texture2D" uid="uid://cigko2vk0bdfe" path="res://Assets/Textures/Cabbage.png" id="1_onwak"]
+[ext_resource type="Script" path="res://Scripts/Field_scene/plant.gd" id="1_fq16i"]
+[ext_resource type="Texture2D" path="res://Assets/Textures/Plants/Process/Cabbage.png" id="2_hmdjr"]
 
 [node name="Cabbage" type="Node2D"]
-script = ExtResource("1_84qun")
+script = ExtResource("1_fq16i")
 metadata/bed_pointer = [-1, -1]
 
 [node name="Sprite0" type="Sprite2D" parent="."]
 position = Vector2(-40, -21)
-texture = ExtResource("1_onwak")
+texture = ExtResource("2_hmdjr")
 hframes = 6
 
 [node name="Sprite1" type="Sprite2D" parent="."]
 position = Vector2(0, -21)
-texture = ExtResource("1_onwak")
+texture = ExtResource("2_hmdjr")
 hframes = 6
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 position = Vector2(40, -21)
-texture = ExtResource("1_onwak")
+texture = ExtResource("2_hmdjr")
 hframes = 6
 metadata/bed_pointer = -1
