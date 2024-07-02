@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=36 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -9,7 +9,6 @@
 [ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/UI/Player/settings_inventory.tres" id="4_sul3h"]
 [ext_resource type="Script" path="res://Scripts/UI/Inventory_slots.gd" id="5_d7gim"]
 [ext_resource type="Script" path="res://Scripts/UI/Main_UI.gd" id="7_2fciu"]
-[ext_resource type="Texture2D" uid="uid://d1f45075waw0f" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="7_dsusq"]
 [ext_resource type="Script" path="res://Scripts/UI/scene_indicator.gd" id="8_h7sdr"]
 [ext_resource type="Texture2D" uid="uid://3g3wismm50ad" path="res://Assets/Textures/UI/Loader/Delivery_button.png" id="9_no2up"]
 [ext_resource type="Texture2D" uid="uid://kki7evf7gduw" path="res://Assets/Textures/UI/Loader/Tasks_button.png" id="10_eixa3"]
@@ -19,12 +18,23 @@
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="12_h2465"]
 [ext_resource type="Script" path="res://Scripts/UI/Tasks.gd" id="12_ouqkw"]
 [ext_resource type="Script" path="res://Scripts/UI/Upgrades.gd" id="13_es01d"]
+[ext_resource type="Texture2D" uid="uid://dde8701spkd0k" path="res://Assets/Textures/UI/Loader/Tasks_UI.png" id="13_xfqos"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kkyum"]
-size = Vector2(100, 100)
+[sub_resource type="LabelSettings" id="LabelSettings_imy7o"]
+font = ExtResource("11_akgup")
+font_size = 134
+font_color = Color(0.713726, 0.768627, 0.878431, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b1eab"]
+font = ExtResource("11_akgup")
+font_size = 100
+font_color = Color(0.713726, 0.768627, 0.878431, 1)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yomax"]
 size = Vector2(100, 100)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1pwqg"]
+load_path = "res://.godot/imported/Loader_UI.png-1f65e7329e1c8e11bd9542fd791684f5.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11def"]
 atlas = ExtResource("10_eixa3")
@@ -561,15 +571,43 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("12_ouqkw")
 
-[node name="Button" type="Button" parent="Loader_UI/Tasks_UI"]
+[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Tasks_UI"]
+texture = ExtResource("13_xfqos")
+centered = false
+
+[node name="task_1" type="Control" parent="Loader_UI/Tasks_UI"]
+anchors_preset = 0
+offset_left = 752.0
+offset_top = 80.0
+offset_right = 1280.0
+offset_bottom = 224.0
+
+[node name="task" type="Label" parent="Loader_UI/Tasks_UI/task_1"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 520.0
+offset_bottom = 16.0
+grow_vertical = 2
+text = "Carrots"
+label_settings = SubResource("LabelSettings_imy7o")
+vertical_alignment = 1
+
+[node name="amount" type="Label" parent="Loader_UI/Tasks_UI/task_1"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "(TASKS)
-EXIT"
-icon = SubResource("PlaceholderTexture2D_kkyum")
+offset_left = -208.0
+offset_top = 24.0
+offset_right = -32.0
+offset_bottom = 144.0
+text = "x16"
+label_settings = SubResource("LabelSettings_b1eab")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Upgrades_UI" type="Control" parent="Loader_UI"]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -586,13 +624,14 @@ EXIT"
 icon = SubResource("PlaceholderTexture2D_yomax")
 
 [node name="Main_loader_UI" type="Control" parent="Loader_UI"]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("12_h2465")
 
 [node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Main_loader_UI"]
-texture = ExtResource("7_dsusq")
+texture = SubResource("CompressedTexture2D_1pwqg")
 centered = false
 
 [node name="Tasks_button" type="TextureButton" parent="Loader_UI/Main_loader_UI"]
@@ -672,7 +711,6 @@ text = "999"
 label_settings = SubResource("LabelSettings_rf4xw")
 horizontal_alignment = 2
 
-[connection signal="pressed" from="Loader_UI/Tasks_UI/Button" to="Loader_UI/Tasks_UI" method="_on_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Button" to="Loader_UI/Upgrades_UI" method="_on_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Tasks_button" to="Loader_UI/Main_loader_UI" method="_on_tasks_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
