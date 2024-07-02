@@ -18,6 +18,6 @@ func _ready():
 	update()
 
 
-func _process(delta):
+func _process(_delta):
 	$inventory.frame = BackgroundScene.inventory_pos
 	update()

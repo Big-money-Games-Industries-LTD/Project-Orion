@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2mijn7ra1fl0" path="res://Assets/Textures/UI/Plant/E-button.png" id="2_y1on4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28r3f"]
-size = Vector2(112, 64)
+size = Vector2(128, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ps2b8"]
 atlas = ExtResource("2_y1on4")
@@ -36,12 +36,12 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -32)
+position = Vector2(64, -32)
 shape = SubResource("RectangleShape2D_28r3f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(0, -118)
+position = Vector2(64, -128)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_87w2q")
 
