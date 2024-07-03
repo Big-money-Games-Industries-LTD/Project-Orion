@@ -36,7 +36,6 @@ func _process(_delta):
 		$AnimatedSprite2D.play("default")
 		if Input.is_action_just_pressed('action0'):
 			if bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded:
-				print(1)
 				$AnimatedSprite2D.hide()
 				$Timer.visible = true
 				$Timer.play()
@@ -66,7 +65,11 @@ func _process(_delta):
 	else:
 		$AnimatedSprite2D.visible = false
 		$AnimatedSprite2D.stop()
-
+	
+	if (Input.is_action_just_released("action0") and $Timer.is_playing()) or not player_in_the_area:
+		$Timer.stop()
+		$Timer.visible = false
+	
 func _ready():
 	pass 
 
