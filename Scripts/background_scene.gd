@@ -34,7 +34,7 @@ class Bed:
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(5),
+			'growth_time': BackgroundScene.seconds_to_ticks(60),
 			'fading_probability': 0},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
@@ -156,23 +156,20 @@ func _on_timer_timeout():
 	$day_end_timer.start()
 	
 
-func update(timer_flag):#update every known bed and restart timer if needed
+func update():#update every known bed and restart timer if needed
 	global_time+=1
 	for i in beds_list:
 		for j in i:
 			j.update()
-	if timer_flag:
-		if not $day_end_timer.is_stopped():
-			printerr('Start day timer restarted while it was running')
-		$day_end_timer.start()
+
 #	print($day_end_timer.get_time_left())
 
 func day_skip():
-	var time_left = $day_end_timer.get_time_left()
+	var time_left = seconds_to_ticks($day_end_timer.get_time_left())
 	$day_end_timer.stop()
 	for i in range(snapped(time_left, 1)): #if player have some time left, we simulate remaining time
-		update(false)#NOTE maybe we should decrease fading probability for this case
-	update(true)
+		update()#NOTE maybe we should decrease fading probability for this case
+	$day_end_timer.start()
 
 
 func _ready():
@@ -212,4 +209,4 @@ func _process(_delta):
 		inventory_pos = 4
 	
 func _physics_process(_delta):
-	update(false)
+	update()
