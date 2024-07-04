@@ -14,22 +14,35 @@ func _on_area_2d_body_exited(body):
 		player_in_the_area = false
 		body.beds_i_touch.remove(self)
 
+func _on_timer_animation_finished():
+	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
+	if bed_in_beds_list.ready_to_harvest:
+		BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
+		BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
+	BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].type = 'empty'
+	plant = false
+	$"..".remove_plant(self_pointer)
+	$Timer.visible = false
+	print(2)
+
+func set_harvesting_time(target):
+	$Timer.set_animation_speed('default', target/37)
+
 func _process(_delta):
 	var not_more_than_one_bed = %Player.beds_i_touch.len()<2#see if we are the only bed player touches, if not, dont allow him to harvest or plant anything
 	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
-	if not_more_than_one_bed and player_in_the_area and plant and (bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded):
+	if not_more_than_one_bed and player_in_the_area and plant and (bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded) and not $Timer.is_playing():
 		$AnimatedSprite2D.visible = true
 		$AnimatedSprite2D.play("default")
 		if Input.is_action_just_pressed('action0'):
-			if bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded: 
-				if bed_in_beds_list.ready_to_harvest:
-					BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
-					BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
-				BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].type = 'empty'
-				plant = false
-				$"..".remove_plant(self_pointer)
+			if bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded:
+				$AnimatedSprite2D.hide()
+				$Timer.visible = true
+				$Timer.play()
+#				$AnimationPlayer.play('animation')
+				
 
-	elif not_more_than_one_bed and player_in_the_area and not plant:
+	elif not_more_than_one_bed and player_in_the_area and not plant and not $Timer.is_playing():
 		if BackgroundScene.inventory[BackgroundScene.inventory_pos]:
 			if BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true).size() > 1:
 				if 	BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true)[1] == 'seed':
@@ -52,7 +65,11 @@ func _process(_delta):
 	else:
 		$AnimatedSprite2D.visible = false
 		$AnimatedSprite2D.stop()
-
+	
+	if (Input.is_action_just_released("action0") and $Timer.is_playing()) or not player_in_the_area:
+		$Timer.stop()
+		$Timer.visible = false
+	
 func _ready():
 	pass 
 
@@ -62,6 +79,11 @@ func delayed_ready():#we want this to be done after field is ready
 	if self_type != 'empty':
 		plant = $"..".create_plant_sprite(self_type,self.position,self_pointer)
 	
+
+
+
+
+
 
 
 
