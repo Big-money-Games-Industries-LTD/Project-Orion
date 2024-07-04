@@ -4,9 +4,6 @@ extends StatePlayer
 var is_movement_available
 var is_first_step = true
 
-func enter(_msg: Dictionary={}): #HACK: Delete or complete
-	pass
-
 func inner_physics_process(_delta):
 	is_movement_available = BackgroundScene.is_movement_available
 	if not player.is_on_floor():
