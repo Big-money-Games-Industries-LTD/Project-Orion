@@ -55,6 +55,19 @@ func border_left_get_position():
 func border_right_get_position():
 	return $Border_right.get_position()
 
+func set_aqueduct(value:int):#передаем в value желаемое количество акведуков
+	if value>3:
+		printerr('trying to set more than 3 aqueducts')
+		return 1
+	var enumerate = 0
+	for i in beds_list:
+		var aqueduct = get_node(str(i.get_path()) + '/Aqueduct')
+		if enumerate < value:
+			aqueduct.show()
+		else:
+			aqueduct.hide()
+		enumerate+=1
+
 func _ready():
 	beds_list = get_tree().get_nodes_in_group('Beds')
 	if not BackgroundScene.beds_list[self_index]: #make BackgroundScene know about our beds unless it knows already
@@ -63,3 +76,4 @@ func _ready():
 	for i in beds_list:
 		i.delayed_ready()
 	%Player.delayed_ready()
+	set_aqueduct(1)
