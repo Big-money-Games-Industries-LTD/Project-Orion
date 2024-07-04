@@ -24,6 +24,7 @@ func change_UI(_name):
 	
 func _process(_delta):
 	BackgroundScene.current_UI = current_UI
+	$Main_UI/Day_timer.text = str(BackgroundScene.get_child(0).time_left)
 	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540) #attach UI to screen
 			
 func _ready():

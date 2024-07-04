@@ -413,6 +413,13 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("7_2fciu")
 
+[node name="Day_timer" type="Label" parent="Main_UI"]
+offset_left = 1768.0
+offset_top = 56.0
+offset_right = 1808.0
+offset_bottom = 79.0
+text = "999"
+
 [node name="inventory" type="Sprite2D" parent="Main_UI"]
 position = Vector2(953, 967)
 scale = Vector2(6, 6)
