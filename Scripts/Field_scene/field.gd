@@ -76,4 +76,4 @@ func _ready():
 	for i in beds_list:
 		i.delayed_ready()
 	%Player.delayed_ready()
-
+	set_aqueduct(1)

@@ -41,10 +41,10 @@ func _process(_delta):
 #				$AnimationPlayer.play('animation')
 				
 
-	elif not_more_than_one_bed and player_in_the_area and not plant and not $Timer.is_playing():
+	elif not_more_than_one_bed and player_in_the_area and not plant and not $Timer.is_playing() and $Aqueduct.visible:
 		if BackgroundScene.inventory[BackgroundScene.inventory_pos]:
 			if BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true).size() > 1:
-				if 	BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true)[1] == 'seed':
+				if BackgroundScene.inventory[BackgroundScene.inventory_pos][0].split('_', true)[1] == 'seed':
 					$AnimatedSprite2D.visible = true
 					$AnimatedSprite2D.play("default")
 					if Input.is_action_just_pressed('action0'):
