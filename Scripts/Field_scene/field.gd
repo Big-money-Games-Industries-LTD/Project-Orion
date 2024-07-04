@@ -8,7 +8,7 @@ const types_dict = {#preloading plant textures
 @onready var self_index = int(self.name.right(1))
 var frames:int
 var beds_list
- 
+
 func create_plant(type:String, coordinates:Vector2, bed_pointer):#bed pointer is [field_number, bed_number]
 	BackgroundScene.beds_list[bed_pointer[0]][bed_pointer[1]].plant(type)
 	return create_plant_sprite(type, coordinates, bed_pointer)

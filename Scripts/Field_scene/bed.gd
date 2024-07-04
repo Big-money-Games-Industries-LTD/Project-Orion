@@ -17,12 +17,17 @@ func _on_area_2d_body_exited(body):
 func _on_timer_animation_finished():
 	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
 	if bed_in_beds_list.ready_to_harvest:
-		BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
-		BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
+		if randf_range(0,1)<BackgroundScene.increased_harvest_probability:
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1+BackgroundScene.increased_harvest_increment)
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1+BackgroundScene.increased_harvest_increment)
+		else:
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1)
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
 	BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].type = 'empty'
 	plant = false
 	$"..".remove_plant(self_pointer)
 	$Timer.visible = false
+	BackgroundScene.is_movement_available = true
 
 func set_harvesting_time(target):
 	$Timer.set_animation_speed('default', target/37)
@@ -38,8 +43,7 @@ func _process(_delta):
 				$AnimatedSprite2D.hide()
 				$Timer.visible = true
 				$Timer.play()
-#				$AnimationPlayer.play('animation')
-				
+				BackgroundScene.is_movement_available = false
 
 	elif not_more_than_one_bed and player_in_the_area and not plant and not $Timer.is_playing() and $Aqueduct.visible:
 		if BackgroundScene.inventory[BackgroundScene.inventory_pos]:
@@ -77,12 +81,14 @@ func _process(_delta):
 				$AnimatedSprite2D.visible = false
 				$AnimatedSprite2D.stop()
 	
-	if (Input.is_action_just_released("action0") and $Timer.is_playing()) or not player_in_the_area:
+	if (Input.is_action_just_released("action0") and $Timer.is_playing()):
 		$Timer.stop()
 		$Timer.visible = false
+		BackgroundScene.is_movement_available = true
+#	print(BackgroundScene.is_movement_available)
 	
 func _ready():
-	pass 
+	randomize()
 
 func delayed_ready():#we want this to be done after field is ready
 	self_pointer = [$"..".self_index,int(self.name.right(1))]

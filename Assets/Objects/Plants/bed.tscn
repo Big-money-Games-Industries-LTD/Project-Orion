@@ -300,7 +300,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c84v1"]
