@@ -17,7 +17,7 @@ func _init():
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lah01"]
-size = Vector2(54, 104)
+size = Vector2(56, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cm2ub"]
 atlas = ExtResource("3_b8of6")
@@ -98,14 +98,15 @@ drag_top_margin = 0.0
 script = SubResource("GDScript_efhdy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -52)
+position = Vector2(28, -52)
 shape = SubResource("RectangleShape2D_lah01")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.47035e-08, -52)
+position = Vector2(0, -104)
 sprite_frames = SubResource("SpriteFrames_7vj6h")
-frame = 2
-frame_progress = 0.273921
+frame = 7
+frame_progress = 0.917028
+centered = false
 
 [node name="Ui" parent="." instance=ExtResource("8_7cfog")]
 unique_name_in_owner = true

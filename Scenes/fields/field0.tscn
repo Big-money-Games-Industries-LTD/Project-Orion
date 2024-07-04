@@ -140,10 +140,10 @@ sources/0 = SubResource("TileSetAtlasSource_ev8vf")
 sources/1 = SubResource("TileSetAtlasSource_tkdyw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_faqae"]
-size = Vector2(64, 256)
+size = Vector2(16, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jx5gb"]
-size = Vector2(64, 49)
+size = Vector2(16, 48)
 
 [node name="Field0" type="Node2D"]
 script = ExtResource("1_lrtvv")
@@ -156,7 +156,7 @@ layer_0/tile_data = PackedInt32Array(7, 196609, 0, 8, 262145, 0, 6, 65537, 0, 9,
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_xav0w")]
 unique_name_in_owner = true
-position = Vector2(92, 0)
+position = Vector2(72, 0)
 
 [node name="Bed0" parent="." instance=ExtResource("3_xei41")]
 position = Vector2(192, 0)
@@ -168,7 +168,7 @@ position = Vector2(320, 0)
 position = Vector2(448, 0)
 
 [node name="Border_left" type="Area2D" parent="."]
-position = Vector2(32, 0)
+position = Vector2(8, 0)
 collision_layer = 0
 collision_mask = 2
 
@@ -176,33 +176,35 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_faqae")
 
 [node name="Border_right" type="Area2D" parent="."]
-position = Vector2(736, 0)
+position = Vector2(760, 0)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
 shape = SubResource("RectangleShape2D_faqae")
 
-[node name="Right_fence" type="StaticBody2D" parent="."]
+[node name="Fence_right" type="StaticBody2D" parent="."]
 position = Vector2(768, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Right_fence"]
-position = Vector2(32, -24)
+[node name="Sprite2D" type="Sprite2D" parent="Fence_right"]
+position = Vector2(0, -48)
 texture = ExtResource("5_i03ly")
+centered = false
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_fence"]
-position = Vector2(32, -24.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence_right"]
+position = Vector2(8, -24)
 shape = SubResource("RectangleShape2D_jx5gb")
 
-[node name="Left_fence" type="StaticBody2D" parent="."]
+[node name="Fence_left" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="Left_fence"]
-position = Vector2(-32, -26)
+[node name="Sprite2D" type="Sprite2D" parent="Fence_left"]
+position = Vector2(-64, -48)
 texture = ExtResource("5_i03ly")
+centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_fence"]
-position = Vector2(-32, -25)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence_left"]
+position = Vector2(-8, -24)
 shape = SubResource("RectangleShape2D_jx5gb")
 
 [connection signal="body_entered" from="Border_left" to="." method="_on_border_left_body_entered"]

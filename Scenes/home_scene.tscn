@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Home_scene/house.gd" id="1_6cbpi"]
 [ext_resource type="Script" path="res://Scripts/Home_scene/home_scene.gd" id="1_yoip0"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_58bpr"]
+[ext_resource type="Texture2D" uid="uid://bchuhk57skc71" path="res://Raw assets/Downpic.cc-1189292548.png" id="3_elm5e"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_k25vr"]
 size = Vector2(175, 48)
@@ -10,11 +11,8 @@ size = Vector2(175, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m1hvp"]
 size = Vector2(700, 192)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3it5s"]
-size = Vector2(200, 170)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfw1a"]
-size = Vector2(200, 170)
+size = Vector2(56, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrry"]
 size = Vector2(44, 384)
@@ -42,15 +40,17 @@ collision_mask = 2
 script = ExtResource("1_6cbpi")
 
 [node name="Sprite2D" type="Sprite2D" parent="house"]
-position = Vector2(-199, -88)
-texture = SubResource("PlaceholderTexture2D_3it5s")
+position = Vector2(-467, -355)
+scale = Vector2(7.05882, 7.05882)
+texture = ExtResource("3_elm5e")
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="house"]
-position = Vector2(-199, -88)
+position = Vector2(-275, -51)
 shape = SubResource("RectangleShape2D_gfw1a")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_58bpr")]
-position = Vector2(-228, 0)
+position = Vector2(-255, 0)
 
 [node name="Border_right" type="Area2D" parent="."]
 position = Vector2(-941, -212)
