@@ -17,8 +17,12 @@ func _on_area_2d_body_exited(body):
 func _on_timer_animation_finished():
 	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
 	if bed_in_beds_list.ready_to_harvest:
-		BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
-		BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
+		if randf_range(0,1)<BackgroundScene.increased_harvest_probability:
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1+BackgroundScene.increased_harvest_increment)
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1+BackgroundScene.increased_harvest_increment)
+		else:
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1)
+			BackgroundScene.add_to_inventory(bed_in_beds_list.type + "_seed", 1)
 	BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].type = 'empty'
 	plant = false
 	$"..".remove_plant(self_pointer)
@@ -82,7 +86,7 @@ func _process(_delta):
 		$Timer.visible = false
 	
 func _ready():
-	pass 
+	randomize()
 
 func delayed_ready():#we want this to be done after field is ready
 	self_pointer = [$"..".self_index,int(self.name.right(1))]

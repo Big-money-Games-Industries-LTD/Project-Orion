@@ -9,6 +9,8 @@ var scene_saver = false
 var current_UI
 var multiplier: float = 1
 var fading_probability: float = 0.1
+var increased_harvest_probability:float = 0
+var increased_harvest_increment:int = 0
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
