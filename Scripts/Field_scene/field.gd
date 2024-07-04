@@ -31,9 +31,6 @@ func get_plant(bed_pointer):
 func remove_plant(bed_pointer):
 	get_plant(bed_pointer).queue_free()
 
-func update_plant_frame(frame_number, bed_pointer): #HACK: Delete or complete
-	pass
-	
 
 func _on_border_left_body_entered(body):
 	if body is Player:
@@ -46,7 +43,7 @@ func _on_border_right_body_entered(body):
 	if body is Player:
 		BackgroundScene.scene_saver = self_index+1
 		BackgroundScene.current_scene_index = len(BackgroundScene.scenes_list)-1
-		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index]) #FIXME: leads to errors
+		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index]) #F/IXME: leads to errors Никому не интересны эти ошибки -Варфоломеев Ю.В. CEO кал геймс солюшнс
 		BackgroundScene.position_saver = false
 
 func border_left_get_position():
@@ -62,6 +59,7 @@ func set_aqueduct(value:int):#передаем в value желаемое кол�
 	var enumerate = 0
 	for i in beds_list:
 		var aqueduct = get_node(str(i.get_path()) + '/Aqueduct')
+		print(aqueduct)
 		if enumerate < value:
 			aqueduct.show()
 		else:
@@ -76,4 +74,4 @@ func _ready():
 	for i in beds_list:
 		i.delayed_ready()
 	%Player.delayed_ready()
-	set_aqueduct(1)
+	set_aqueduct(1)#HACK: dont forget to remove this when aqueducts menu is ready

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://sscsq3sgtfwa"]
+[gd_scene load_steps=48 format=3 uid="uid://sscsq3sgtfwa"]
 
 [ext_resource type="Script" path="res://Scripts/Field_scene/bed.gd" id="1_pmvdf"]
 [ext_resource type="Texture2D" uid="uid://b2mijn7ra1fl0" path="res://Assets/Textures/UI/Plant/E-button.png" id="2_y1on4"]
@@ -303,6 +303,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c84v1"]
+
 [node name="Bed" type="Node2D" groups=["Beds"]]
 script = ExtResource("1_pmvdf")
 
@@ -325,6 +327,11 @@ visible = false
 position = Vector2(64, -128)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ri82g")
+
+[node name="Aqueduct" type="Sprite2D" parent="."]
+position = Vector2(64, 25.5)
+scale = Vector2(0.25, 0.0996094)
+texture = SubResource("NoiseTexture2D_c84v1")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
