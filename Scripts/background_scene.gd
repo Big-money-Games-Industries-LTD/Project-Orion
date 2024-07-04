@@ -7,6 +7,8 @@ var is_movement_available: bool = true
 var position_saver
 var scene_saver = false
 var current_UI
+var multiplier: float = 1
+var fading_probability: float = 0.1
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -48,8 +50,6 @@ class Bed:
 	var frames: int
 	var is_faded:bool
 	var ready_to_harvest:bool
-	var fading_probability: float
-	var multiplier: float = 1
 	var has_been_watered:bool
 	
 	func _init(_type):
@@ -71,12 +71,12 @@ class Bed:
 		if frame + 1 == frames:
 			ready_to_harvest = true
 		else:
-			next_step_time += (types_dict[type]['growth_time']/types_dict[type]['frames'])*multiplier
+			next_step_time += (types_dict[type]['growth_time']/types_dict[type]['frames'])*BackgroundScene.multiplier
 			print('frames:' + str(types_dict[type]['frames']))
 			print('growth time:' + str(types_dict[type]['growth_time']))
 			print('Global time:' + str(BackgroundScene.global_time))
 			print('Global time + (growth time/frames) = ' + str(next_step_time))
-			if randf_range(0,1)<fading_probability and not has_been_watered:#see if it fades
+			if randf_range(0,1)<BackgroundScene.fading_probability and not has_been_watered:#see if it fades
 				is_faded = true
 				ready_to_harvest = false
 			has_been_watered = false
@@ -91,17 +91,19 @@ class Bed:
 			
 	func plant(_type):
 		type = _type
-		next_step_time = BackgroundScene.global_time + (types_dict[_type]['growth_time']/types_dict[_type]['frames'])*multiplier
+		next_step_time = BackgroundScene.global_time + (types_dict[_type]['growth_time']/types_dict[_type]['frames'])*BackgroundScene.multiplier
 		print("Planted. Next step: " + str(next_step_time))
 		frame = 0
 		frames = types_dict[type]['frames']
 		is_faded = false
 		ready_to_harvest = false
-		fading_probability = types_dict[type]['fading_probability']
+#		fading_probability = 0.1
 		
 	func water():
 		next_step_time = next_step_time-(next_step_time - BackgroundScene.global_time)/2
 		has_been_watered = true
+	
+	
 
 var beds_list = []
 
