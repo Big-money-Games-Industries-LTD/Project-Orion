@@ -65,6 +65,18 @@ func _process(_delta):
 		$AnimatedSprite2D.visible = false
 		$AnimatedSprite2D.stop()
 	
+	
+	if BackgroundScene.inventory[BackgroundScene.inventory_pos] and not (bed_in_beds_list.ready_to_harvest or bed_in_beds_list.is_faded):
+		if BackgroundScene.inventory[BackgroundScene.inventory_pos][0] == 'leica':
+			if  not_more_than_one_bed and player_in_the_area and plant and not $Timer.is_playing() and not BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].has_been_watered:
+				$AnimatedSprite2D.visible = true
+				$AnimatedSprite2D.play("default")
+				if Input.is_action_just_pressed('action0'):
+					BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].water()
+			else:
+				$AnimatedSprite2D.visible = false
+				$AnimatedSprite2D.stop()
+	
 	if (Input.is_action_just_released("action0") and $Timer.is_playing()) or not player_in_the_area:
 		$Timer.stop()
 		$Timer.visible = false
@@ -77,12 +89,3 @@ func delayed_ready():#we want this to be done after field is ready
 	var self_type = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]].type
 	if self_type != 'empty':
 		plant = $"..".create_plant_sprite(self_type,self.position,self_pointer)
-	
-
-
-
-
-
-
-
-
