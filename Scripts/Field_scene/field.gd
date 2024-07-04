@@ -74,4 +74,4 @@ func _ready():
 	for i in beds_list:
 		i.delayed_ready()
 	%Player.delayed_ready()
-	set_aqueduct(1)#HACK: dont forget to remove this when aqueducts menu is ready
+	set_aqueduct(2)#HACK: dont forget to remove this when aqueducts menu is ready

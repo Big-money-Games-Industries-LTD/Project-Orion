@@ -34,7 +34,7 @@ class Bed:
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(60),
+			'growth_time': BackgroundScene.seconds_to_ticks(20),
 			'fading_probability': 0},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
@@ -50,6 +50,7 @@ class Bed:
 	var ready_to_harvest:bool
 	var fading_probability: float
 	var multiplier: float = 1
+	var has_been_watered:bool
 	
 	func _init(_type):
 		type = _type
@@ -75,9 +76,11 @@ class Bed:
 			print('growth time:' + str(types_dict[type]['growth_time']))
 			print('Global time:' + str(BackgroundScene.global_time))
 			print('Global time + (growth time/frames) = ' + str(next_step_time))
-			if randf_range(0,1)<fading_probability:#see if it fades
+			if randf_range(0,1)<fading_probability and not has_been_watered:#see if it fades
 				is_faded = true
 				ready_to_harvest = false
+			has_been_watered = false
+			print(has_been_watered)
 			if next_step_time < BackgroundScene.global_time:
 				print("startred by recursion due to:")
 				print("Next step: " + str(next_step_time))
@@ -98,6 +101,7 @@ class Bed:
 		
 	func water():
 		next_step_time = next_step_time-(next_step_time - BackgroundScene.global_time)/2
+		has_been_watered = true
 
 var beds_list = []
 
