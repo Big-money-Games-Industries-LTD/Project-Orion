@@ -104,7 +104,7 @@ var beds_list = []
 #////////////////////////////////////////////////////////////////////////////
 #///////////////////INVENTORY SECTION////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////
-var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], false, false, false]
+var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], ['leica', 1], false, false]
 #[['cabbage_seed', 1], ['cabbage', 3], [false], [false]]
 var inventory_pos = 0
 func add_to_inventory(object, amount = 1):
