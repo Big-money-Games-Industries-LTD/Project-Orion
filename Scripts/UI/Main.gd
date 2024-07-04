@@ -9,10 +9,6 @@ func _process(_delta):
 	update()
 	
 
-func _on_tasks_button_pressed():
-	$"..".change_UI('Tasks_UI')
-	
-
 func _on_upgrades_button_pressed():
 	$"..".change_UI('Upgrades_UI')
 
