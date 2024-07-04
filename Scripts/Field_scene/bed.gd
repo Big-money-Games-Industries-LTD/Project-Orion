@@ -15,6 +15,7 @@ func _on_area_2d_body_exited(body):
 		body.beds_i_touch.remove(self)
 
 func _on_timer_animation_finished():
+	print(2)
 	var bed_in_beds_list = BackgroundScene.beds_list[self_pointer[0]][self_pointer[1]]
 	if bed_in_beds_list.ready_to_harvest:
 		BackgroundScene.add_to_inventory(bed_in_beds_list.type, 1) #TODO: add a more_than_one prob.
@@ -23,7 +24,6 @@ func _on_timer_animation_finished():
 	plant = false
 	$"..".remove_plant(self_pointer)
 	$Timer.visible = false
-	print(2)
 
 func set_harvesting_time(target):
 	$Timer.set_animation_speed('default', target/37)
