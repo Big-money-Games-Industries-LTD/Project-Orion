@@ -63,22 +63,33 @@ class Bed:
 			return
 		elif is_faded:
 			return
-		elif next_step_time != BackgroundScene.global_time:
+		elif next_step_time > BackgroundScene.global_time: # if next_step_time less than global then run update
 			return
 
 		frame += 1
 		if frame + 1 == frames:
 			ready_to_harvest = true
 		else:
-			next_step_time = BackgroundScene.global_time + (types_dict[type]['growth_time']/types_dict[type]['frames'])*multiplier
-		if randf_range(0,1)<fading_probability:#see if it fades
-			is_faded = true
-			ready_to_harvest = false
-			return
+			next_step_time += (types_dict[type]['growth_time']/types_dict[type]['frames'])*multiplier
+			print('frames:' + str(types_dict[type]['frames']))
+			print('growth time:' + str(types_dict[type]['growth_time']))
+			print('Global time:' + str(BackgroundScene.global_time))
+			print('Global time + (growth time/frames) = ' + str(next_step_time))
+			if randf_range(0,1)<fading_probability:#see if it fades
+				is_faded = true
+				ready_to_harvest = false
+			if next_step_time < BackgroundScene.global_time:
+				print("startred by recursion due to:")
+				print("Next step: " + str(next_step_time))
+				print("global time: " + str(BackgroundScene.global_time))
+				update()
+			else:
+				return
 			
 	func plant(_type):
 		type = _type
 		next_step_time = BackgroundScene.global_time + (types_dict[_type]['growth_time']/types_dict[_type]['frames'])*multiplier
+		print("Planted. Next step: " + str(next_step_time))
 		frame = 0
 		frames = types_dict[type]['frames']
 		is_faded = false
@@ -167,8 +178,8 @@ func update():#update every known bed and restart timer if needed
 func day_skip():
 	var time_left = seconds_to_ticks($day_end_timer.get_time_left())
 	$day_end_timer.stop()
-	for i in range(snapped(time_left, 1)): #if player have some time left, we simulate remaining time
-		update()#NOTE maybe we should decrease fading probability for this case
+	global_time += time_left-1
+	update()
 	$day_end_timer.start()
 
 

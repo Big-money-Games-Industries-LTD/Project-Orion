@@ -413,12 +413,16 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("7_2fciu")
 
-[node name="Day_timer" type="Label" parent="Main_UI"]
-offset_left = 1768.0
-offset_top = 56.0
-offset_right = 1808.0
-offset_bottom = 79.0
-text = "999"
+[node name="Debug_Info" type="RichTextLabel" parent="Main_UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_bottom = 112.0
+grow_horizontal = 0
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="inventory" type="Sprite2D" parent="Main_UI"]
 position = Vector2(953, 967)
@@ -573,6 +577,7 @@ offset_bottom = 1080.0
 script = ExtResource("11_47f2h")
 
 [node name="Tasks_UI" type="Control" parent="Loader_UI"]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -631,7 +636,6 @@ EXIT"
 icon = SubResource("PlaceholderTexture2D_yomax")
 
 [node name="Main_loader_UI" type="Control" parent="Loader_UI"]
-visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -653,9 +657,9 @@ texture_hover = SubResource("AtlasTexture_igiaw")
 
 [node name="Upgrades_button" type="TextureButton" parent="Loader_UI/Main_loader_UI"]
 layout_mode = 0
-offset_left = 1176.0
+offset_left = 1296.0
 offset_top = 536.0
-offset_right = 1496.0
+offset_right = 1616.0
 offset_bottom = 776.0
 texture_normal = SubResource("AtlasTexture_b884o")
 texture_pressed = SubResource("AtlasTexture_pj7oe")
@@ -663,10 +667,10 @@ texture_hover = SubResource("AtlasTexture_84cx6")
 
 [node name="Delivery_button" type="TextureButton" parent="Loader_UI/Main_loader_UI"]
 layout_mode = 0
-offset_left = 1176.0
-offset_top = 268.0
-offset_right = 1496.0
-offset_bottom = 508.0
+offset_left = 1296.0
+offset_top = 272.0
+offset_right = 1616.0
+offset_bottom = 512.0
 texture_normal = SubResource("AtlasTexture_xxyem")
 texture_pressed = SubResource("AtlasTexture_1d7ls")
 texture_hover = SubResource("AtlasTexture_8ekxg")
@@ -676,7 +680,7 @@ texture_disabled = SubResource("AtlasTexture_41dk0")
 anchors_preset = 0
 offset_left = 560.0
 offset_top = 304.0
-offset_right = 752.0
+offset_right = 800.0
 offset_bottom = 448.0
 
 [node name="Label" type="Label" parent="Loader_UI/Main_loader_UI/Weight"]
@@ -699,7 +703,7 @@ horizontal_alignment = 2
 anchors_preset = 0
 offset_left = 912.0
 offset_top = 304.0
-offset_right = 1104.0
+offset_right = 1216.0
 offset_bottom = 448.0
 
 [node name="Label2" type="Label" parent="Loader_UI/Main_loader_UI/Profit"]
