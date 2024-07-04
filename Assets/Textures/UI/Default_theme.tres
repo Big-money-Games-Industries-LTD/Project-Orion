@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dq22ojeg8wln8"]
+
+[ext_resource type="FontFile" uid="uid://cw8mcnxusknuo" path="res://Assets/Fonts/Minecraft.ttf" id="1_byait"]
+
+[resource]
+default_font = ExtResource("1_byait")
+RichTextLabel/colors/default_color = Color(0.796078, 0.858824, 0.988235, 1)
