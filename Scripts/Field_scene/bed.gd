@@ -27,6 +27,7 @@ func _on_timer_animation_finished():
 	plant = false
 	$"..".remove_plant(self_pointer)
 	$Timer.visible = false
+	BackgroundScene.is_movement_available = true
 
 func set_harvesting_time(target):
 	$Timer.set_animation_speed('default', target/37)
@@ -42,8 +43,7 @@ func _process(_delta):
 				$AnimatedSprite2D.hide()
 				$Timer.visible = true
 				$Timer.play()
-#				$AnimationPlayer.play('animation')
-				
+				BackgroundScene.is_movement_available = false
 
 	elif not_more_than_one_bed and player_in_the_area and not plant and not $Timer.is_playing() and $Aqueduct.visible:
 		if BackgroundScene.inventory[BackgroundScene.inventory_pos]:
@@ -81,9 +81,11 @@ func _process(_delta):
 				$AnimatedSprite2D.visible = false
 				$AnimatedSprite2D.stop()
 	
-	if (Input.is_action_just_released("action0") and $Timer.is_playing()) or not player_in_the_area:
+	if (Input.is_action_just_released("action0") and $Timer.is_playing()):
 		$Timer.stop()
 		$Timer.visible = false
+		BackgroundScene.is_movement_available = true
+#	print(BackgroundScene.is_movement_available)
 	
 func _ready():
 	randomize()
