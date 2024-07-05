@@ -10,3 +10,8 @@ func change_UI(_name):
 
 func _ready():
 	change_UI("Main_loader_UI")
+	
+func _process(_delta):
+	if Input.is_action_just_pressed("esc"):
+		$"..".change_UI("Main_UI")
+		BackgroundScene.is_movement_available = true

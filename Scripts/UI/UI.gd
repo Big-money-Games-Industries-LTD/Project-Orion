@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var plant_hint_timer = 0
 var harvest_hint_timer = 0
@@ -14,6 +14,9 @@ const icons = {
 	'transparent': preload("res://Assets/Textures/Transparent.png")
 }
 
+func get_pos():
+	return $"..".position
+
 func change_UI(_name):
 	for i in get_children():
 		if not i.name == _name:
@@ -26,8 +29,11 @@ func change_UI(_name):
 func _process(_delta):
 	BackgroundScene.current_UI = current_UI
 	$Main_UI/Debug_Info.text = 'Day timer: ' + str(round(BackgroundScene.get_child(0).time_left)) + '\n' + "Global time: " + str(BackgroundScene.global_time) 
-	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540) #attach UI to screen
+	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540) * Vector2(1/1.3, 1/1.3) #attach UI to screen
 			
 func _ready():
-	change_UI("Main_UI")
+	if BackgroundScene.was_the_scene_loaded_after_cutscene:
+		change_UI("Loader_UI")
+	else:
+		change_UI("Main_UI")
 	BackgroundScene.current_UI = current_UI

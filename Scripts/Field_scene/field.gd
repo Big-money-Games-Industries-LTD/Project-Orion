@@ -1,8 +1,9 @@
 extends Node2D
 
 const types_dict = {#preloading plant textures
-		'cabbage':preload('res://Assets/Objects/Plants/cabbage.tscn'),
-		'carrot':preload('res://Assets/Objects/Plants/carrot.tscn')
+		'cabbage': preload('res://Assets/Objects/Plants/cabbage.tscn'),
+		'carrot': preload('res://Assets/Objects/Plants/carrot.tscn'),
+		'wheat': preload("res://Assets/Objects/Plants/wheat.tscn")
 	}
 
 @onready var self_index = int(self.name.right(1))

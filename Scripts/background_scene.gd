@@ -11,6 +11,9 @@ var multiplier: float = 1
 var fading_probability: float = 0.1
 var increased_harvest_probability:float = 0
 var increased_harvest_increment:int = 0
+var was_the_scene_loaded_after_cutscene: bool #for delivery cutscene
+var before_cutscene_position_saver: Vector2 #for delivery cutscene
+var money:int = 0
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -38,13 +41,15 @@ class Bed:
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(20),
-			'fading_probability': 0},
+			'growth_time': BackgroundScene.seconds_to_ticks(5)},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(5),
-			'fading_probability': 0.01}
+			'growth_time': BackgroundScene.seconds_to_ticks(5)},
+		'wheat':{
+			'texture': preload("res://Assets/Objects/Plants/wheat.tscn"),
+			'frames': 6,
+			'growth_time': BackgroundScene.seconds_to_ticks(5)}
 		}
 	var type: String
 	var next_step_time: int
@@ -112,7 +117,7 @@ var beds_list = []
 #////////////////////////////////////////////////////////////////////////////
 #///////////////////INVENTORY SECTION////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////
-var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], ['leica', 1], false, false]
+var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], ['wheat_seed', 4], ['leica', 1], ['wheat', 1]]
 #[['cabbage_seed', 1], ['cabbage', 3], [false], [false]]
 var inventory_pos = 0
 func add_to_inventory(object, amount = 1):
@@ -139,6 +144,14 @@ func remove_from_inventory(pos = inventory_pos, amount = 1):
 #///////////////////PALLET SECTION////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////
 var pallet_inventory = [false, false, false, false, false, false, false, false, false, false]
+const prices = {
+	"wheat": 15,
+	"carrot": 25,
+	"cabbage": 40,
+	"wheat_seed": 10,
+	"carrot_seed": 15,
+	"cabbage_seed": 25
+}
 func pallet_inventory_amount(is_full = false):
 	var counter = 0
 	for i in pallet_inventory:
@@ -152,6 +165,24 @@ func pallet_inventory_amount(is_full = false):
 	else:
 		return counter
 		
+func pallet_inventory_price():
+	var price = 0
+	for i in pallet_inventory:
+		if i:
+			if i[0] in prices:
+				price += prices[i[0]] * i[1]
+	return price
+
+
+func sell():
+	var enumerate = 0
+	for i in pallet_inventory:
+		if i:
+			if i[0] in prices:
+				money += prices[i[0]] * i[1]
+				pallet_inventory[enumerate] = false
+		enumerate += 1
+					
 		
 func add_to_pallet_inventory(object, _idx, amount = 1):
 	for idx in pallet_inventory.size():
@@ -161,6 +192,7 @@ func add_to_pallet_inventory(object, _idx, amount = 1):
 			break
 		elif pallet_inventory[idx][0] == object:
 			pallet_inventory[idx][1] += amount
+			remove_from_inventory(_idx, amount)
 			break
 			
 			

@@ -12,6 +12,7 @@ func update():
 			i.texture = icons['transparent']
 			i.get_child(0).text = ""
 		enumerate += 1
+	$Money.text = str(BackgroundScene.money)
 		
 
 func _ready():

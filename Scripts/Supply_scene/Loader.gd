@@ -3,7 +3,6 @@ extends Area2D
 var action_enable
 var player
 var UI
-var is_ui_active
 
 
 func _on_body_entered(body):
@@ -21,12 +20,8 @@ func _on_body_exited(body):
 		action_enable = false
 		player = null
 		UI.change_UI('Main_UI')
-#asdasddal;dalsldsl;dsaldks
+		
 func _process(_delta):
 	if action_enable and Input.is_action_just_pressed("action0"):
 		UI.change_UI('Loader_UI')
-		is_ui_active = true
 		BackgroundScene.is_movement_available = false
-	if is_ui_active and Input.is_action_just_pressed("esc"):
-		UI.change_UI('Main_UI')
-		BackgroundScene.is_movement_available = true
