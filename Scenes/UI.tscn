@@ -517,6 +517,7 @@ unlock_movement = true
 parent_node = NodePath("../..")
 
 [node name="Main_UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -706,7 +707,6 @@ libraries = {
 }
 
 [node name="Loader_UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -801,7 +801,6 @@ unlock_movement = true
 parent_node = NodePath("../../..")
 
 [node name="Upgrades_UI" type="Control" parent="Loader_UI"]
-visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
