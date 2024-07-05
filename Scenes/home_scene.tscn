@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4ktn17l1n2mi"]
+[gd_scene load_steps=13 format=3 uid="uid://c4ktn17l1n2mi"]
 
 [ext_resource type="Script" path="res://Scripts/Home_scene/house.gd" id="1_6cbpi"]
 [ext_resource type="Script" path="res://Scripts/Home_scene/home_scene.gd" id="1_yoip0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_58bpr"]
 [ext_resource type="Texture2D" uid="uid://bchuhk57skc71" path="res://Raw assets/Downpic.cc-1189292548.png" id="3_elm5e"]
 [ext_resource type="Texture2D" uid="uid://uoh04vge2ejt" path="res://Raw assets/Market.png" id="6_mxmkb"]
+[ext_resource type="Texture2D" uid="uid://3gx70v55lcyv" path="res://Assets/Textures/Objects/Fence.png" id="7_3lof2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6isxs"]
 texture = ExtResource("2_43kck")
@@ -80,6 +81,9 @@ size = Vector2(56, 104)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrry"]
 size = Vector2(44, 384)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdapc"]
+size = Vector2(16, 48)
+
 [node name="HomeScene" type="Node2D"]
 script = ExtResource("1_yoip0")
 
@@ -122,6 +126,30 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border_right"]
 position = Vector2(663, 212)
 shape = SubResource("RectangleShape2D_lrrry")
+
+[node name="Fence_left" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence_left"]
+position = Vector2(-364, -48)
+texture = ExtResource("7_3lof2")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence_left"]
+position = Vector2(-308, -24)
+shape = SubResource("RectangleShape2D_hdapc")
+
+[node name="Fence_left2" type="StaticBody2D" parent="."]
+position = Vector2(799, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Fence_left2"]
+position = Vector2(-316, -48)
+texture = ExtResource("7_3lof2")
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fence_left2"]
+position = Vector2(-308, -24)
+shape = SubResource("RectangleShape2D_hdapc")
 
 [connection signal="body_entered" from="house" to="house" method="_on_body_entered"]
 [connection signal="body_entered" from="Border_right" to="." method="_on_border_right_body_entered"]

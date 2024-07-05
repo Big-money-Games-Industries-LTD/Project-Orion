@@ -1,5 +1,6 @@
 extends Node2D
 
+const day_duration = 420
 var global_time:int = 0
 var scenes_list = []
 var current_scene_index:int = 1
@@ -15,12 +16,16 @@ var was_the_scene_loaded_after_cutscene: bool #for delivery cutscene
 var before_cutscene_position_saver: Vector2 #for delivery cutscene
 var money:int = 0
 
+
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
 func minutes_to_ticks(time): #minutes to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")*60
 func hours_to_ticks(time): #hours to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")*60**2
+
+var delivery_duration = seconds_to_ticks(20)
+var is_delivery_started = false
 
 class Set: #implementation of set(bcs godot don't have one), i need it in player
 	var dict={}
@@ -202,6 +207,9 @@ func remove_from_pallet_inventory(pos, amount = 1):
 		pallet_inventory[pos] = false
 
 
+func start_delivery():
+	is_delivery_started = BackgroundScene.global_time + delivery_duration
+
 func _on_timer_timeout():
 	print('next day started')#replace with some fancy UI notification
 	$day_end_timer.start()
@@ -225,6 +233,7 @@ func day_skip():
 
 func _ready():
 	randomize()
+	$day_end_timer.wait_time = day_duration
 	scenes_list.append("res://Scenes/Load.tscn")
 	var dir = DirAccess.open("res://Scenes/fields/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
 	dir.list_dir_begin()
@@ -237,19 +246,6 @@ func _ready():
 
 
 func _process(_delta):
-#	if Input.is_action_just_pressed("scene_change_down") and not current_scene_index == 1:#scene changing script; we do ante-list_index_out_of_range check and then change scene
-#		position = get_tree().get_first_node_in_group('Player').get_position()
-#		current_scene_index -= 1
-#		get_tree().change_scene_to_file(scenes_list[current_scene_index])
-#		get_tree().get_first_node_in_group('Player').set_position(position)
-#	if Input.is_action_just_pressed("scene_change_up") and not current_scene_index == len(scenes_list)-2:#
-#		print(get_tree_string())
-#		print(get_tree().get_first_node_in_group('Player'))
-#		current_scene_index += 1
-#		get_tree().change_scene_to_file(scenes_list[current_scene_index])
-#		print(position)
-#		print(get_tree_string())#.get_first_node_in_group('Player')#.set_position(position)
-	
 	if Input.is_action_just_pressed("scroll_up") and current_UI == 'Main_UI':
 		inventory_pos -= 1
 	if Input.is_action_just_pressed("scroll_down") and current_UI == 'Main_UI':
@@ -258,6 +254,9 @@ func _process(_delta):
 		inventory_pos = 0
 	if inventory_pos < 0:
 		inventory_pos = 4
-	
+	if is_delivery_started:
+		if is_delivery_started == global_time:
+			is_delivery_started = false
+			#TODO: send signal on delivery ends
 func _physics_process(_delta):
 	update()

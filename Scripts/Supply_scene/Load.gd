@@ -10,3 +10,9 @@ func _on_border_left_body_entered(body):
 		BackgroundScene.current_scene_index = BackgroundScene.scene_saver
 		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index])
 		BackgroundScene.position_saver = 'left'
+
+func _process(_delta):
+	if BackgroundScene.is_delivery_started:
+		$Van.hide()
+
+

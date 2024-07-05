@@ -3,7 +3,7 @@ extends Control
 func update():
 	$Weight/Label.text = str(BackgroundScene.pallet_inventory_amount())+'/10'
 	$Profit/Label2.text = str(BackgroundScene.pallet_inventory_price())
-	if BackgroundScene.pallet_inventory_amount() == 0 or BackgroundScene.pallet_inventory_price() == 0:
+	if BackgroundScene.pallet_inventory_amount() == 0 or BackgroundScene.pallet_inventory_price() == 0 or BackgroundScene.is_delivery_started:
 		$Delivery_button.disabled = true
 	else:
 		$Delivery_button.disabled = false
