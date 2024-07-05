@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=57 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -15,13 +15,16 @@
 [ext_resource type="FontFile" uid="uid://cw8mcnxusknuo" path="res://Assets/Fonts/Minecraft.ttf" id="11_akgup"]
 [ext_resource type="Texture2D" uid="uid://6b52ospwdx8m" path="res://Assets/Textures/UI/Loader/Upgrades_button.png" id="11_sj0bb"]
 [ext_resource type="Script" path="res://Scripts/UI/Main.gd" id="12_h2465"]
-[ext_resource type="Texture2D" uid="uid://bj4kf6heewwml" path="res://Assets/Textures/UI/Loader/Upgrades_UI.png" id="13_5tc8w"]
 [ext_resource type="Script" path="res://Scripts/UI/Upgrades.gd" id="13_es01d"]
 [ext_resource type="Texture2D" uid="uid://dvj6fnd61fh7t" path="res://Assets/Textures/UI/Loader/UP_DOWN_button.png" id="14_4dmc2"]
 [ext_resource type="Texture2D" uid="uid://dyi4pmd8g40b3" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="14_hng1o"]
 [ext_resource type="Texture2D" uid="uid://d0ag4miah0t6f" path="res://Assets/Textures/UI/Loader/Upgrades_text_field.png" id="15_rldhs"]
 [ext_resource type="Theme" uid="uid://dq22ojeg8wln8" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
 [ext_resource type="Texture2D" uid="uid://dt3eva6xonvcu" path="res://Assets/Textures/UI/Loader/Next_button.png" id="17_ms78c"]
+[ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="18_38wgu"]
+[ext_resource type="PackedScene" uid="uid://dkw3f772mriev" path="res://Assets/Objects/UI_elements/exit_button.tscn" id="23_nx70o"]
+[ext_resource type="Texture2D" uid="uid://balddw8hi7hu5" path="res://Assets/Textures/UI/Loader/Build_button.png" id="24_b3mky"]
+[ext_resource type="Texture2D" uid="uid://b7g7ksquy2fg0" path="res://Assets/Textures/UI/Loader/Slot_icon.png" id="24_d11jn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b884o"]
 atlas = ExtResource("11_sj0bb")
@@ -126,6 +129,22 @@ region = Rect2(14, 0, 7, 18)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2h1oa"]
 atlas = ExtResource("17_ms78c")
 region = Rect2(7, 0, 7, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ere8d"]
+atlas = ExtResource("24_b3mky")
+region = Rect2(384, 0, 384, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyybo"]
+atlas = ExtResource("24_b3mky")
+region = Rect2(1152, 0, 384, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbmdp"]
+atlas = ExtResource("24_b3mky")
+region = Rect2(768, 0, 384, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnya1"]
+atlas = ExtResource("24_b3mky")
+region = Rect2(0, 0, 384, 176)
 
 [node name="Ui" type="Node2D"]
 script = ExtResource("1_wy3ne")
@@ -702,12 +721,13 @@ offset_bottom = 1080.0
 script = ExtResource("13_es01d")
 
 [node name="Main_upgrades" type="Control" parent="Loader_UI/Upgrades_UI"]
+visible = false
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-texture = ExtResource("13_5tc8w")
+texture = ExtResource("18_38wgu")
 centered = false
 
 [node name="Fade_prob_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
@@ -1116,10 +1136,235 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
+[node name="Exit_button" parent="Loader_UI/Upgrades_UI/Main_upgrades" instance=ExtResource("23_nx70o")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -1712.0
+offset_bottom = -984.0
+
 [node name="Aqueducts_upgrades" type="Control" parent="Loader_UI/Upgrades_UI"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+texture = ExtResource("18_38wgu")
+centered = false
+
+[node name="Exit_button" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades" instance=ExtResource("23_nx70o")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -1712.0
+offset_bottom = -984.0
+
+[node name="Layer_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+anchors_preset = 0
+offset_left = 360.0
+offset_top = 720.0
+offset_right = 1560.0
+offset_bottom = 984.0
+
+[node name="Slot_1_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_1"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_1"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Slot_1_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+anchors_preset = 0
+offset_left = 408.0
+offset_right = 792.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_2"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_2"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Slot_1_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+anchors_preset = 0
+offset_left = 816.0
+offset_right = 1200.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_3"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_3"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Layer_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+anchors_preset = 0
+offset_left = 360.0
+offset_top = 384.0
+offset_right = 1560.0
+offset_bottom = 648.0
+
+[node name="Slot_2_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_1"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_1"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Slot_2_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+anchors_preset = 0
+offset_left = 408.0
+offset_right = 792.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_2"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_2"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Slot_2_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+anchors_preset = 0
+offset_left = 816.0
+offset_right = 1200.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_3"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_3"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Layer_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+anchors_preset = 0
+offset_left = 360.0
+offset_top = 64.0
+offset_right = 1560.0
+offset_bottom = 328.0
+
+[node name="Slot_3_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+anchors_preset = 0
+offset_right = 384.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_1"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_1"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Slot_3_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+anchors_preset = 0
+offset_left = 408.0
+offset_right = 792.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_2"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_2"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
+
+[node name="Slot_3_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+anchors_preset = 0
+offset_left = 816.0
+offset_right = 1200.0
+offset_bottom = 264.0
+
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_3"]
+texture = ExtResource("24_d11jn")
+centered = false
+hframes = 2
+
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_3"]
+layout_mode = 0
+offset_top = 88.0
+offset_right = 384.0
+offset_bottom = 264.0
+texture_normal = SubResource("AtlasTexture_ere8d")
+texture_pressed = SubResource("AtlasTexture_eyybo")
+texture_hover = SubResource("AtlasTexture_jbmdp")
+texture_disabled = SubResource("AtlasTexture_bnya1")
 
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]
