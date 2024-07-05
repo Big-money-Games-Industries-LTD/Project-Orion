@@ -11,11 +11,12 @@ var current_UI
 var multiplier: float = 1
 var fading_probability: float = 0.1
 var increased_harvest_probability:float = 0
-var increased_harvest_increment:int = 0
+var increased_harvest_increment:int = 1
 var was_the_scene_loaded_after_cutscene: bool #for delivery cutscene
 var before_cutscene_position_saver: Vector2 #for delivery cutscene
 var money:int = 0
 var current_load_scene = null
+var aqueducts_in_fields = []
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -244,6 +245,8 @@ func _ready():
 		beds_list.append([])
 		file_name = dir.get_next()
 	scenes_list.append("res://Scenes/home_scene.tscn")
+	for i in scenes_list:
+		aqueducts_in_fields.append(0)
 
 
 func _process(_delta):

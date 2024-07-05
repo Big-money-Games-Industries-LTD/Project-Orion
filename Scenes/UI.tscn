@@ -36,6 +36,31 @@
 font_size = 70
 font_color = Color(0.796078, 0.858824, 0.988235, 1)
 
+[sub_resource type="Animation" id="Animation_h4ldv"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blackout:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hutdn"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjv7f"]
+_data = {
+"default": SubResource("Animation_h4ldv"),
+"new_animation": SubResource("Animation_hutdn")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_b884o"]
 atlas = ExtResource("11_sj0bb")
 region = Rect2(0, 0, 1184, 240)
@@ -707,7 +732,6 @@ text = "999"
 label_settings = SubResource("LabelSettings_sbov6")
 
 [node name="Loader_UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -802,7 +826,6 @@ unlock_movement = true
 parent_node = NodePath("../../..")
 
 [node name="Upgrades_UI" type="Control" parent="Loader_UI"]
-visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
