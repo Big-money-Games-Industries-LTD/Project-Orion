@@ -39,6 +39,3 @@ func _ready():
 	else:
 		change_UI("Main_UI")
 	BackgroundScene.current_UI = current_UI
-
-
-

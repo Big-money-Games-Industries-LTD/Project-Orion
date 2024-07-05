@@ -52,13 +52,9 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_hutdn"]
-resource_name = "new_animation"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xjv7f"]
 _data = {
-"default": SubResource("Animation_h4ldv"),
-"new_animation": SubResource("Animation_hutdn")
+"default": SubResource("Animation_h4ldv")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b884o"]
@@ -731,6 +727,16 @@ theme = ExtResource("16_b1es6")
 text = "999"
 label_settings = SubResource("LabelSettings_sbov6")
 
+[node name="Blackout" type="Sprite2D" parent="Main_UI"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("18_38wgu")
+centered = false
+
+[node name="Blackout_animation_player" type="AnimationPlayer" parent="Main_UI"]
+libraries = {
+"": SubResource("AnimationLibrary_xjv7f")
+}
+
 [node name="Loader_UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -865,7 +871,7 @@ texture_pressed = SubResource("AtlasTexture_f3d1f")
 texture_hover = SubResource("AtlasTexture_tn08l")
 texture_disabled = SubResource("AtlasTexture_jms1e")
 
-[node name="Harvesting_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Growth_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
 layout_mode = 0
 offset_left = 1647.0
 offset_top = 632.0
@@ -1853,8 +1859,13 @@ theme = ExtResource("16_b1es6")
 text = "999"
 label_settings = SubResource("LabelSettings_4tmhv")
 
+[connection signal="animation_finished" from="Main_UI/Blackout_animation_player" to="." method="_on_blackout_animation_player_animation_finished"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Fade_prob_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_fade_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Harvest_prob_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_harvest_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Growth_time_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_growth_time_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Delivery_time_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_delivery_time_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/To_aqueducts_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_to_aqueducts_button_pressed"]
 [connection signal="pressed" from="Market_UI/Wheat_buy_button" to="Market_UI" method="_on_wheat_buy_button_pressed"]
 [connection signal="pressed" from="Market_UI/Carrot_buy_button" to="Market_UI" method="_on_carrot_buy_button_pressed"]

@@ -25,7 +25,7 @@ func minutes_to_ticks(time): #minutes to tics
 func hours_to_ticks(time): #hours to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")*60**2
 
-var delivery_duration = seconds_to_ticks(20)
+var delivery_duration = seconds_to_ticks(day_duration*2)
 var is_delivery_started = false
 
 class Set: #implementation of set(bcs godot don't have one), i need it in player
