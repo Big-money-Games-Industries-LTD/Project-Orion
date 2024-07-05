@@ -25,6 +25,8 @@ func change_UI(_name):
 			current_UI = _name
 			i.visible = true
 
+func _on_blackout_animation_player_animation_finished(anim_name):
+	BackgroundScene.is_movement_available = true
 	
 func _process(_delta):
 	BackgroundScene.current_UI = current_UI
@@ -37,3 +39,6 @@ func _ready():
 	else:
 		change_UI("Main_UI")
 	BackgroundScene.current_UI = current_UI
+
+
+

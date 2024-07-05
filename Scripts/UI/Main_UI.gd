@@ -15,6 +15,8 @@ func update():
 	$Money.text = str(BackgroundScene.money)
 		
 
+
+
 func _ready():
 	update()
 

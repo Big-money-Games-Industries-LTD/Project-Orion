@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=65 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dvj6fnd61fh7t" path="res://Assets/Textures/UI/Loader/UP_DOWN_button.png" id="14_4dmc2"]
 [ext_resource type="Texture2D" uid="uid://dyi4pmd8g40b3" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="14_hng1o"]
 [ext_resource type="Texture2D" uid="uid://d0ag4miah0t6f" path="res://Assets/Textures/UI/Loader/Upgrades_text_field.png" id="15_rldhs"]
-[ext_resource type="Theme" uid="uid://dq22ojeg8wln8" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
+[ext_resource type="Theme" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
 [ext_resource type="Texture2D" uid="uid://dt3eva6xonvcu" path="res://Assets/Textures/UI/Loader/Next_button.png" id="17_ms78c"]
 [ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="18_38wgu"]
 [ext_resource type="Script" path="res://Scripts/UI/Main_upgrades.gd" id="19_48mav"]
@@ -32,6 +32,27 @@
 [sub_resource type="LabelSettings" id="LabelSettings_sbov6"]
 font_size = 70
 font_color = Color(0.796078, 0.858824, 0.988235, 1)
+
+[sub_resource type="Animation" id="Animation_h4ldv"]
+resource_name = "default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blackout:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjv7f"]
+_data = {
+"default": SubResource("Animation_h4ldv")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b884o"]
 atlas = ExtResource("11_sj0bb")
@@ -673,6 +694,16 @@ offset_bottom = 996.878
 theme = ExtResource("16_b1es6")
 text = "999"
 label_settings = SubResource("LabelSettings_sbov6")
+
+[node name="Blackout" type="Sprite2D" parent="Main_UI"]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("18_38wgu")
+centered = false
+
+[node name="Blackout_animation_player" type="AnimationPlayer" parent="Main_UI"]
+libraries = {
+"": SubResource("AnimationLibrary_xjv7f")
+}
 
 [node name="Loader_UI" type="Control" parent="."]
 visible = false
@@ -1565,6 +1596,7 @@ theme = ExtResource("16_b1es6")
 text = "3"
 label_settings = SubResource("LabelSettings_3jlum")
 
+[connection signal="animation_finished" from="Main_UI/Blackout_animation_player" to="." method="_on_blackout_animation_player_animation_finished"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/To_aqueducts_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_to_aqueducts_button_pressed"]

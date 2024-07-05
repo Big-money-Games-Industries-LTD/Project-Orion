@@ -16,11 +16,13 @@ signal PlayerTurn
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animation = $AnimatedSprite2D
-	
+
+func get_blackout_animation():
+	return $Ui/Main_UI/Blackout_animation_player
+
 func _ready():
 	current_scene_index = BackgroundScene.current_scene_index
 	%Ui.visible = true
-
 
 func delayed_ready():
 	if BackgroundScene.position_saver is Vector2:
