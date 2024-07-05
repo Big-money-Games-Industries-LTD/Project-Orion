@@ -76,7 +76,7 @@ physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_6isxs")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfw1a"]
-size = Vector2(56, 104)
+size = Vector2(9, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrrry"]
 size = Vector2(44, 384)
@@ -106,7 +106,7 @@ texture = ExtResource("3_elm5e")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="house"]
-position = Vector2(-275, -51)
+position = Vector2(-262, -51)
 shape = SubResource("RectangleShape2D_gfw1a")
 
 [node name="Market" type="Sprite2D" parent="."]
@@ -114,9 +114,6 @@ position = Vector2(-120, -156)
 scale = Vector2(4, 4)
 texture = ExtResource("6_mxmkb")
 centered = false
-
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_58bpr")]
-position = Vector2(-255, 0)
 
 [node name="Border_right" type="Area2D" parent="."]
 position = Vector2(-941, -212)
@@ -150,6 +147,9 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence_left2"]
 position = Vector2(-308, -24)
 shape = SubResource("RectangleShape2D_hdapc")
+
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_58bpr")]
+position = Vector2(-255, 0)
 
 [connection signal="body_entered" from="house" to="house" method="_on_body_entered"]
 [connection signal="body_entered" from="Border_right" to="." method="_on_border_right_body_entered"]
