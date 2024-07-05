@@ -15,7 +15,7 @@ var increased_harvest_increment:int = 0
 var was_the_scene_loaded_after_cutscene: bool #for delivery cutscene
 var before_cutscene_position_saver: Vector2 #for delivery cutscene
 var money:int = 0
-
+var current_load_scene = null
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -234,6 +234,7 @@ func day_skip():
 func _ready():
 	randomize()
 	$day_end_timer.wait_time = day_duration
+	$day_end_timer.start()
 	scenes_list.append("res://Scenes/Load.tscn")
 	var dir = DirAccess.open("res://Scenes/fields/") #checking how many fields do we have to make appropriate amount of columns in the array, it shoul act like a static array anywhere else in the game exept this place
 	dir.list_dir_begin()
@@ -257,6 +258,8 @@ func _process(_delta):
 	if is_delivery_started:
 		if is_delivery_started == global_time:
 			is_delivery_started = false
-			#TODO: send signal on delivery ends
+			if current_load_scene:
+				current_load_scene.on_delivery_ends()
+
 func _physics_process(_delta):
 	update()

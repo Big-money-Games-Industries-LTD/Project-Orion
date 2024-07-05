@@ -61,7 +61,6 @@ func set_aqueduct(value:int):#передаем в value желаемое кол�
 	for i in beds_list:
 		var aqueduct = get_node(str(i.get_path()) + '/Aqueduct')
 		var TileMap_ = get_node(str(i.get_path()) + '/TileMap')
-		print(aqueduct)
 		if enumerate < value:
 			aqueduct.show()
 			TileMap_.show()

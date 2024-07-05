@@ -22,3 +22,4 @@ func _on_delivery_button_pressed():
 	BackgroundScene.was_the_scene_loaded_after_cutscene = true
 	BackgroundScene.before_cutscene_position_saver = $"../..".get_pos()
 	get_tree().change_scene_to_file("res://Scenes/Cutscenes/Delivery_cutscene.tscn")
+	BackgroundScene.start_delivery()
