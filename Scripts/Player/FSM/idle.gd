@@ -16,4 +16,4 @@ func inner_physics_process(_delta):
 	if Input.is_action_pressed("left") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("right") or Input.is_action_pressed("ui_right"):
 		state_machine.change_to("Walk")
 
-	#player.animation.play("idle")
+	player.animation.play("Idle")

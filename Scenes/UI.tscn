@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dvj6fnd61fh7t" path="res://Assets/Textures/UI/Loader/UP_DOWN_button.png" id="14_4dmc2"]
 [ext_resource type="Texture2D" uid="uid://dyi4pmd8g40b3" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="14_hng1o"]
 [ext_resource type="Texture2D" uid="uid://d0ag4miah0t6f" path="res://Assets/Textures/UI/Loader/Upgrades_text_field.png" id="15_rldhs"]
-[ext_resource type="Theme" uid="uid://dq22ojeg8wln8" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
+[ext_resource type="Theme" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
 [ext_resource type="Texture2D" uid="uid://dt3eva6xonvcu" path="res://Assets/Textures/UI/Loader/Next_button.png" id="17_ms78c"]
 [ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="18_38wgu"]
 [ext_resource type="Script" path="res://Scripts/UI/Main_upgrades.gd" id="19_48mav"]
