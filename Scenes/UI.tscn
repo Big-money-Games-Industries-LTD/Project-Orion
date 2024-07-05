@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=73 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dvj6fnd61fh7t" path="res://Assets/Textures/UI/Loader/UP_DOWN_button.png" id="14_4dmc2"]
 [ext_resource type="Texture2D" uid="uid://dyi4pmd8g40b3" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="14_hng1o"]
 [ext_resource type="Texture2D" uid="uid://d0ag4miah0t6f" path="res://Assets/Textures/UI/Loader/Upgrades_text_field.png" id="15_rldhs"]
-[ext_resource type="Theme" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
+[ext_resource type="Theme" uid="uid://dq22ojeg8wln8" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
 [ext_resource type="Texture2D" uid="uid://dt3eva6xonvcu" path="res://Assets/Textures/UI/Loader/Next_button.png" id="17_ms78c"]
 [ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="18_38wgu"]
 [ext_resource type="Script" path="res://Scripts/UI/Main_upgrades.gd" id="19_48mav"]
@@ -28,31 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://balddw8hi7hu5" path="res://Assets/Textures/UI/Loader/Build_button.png" id="24_b3mky"]
 [ext_resource type="Texture2D" uid="uid://b7g7ksquy2fg0" path="res://Assets/Textures/UI/Loader/Slot_icon.png" id="24_d11jn"]
 [ext_resource type="Texture2D" uid="uid://cmqbm8vc5vt26" path="res://Assets/Textures/UI/Loader/Number_field.png" id="26_ipyfd"]
+[ext_resource type="Script" path="res://Scripts/UI/Market_UI.gd" id="29_0lllj"]
+[ext_resource type="Texture2D" uid="uid://ckcgksiandwgq" path="res://Assets/Textures/UI/Market/Buy.png" id="29_7cilq"]
+[ext_resource type="Texture2D" uid="uid://bsdxiisfpovp8" path="res://Assets/Textures/UI/Market/Seed_field.png" id="30_clb15"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_sbov6"]
 font_size = 70
 font_color = Color(0.796078, 0.858824, 0.988235, 1)
-
-[sub_resource type="Animation" id="Animation_h4ldv"]
-resource_name = "default"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Blackout:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.2, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xjv7f"]
-_data = {
-"default": SubResource("Animation_h4ldv")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b884o"]
 atlas = ExtResource("11_sj0bb")
@@ -180,6 +162,34 @@ font_color = Color(0.247059, 0.247059, 0.454902, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3jlum"]
 font_size = 130
+font_color = Color(0.796078, 0.858824, 0.988235, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oy3t"]
+atlas = ExtResource("29_7cilq")
+region = Rect2(384, 0, 384, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3aj0"]
+atlas = ExtResource("29_7cilq")
+region = Rect2(1152, 0, 384, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nn4d2"]
+atlas = ExtResource("29_7cilq")
+region = Rect2(768, 0, 384, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dcmb"]
+atlas = ExtResource("29_7cilq")
+region = Rect2(0, 0, 384, 208)
+
+[sub_resource type="LabelSettings" id="LabelSettings_meuki"]
+font_size = 80
+font_color = Color(0.796078, 0.858824, 0.988235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q63mx"]
+font_size = 110
+font_color = Color(0.796078, 0.858824, 0.988235, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4tmhv"]
+font_size = 70
 font_color = Color(0.796078, 0.858824, 0.988235, 1)
 
 [node name="Ui" type="Control"]
@@ -517,6 +527,7 @@ unlock_movement = true
 parent_node = NodePath("../..")
 
 [node name="Main_UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -694,16 +705,6 @@ offset_bottom = 996.878
 theme = ExtResource("16_b1es6")
 text = "999"
 label_settings = SubResource("LabelSettings_sbov6")
-
-[node name="Blackout" type="Sprite2D" parent="Main_UI"]
-modulate = Color(1, 1, 1, 0)
-texture = ExtResource("18_38wgu")
-centered = false
-
-[node name="Blackout_animation_player" type="AnimationPlayer" parent="Main_UI"]
-libraries = {
-"": SubResource("AnimationLibrary_xjv7f")
-}
 
 [node name="Loader_UI" type="Control" parent="."]
 visible = false
@@ -1596,7 +1597,242 @@ theme = ExtResource("16_b1es6")
 text = "3"
 label_settings = SubResource("LabelSettings_3jlum")
 
-[connection signal="animation_finished" from="Main_UI/Blackout_animation_player" to="." method="_on_blackout_animation_player_animation_finished"]
+[node name="Market_UI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("29_0lllj")
+
+[node name="Background" type="Sprite2D" parent="Market_UI"]
+texture = ExtResource("18_38wgu")
+centered = false
+
+[node name="Exit_button" parent="Market_UI" instance=ExtResource("23_nx70o")]
+layout_mode = 1
+offset_left = 62.4187
+offset_top = 62.4187
+offset_right = -1673.58
+offset_bottom = -945.581
+path = "Main_UI"
+unlock_movement = true
+parent_node = NodePath("../..")
+
+[node name="Wheat_buy_button" type="TextureButton" parent="Market_UI"]
+layout_mode = 0
+offset_left = 1394.02
+offset_top = 208.062
+offset_right = 1778.02
+offset_bottom = 416.062
+texture_normal = SubResource("AtlasTexture_4oy3t")
+texture_pressed = SubResource("AtlasTexture_r3aj0")
+texture_hover = SubResource("AtlasTexture_nn4d2")
+texture_disabled = SubResource("AtlasTexture_8dcmb")
+
+[node name="Carrot_buy_button" type="TextureButton" parent="Market_UI"]
+layout_mode = 0
+offset_left = 1394.02
+offset_top = 478.544
+offset_right = 1778.02
+offset_bottom = 686.544
+texture_normal = SubResource("AtlasTexture_4oy3t")
+texture_pressed = SubResource("AtlasTexture_r3aj0")
+texture_hover = SubResource("AtlasTexture_nn4d2")
+texture_disabled = SubResource("AtlasTexture_8dcmb")
+
+[node name="Cabbage_buy_button" type="TextureButton" parent="Market_UI"]
+layout_mode = 0
+offset_left = 1394.02
+offset_top = 749.025
+offset_right = 1778.02
+offset_bottom = 957.025
+texture_normal = SubResource("AtlasTexture_4oy3t")
+texture_pressed = SubResource("AtlasTexture_r3aj0")
+texture_hover = SubResource("AtlasTexture_nn4d2")
+texture_disabled = SubResource("AtlasTexture_8dcmb")
+
+[node name="Field_1" type="Sprite2D" parent="Market_UI"]
+position = Vector2(749.025, 312.094)
+texture = ExtResource("30_clb15")
+
+[node name="Field_2" type="Sprite2D" parent="Market_UI"]
+position = Vector2(749.025, 582.575)
+texture = ExtResource("30_clb15")
+
+[node name="Field_3" type="Sprite2D" parent="Market_UI"]
+position = Vector2(749.025, 853.056)
+texture = ExtResource("30_clb15")
+
+[node name="Wheat_name" type="Control" parent="Market_UI"]
+anchors_preset = 0
+offset_left = 598.0
+offset_top = 241.0
+offset_right = 1300.0
+offset_bottom = 351.0
+
+[node name="Label" type="Label" parent="Market_UI/Wheat_name"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -325.0
+offset_top = -88.0
+offset_right = 325.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_b1es6")
+text = "WHEAT SEEDS"
+label_settings = SubResource("LabelSettings_meuki")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Carrot_name" type="Control" parent="Market_UI"]
+anchors_preset = 0
+offset_left = 598.0
+offset_top = 511.0
+offset_right = 1300.0
+offset_bottom = 622.0
+
+[node name="Label" type="Label" parent="Market_UI/Carrot_name"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -337.0
+offset_top = -91.0
+offset_right = 338.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_b1es6")
+text = "CARROT SEEDS"
+label_settings = SubResource("LabelSettings_meuki")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cabbage_name" type="Control" parent="Market_UI"]
+anchors_preset = 0
+offset_left = 598.179
+offset_top = 781.534
+offset_right = 1300.18
+offset_bottom = 891.534
+
+[node name="Label" type="Label" parent="Market_UI/Cabbage_name"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -337.5
+offset_top = -91.0
+offset_right = 337.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_b1es6")
+text = "CABBAGE SEEDS"
+label_settings = SubResource("LabelSettings_meuki")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wheat_price" type="Control" parent="Market_UI"]
+anchors_preset = 0
+offset_left = 263.0
+offset_top = 241.0
+offset_right = 453.0
+offset_bottom = 351.0
+
+[node name="Label" type="Label" parent="Market_UI/Wheat_price"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -98.1938
+offset_right = 92.0
+offset_bottom = 20.8062
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_b1es6")
+text = "40"
+label_settings = SubResource("LabelSettings_q63mx")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Carrot_price" type="Control" parent="Market_UI"]
+anchors_preset = 0
+offset_left = 262.679
+offset_top = 511.053
+offset_right = 452.679
+offset_bottom = 621.053
+
+[node name="Label" type="Label" parent="Market_UI/Carrot_price"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5968
+offset_top = -100.795
+offset_right = 102.403
+offset_bottom = 18.2052
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_b1es6")
+text = "120"
+label_settings = SubResource("LabelSettings_q63mx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cabbage_price" type="Control" parent="Market_UI"]
+anchors_preset = 0
+offset_left = 262.679
+offset_top = 781.534
+offset_right = 452.679
+offset_bottom = 891.534
+
+[node name="Label" type="Label" parent="Market_UI/Cabbage_price"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.1957
+offset_top = -100.794
+offset_right = 120.804
+offset_bottom = 18.2055
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("16_b1es6")
+text = "240"
+label_settings = SubResource("LabelSettings_q63mx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Money_icon" type="Sprite2D" parent="Market_UI"]
+position = Vector2(1803.5, 110.114)
+scale = Vector2(6, 6)
+texture = ExtResource("12_dl7rw")
+
+[node name="Money" type="Label" parent="Market_UI"]
+layout_mode = 0
+offset_left = 1616.39
+offset_top = 84.5254
+offset_right = 1733.39
+offset_bottom = 155.525
+theme = ExtResource("16_b1es6")
+text = "999"
+label_settings = SubResource("LabelSettings_4tmhv")
+
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/To_aqueducts_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_to_aqueducts_button_pressed"]
+[connection signal="pressed" from="Market_UI/Wheat_buy_button" to="Market_UI" method="_on_wheat_buy_button_pressed"]
+[connection signal="pressed" from="Market_UI/Carrot_buy_button" to="Market_UI" method="_on_carrot_buy_button_pressed"]
+[connection signal="pressed" from="Market_UI/Cabbage_buy_button" to="Market_UI" method="_on_cabbage_buy_button_pressed"]
