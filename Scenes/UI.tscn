@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=66 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -49,9 +49,13 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_hutdn"]
+resource_name = "new_animation"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xjv7f"]
 _data = {
-"default": SubResource("Animation_h4ldv")
+"default": SubResource("Animation_h4ldv"),
+"new_animation": SubResource("Animation_hutdn")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b884o"]
