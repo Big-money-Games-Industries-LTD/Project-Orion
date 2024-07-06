@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=81 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -20,11 +20,12 @@
 [ext_resource type="Texture2D" uid="uid://dvj6fnd61fh7t" path="res://Assets/Textures/UI/Loader/UP_DOWN_button.png" id="14_4dmc2"]
 [ext_resource type="Texture2D" uid="uid://dyi4pmd8g40b3" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="14_hng1o"]
 [ext_resource type="Texture2D" uid="uid://d0ag4miah0t6f" path="res://Assets/Textures/UI/Loader/Upgrades_text_field.png" id="15_rldhs"]
-[ext_resource type="Theme" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
+[ext_resource type="Theme" uid="uid://dq22ojeg8wln8" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
 [ext_resource type="Texture2D" uid="uid://dt3eva6xonvcu" path="res://Assets/Textures/UI/Loader/Next_button.png" id="17_ms78c"]
 [ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="18_38wgu"]
-[ext_resource type="Script" path="res://Scripts/UI/Main_upgrades.gd" id="19_48mav"]
+[ext_resource type="Script" path="res://Scripts/UI/Upgrades_pages.gd" id="22_diijn"]
 [ext_resource type="PackedScene" uid="uid://dkw3f772mriev" path="res://Assets/Objects/UI_elements/exit_button.tscn" id="23_nx70o"]
+[ext_resource type="Texture2D" uid="uid://bmcdaomx4i3hs" path="res://Assets/Textures/UI/Loader/Window_selector.png" id="23_xsr71"]
 [ext_resource type="Texture2D" uid="uid://balddw8hi7hu5" path="res://Assets/Textures/UI/Loader/Build_button.png" id="24_b3mky"]
 [ext_resource type="Texture2D" uid="uid://b7g7ksquy2fg0" path="res://Assets/Textures/UI/Loader/Slot_icon.png" id="24_d11jn"]
 [ext_resource type="Texture2D" uid="uid://cmqbm8vc5vt26" path="res://Assets/Textures/UI/Loader/Number_field.png" id="26_ipyfd"]
@@ -104,62 +105,82 @@ region = Rect2(16, 9, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_67bne"]
 atlas = ExtResource("14_4dmc2")
-region = Rect2(48, 9, 16, 9)
+region = Rect2(48, 0, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xpen"]
 atlas = ExtResource("14_4dmc2")
-region = Rect2(32, 9, 16, 9)
+region = Rect2(32, 0, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuwu4"]
 atlas = ExtResource("14_4dmc2")
-region = Rect2(0, 9, 16, 9)
+region = Rect2(0, 0, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_or1od"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1s1n"]
 atlas = SubResource("CompressedTexture2D_or1od")
-region = Rect2(16, 0, 16, 9)
+region = Rect2(16, 9, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dslco"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f3d1f"]
 atlas = SubResource("CompressedTexture2D_dslco")
-region = Rect2(48, 0, 16, 9)
+region = Rect2(48, 9, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_amt2a"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tn08l"]
 atlas = SubResource("CompressedTexture2D_amt2a")
-region = Rect2(32, 0, 16, 9)
+region = Rect2(32, 9, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hhhnu"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jms1e"]
 atlas = SubResource("CompressedTexture2D_hhhnu")
-region = Rect2(0, 0, 16, 9)
+region = Rect2(0, 9, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2dbfm"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30cga"]
 atlas = SubResource("CompressedTexture2D_2dbfm")
-region = Rect2(16, 9, 16, 9)
+region = Rect2(16, 0, 16, 9)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1d0y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m4a2"]
 atlas = ExtResource("17_ms78c")
-region = Rect2(0, 0, 7, 18)
+region = Rect2(8, 0, 4, 7)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vl45o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7fba"]
 atlas = ExtResource("17_ms78c")
-region = Rect2(14, 0, 7, 18)
+region = Rect2(24, 0, 4, 7)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2h1oa"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e22l8"]
 atlas = ExtResource("17_ms78c")
-region = Rect2(7, 0, 7, 18)
+region = Rect2(16, 0, 4, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qxgi"]
+atlas = ExtResource("17_ms78c")
+region = Rect2(0, 0, 4, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpm0p"]
+atlas = ExtResource("17_ms78c")
+region = Rect2(12, 0, 4, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pfnv"]
+atlas = ExtResource("17_ms78c")
+region = Rect2(28, 0, 4, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s588i"]
+atlas = ExtResource("17_ms78c")
+region = Rect2(20, 0, 4, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32jbv"]
+atlas = ExtResource("17_ms78c")
+region = Rect2(4, 0, 4, 7)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ere8d"]
 atlas = ExtResource("24_b3mky")
@@ -837,93 +858,85 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("13_es01d")
 
-[node name="Main_upgrades" type="Control" parent="Loader_UI/Upgrades_UI"]
+[node name="Page_1" type="Control" parent="Loader_UI/Upgrades_UI"]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("19_48mav")
+script = ExtResource("22_diijn")
 
-[node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_1"]
 texture = ExtResource("18_38wgu")
 centered = false
 
-[node name="Fade_prob_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Selector" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_1"]
+position = Vector2(893.368, 62.4187)
+scale = Vector2(10, 10)
+texture = ExtResource("23_xsr71")
+hframes = 3
+
+[node name="Fade_prob_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
 layout_mode = 0
-offset_left = 1647.0
-offset_top = 168.0
-offset_right = 1663.0
-offset_bottom = 177.0
+offset_left = 1663.42
+offset_top = 232.062
+offset_right = 1679.42
+offset_bottom = 241.062
 scale = Vector2(14, 18)
 texture_normal = SubResource("AtlasTexture_r4gfh")
 texture_pressed = SubResource("AtlasTexture_67bne")
 texture_hover = SubResource("AtlasTexture_6xpen")
 texture_disabled = SubResource("AtlasTexture_tuwu4")
 
-[node name="Harvest_prob_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Harvest_prob_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
 layout_mode = 0
-offset_left = 1647.0
-offset_top = 400.0
-offset_right = 1663.0
-offset_bottom = 409.0
+offset_left = 1663.42
+offset_top = 505.675
+offset_right = 1679.42
+offset_bottom = 514.675
 scale = Vector2(14, 18)
 texture_normal = SubResource("AtlasTexture_f1s1n")
 texture_pressed = SubResource("AtlasTexture_f3d1f")
 texture_hover = SubResource("AtlasTexture_tn08l")
 texture_disabled = SubResource("AtlasTexture_jms1e")
 
-[node name="Growth_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Growth_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
 layout_mode = 0
-offset_left = 1647.0
-offset_top = 632.0
-offset_right = 1663.0
-offset_bottom = 641.0
+offset_left = 1663.42
+offset_top = 773.025
+offset_right = 1679.42
+offset_bottom = 782.025
 scale = Vector2(14, 18)
 texture_normal = SubResource("AtlasTexture_30cga")
 texture_pressed = SubResource("AtlasTexture_67bne")
 texture_hover = SubResource("AtlasTexture_6xpen")
 texture_disabled = SubResource("AtlasTexture_tuwu4")
 
-[node name="Delivery_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-layout_mode = 0
-offset_left = 1647.0
-offset_top = 864.0
-offset_right = 1663.0
-offset_bottom = 873.0
-scale = Vector2(14, 18)
-texture_normal = SubResource("AtlasTexture_30cga")
-texture_pressed = SubResource("AtlasTexture_67bne")
-texture_hover = SubResource("AtlasTexture_6xpen")
-texture_disabled = SubResource("AtlasTexture_tuwu4")
-
-[node name="Text_field_1" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-position = Vector2(830, 248)
+[node name="Text_field_1" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_1"]
+position = Vector2(846.419, 312.062)
 texture = ExtResource("15_rldhs")
 
-[node name="Text_field_2" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-position = Vector2(830, 480)
+[node name="Text_field_2" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_1"]
+position = Vector2(846.419, 585.675)
 texture = ExtResource("15_rldhs")
 
-[node name="Text_field_3" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-position = Vector2(830, 712)
+[node name="Text_field_3" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_1"]
+position = Vector2(846.419, 853.025)
 texture = ExtResource("15_rldhs")
 
-[node name="Text_field_4" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-position = Vector2(830, 944)
-texture = ExtResource("15_rldhs")
-
-[node name="Names" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Names" type="Control" parent="Loader_UI/Upgrades_UI/Page_1"]
 anchors_preset = 0
-offset_left = 494.0
-offset_top = 176.0
-offset_right = 1230.0
-offset_bottom = 984.0
+offset_left = 510.419
+offset_top = 281.675
+offset_right = 1246.42
+offset_bottom = 875.675
 
-[node name="Fade_prob_name" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names"]
+[node name="Fade_prob_name" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Names"]
 anchors_preset = 0
+offset_top = -41.6125
 offset_right = 736.0
-offset_bottom = 112.0
+offset_bottom = 70.3875
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names/Fade_prob_name"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Names/Fade_prob_name"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -943,13 +956,13 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Harvest_prob_name" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names"]
+[node name="Harvest_prob_name" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Names"]
 anchors_preset = 0
 offset_top = 232.0
 offset_right = 736.0
 offset_bottom = 344.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names/Harvest_prob_name"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Names/Harvest_prob_name"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -969,13 +982,13 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Harvesting_time_name" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names"]
+[node name="Growth_time_name" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Names"]
 anchors_preset = 0
-offset_top = 464.0
+offset_top = 499.35
 offset_right = 736.0
-offset_bottom = 576.0
+offset_bottom = 611.35
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names/Harvesting_time_name"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Names/Growth_time_name"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -995,45 +1008,20 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Delivery_time_name" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names"]
+[node name="Prices" type="Control" parent="Loader_UI/Upgrades_UI/Page_1"]
 anchors_preset = 0
-offset_top = 696.0
-offset_right = 736.0
-offset_bottom = 808.0
+offset_left = 190.419
+offset_top = 281.675
+offset_right = 398.419
+offset_bottom = 875.675
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Names/Delivery_time_name"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -360.5
-offset_top = -34.5
-offset_right = 360.5
-offset_bottom = 56.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("16_b1es6")
-theme_override_font_sizes/normal_font_size = 90
-text = "DELIVERY TIME"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Prices" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Fade_prob_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
 anchors_preset = 0
-offset_left = 174.0
-offset_top = 176.0
-offset_right = 382.0
-offset_bottom = 984.0
-
-[node name="Fade_prob_price" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices"]
-anchors_preset = 0
+offset_top = -41.6125
 offset_right = 208.0
-offset_bottom = 112.0
+offset_bottom = 70.3875
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices/Fade_prob_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Fade_prob_price"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1051,13 +1039,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Harvest_prob_price" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices"]
+[node name="Harvest_prob_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
 anchors_preset = 0
 offset_top = 232.0
 offset_right = 208.0
 offset_bottom = 344.0
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices/Harvest_prob_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Harvest_prob_price"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1075,13 +1063,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Harvesting_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices"]
+[node name="Growth_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
 anchors_preset = 0
-offset_top = 464.0
+offset_top = 499.35
 offset_right = 208.0
-offset_bottom = 576.0
+offset_bottom = 611.35
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices/Harvesting_time_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Growth_time_price"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1099,43 +1087,20 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Delivery_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices"]
+[node name="Current" type="Control" parent="Loader_UI/Upgrades_UI/Page_1"]
 anchors_preset = 0
-offset_top = 696.0
-offset_right = 208.0
-offset_bottom = 808.0
+offset_left = 1358.42
+offset_top = 281.675
+offset_right = 1582.42
+offset_bottom = 875.675
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Prices/Delivery_time_price"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -168.0
-offset_top = -38.0
-offset_bottom = 62.0
-grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("16_b1es6")
-theme_override_font_sizes/normal_font_size = 100
-text = "999"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Current" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
+[node name="Fade_prob_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
 anchors_preset = 0
-offset_left = 1342.0
-offset_top = 176.0
-offset_right = 1566.0
-offset_bottom = 984.0
-
-[node name="Fade_prob_current" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current"]
-anchors_preset = 0
+offset_top = -41.6125
 offset_right = 224.0
-offset_bottom = 112.0
+offset_bottom = 70.3875
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current/Fade_prob_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Fade_prob_current"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1154,13 +1119,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Harvest_prob_current" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current"]
+[node name="Harvest_prob_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
 anchors_preset = 0
 offset_top = 232.0
 offset_right = 224.0
 offset_bottom = 344.0
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current/Harvest_prob_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Harvest_prob_current"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1179,13 +1144,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Harvesting_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current"]
+[node name="Growth_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
 anchors_preset = 0
-offset_top = 464.0
+offset_top = 499.35
 offset_right = 224.0
-offset_bottom = 576.0
+offset_bottom = 611.35
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current/Harvesting_time_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Growth_time_current"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1204,56 +1169,7 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Delivery_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current"]
-anchors_preset = 0
-offset_top = 696.0
-offset_right = 224.0
-offset_bottom = 808.0
-
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades/Current/Delivery_time_current"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -84.0
-offset_top = -38.0
-offset_right = 84.0
-offset_bottom = 62.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("16_b1es6")
-theme_override_font_sizes/normal_font_size = 100
-text = "999"
-fit_content = true
-autowrap_mode = 0
-
-[node name="To_aqueducts_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-layout_mode = 0
-offset_left = 1752.0
-offset_top = 16.0
-offset_right = 1759.0
-offset_bottom = 34.0
-scale = Vector2(14, 6)
-texture_normal = SubResource("AtlasTexture_s1d0y")
-texture_pressed = SubResource("AtlasTexture_vl45o")
-texture_hover = SubResource("AtlasTexture_2h1oa")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Main_upgrades"]
-layout_mode = 0
-offset_left = 1128.0
-offset_top = 35.0
-offset_right = 1735.0
-offset_bottom = 111.0
-theme = ExtResource("16_b1es6")
-theme_override_font_sizes/normal_font_size = 75
-text = "TO AQUEDUCTS"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="Exit_button" parent="Loader_UI/Upgrades_UI/Main_upgrades" instance=ExtResource("23_nx70o")]
+[node name="Exit_button" parent="Loader_UI/Upgrades_UI/Page_1" instance=ExtResource("23_nx70o")]
 layout_mode = 1
 offset_left = 24.0
 offset_top = 24.0
@@ -1262,17 +1178,386 @@ offset_bottom = -984.0
 path = "Main_loader_UI"
 parent_node = NodePath("../../..")
 
-[node name="Aqueducts_upgrades" type="Control" parent="Loader_UI/Upgrades_UI"]
+[node name="To_left" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
+layout_mode = 0
+offset_left = 717.815
+offset_top = 20.8062
+offset_right = 721.815
+offset_bottom = 27.8062
+scale = Vector2(12, 12)
+disabled = true
+texture_normal = SubResource("AtlasTexture_5m4a2")
+texture_pressed = SubResource("AtlasTexture_t7fba")
+texture_hover = SubResource("AtlasTexture_e22l8")
+texture_disabled = SubResource("AtlasTexture_0qxgi")
+
+[node name="To_right" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
+layout_mode = 0
+offset_left = 1019.51
+offset_top = 20.8062
+offset_right = 1023.51
+offset_bottom = 27.8062
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_lpm0p")
+texture_pressed = SubResource("AtlasTexture_8pfnv")
+texture_hover = SubResource("AtlasTexture_s588i")
+texture_disabled = SubResource("AtlasTexture_32jbv")
+
+[node name="Page_2" type="Control" parent="Loader_UI/Upgrades_UI"]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("22_diijn")
+
+[node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_2"]
+texture = ExtResource("18_38wgu")
+centered = false
+
+[node name="Selector" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_2"]
+position = Vector2(893.368, 62.4187)
+scale = Vector2(10, 10)
+texture = ExtResource("23_xsr71")
+hframes = 3
+frame = 1
+
+[node name="Harvesting_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+layout_mode = 0
+offset_left = 1663.42
+offset_top = 232.062
+offset_right = 1679.42
+offset_bottom = 241.062
+scale = Vector2(14, 18)
+texture_normal = SubResource("AtlasTexture_r4gfh")
+texture_pressed = SubResource("AtlasTexture_67bne")
+texture_hover = SubResource("AtlasTexture_6xpen")
+texture_disabled = SubResource("AtlasTexture_tuwu4")
+
+[node name="Delivery_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+layout_mode = 0
+offset_left = 1663.42
+offset_top = 505.675
+offset_right = 1679.42
+offset_bottom = 514.675
+scale = Vector2(14, 18)
+texture_normal = SubResource("AtlasTexture_f1s1n")
+texture_pressed = SubResource("AtlasTexture_f3d1f")
+texture_hover = SubResource("AtlasTexture_tn08l")
+texture_disabled = SubResource("AtlasTexture_jms1e")
+
+[node name="Prices_multiplier_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+layout_mode = 0
+offset_left = 1663.42
+offset_top = 773.025
+offset_right = 1679.42
+offset_bottom = 782.025
+scale = Vector2(14, 18)
+texture_normal = SubResource("AtlasTexture_30cga")
+texture_pressed = SubResource("AtlasTexture_67bne")
+texture_hover = SubResource("AtlasTexture_6xpen")
+texture_disabled = SubResource("AtlasTexture_tuwu4")
+
+[node name="Text_field_1" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_2"]
+position = Vector2(846.419, 312.062)
+texture = ExtResource("15_rldhs")
+
+[node name="Text_field_2" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_2"]
+position = Vector2(846.419, 585.675)
+texture = ExtResource("15_rldhs")
+
+[node name="Text_field_3" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_2"]
+position = Vector2(846.419, 853.025)
+texture = ExtResource("15_rldhs")
+
+[node name="Names" type="Control" parent="Loader_UI/Upgrades_UI/Page_2"]
+anchors_preset = 0
+offset_left = 510.419
+offset_top = 281.675
+offset_right = 1246.42
+offset_bottom = 875.675
+
+[node name="Harvesting_time_name" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Names"]
+anchors_preset = 0
+offset_top = -41.6125
+offset_right = 736.0
+offset_bottom = 70.3875
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Names/Harvesting_time_name"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -29.0
+offset_right = 357.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 76
+text = "HARVESTING TIME"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Delivery_time_name" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Names"]
+anchors_preset = 0
+offset_top = 232.0
+offset_right = 736.0
+offset_bottom = 344.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Names/Delivery_time_name"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -33.7964
+offset_right = 355.0
+offset_bottom = 57.2036
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 90
+text = "DELIVETY TIME"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Prices_multiplier_name" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Names"]
+anchors_preset = 0
+offset_top = 499.35
+offset_right = 736.0
+offset_bottom = 611.35
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Names/Prices_multiplier_name"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.5
+offset_top = -33.7965
+offset_right = 306.5
+offset_bottom = 57.2035
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 90
+text = "SELL PRICES"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Prices" type="Control" parent="Loader_UI/Upgrades_UI/Page_2"]
+anchors_preset = 0
+offset_left = 190.419
+offset_top = 281.675
+offset_right = 398.419
+offset_bottom = 875.675
+
+[node name="Harvesting_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
+anchors_preset = 0
+offset_top = -41.6125
+offset_right = 208.0
+offset_bottom = 70.3875
+
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Harvesting_time_price"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -38.0
+offset_bottom = 62.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 100
+text = "999"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Delivery_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
+anchors_preset = 0
+offset_top = 232.0
+offset_right = 208.0
+offset_bottom = 344.0
+
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Delivery_time_price"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -38.0
+offset_bottom = 62.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 100
+text = "999"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Prices_miltiplier_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
+anchors_preset = 0
+offset_top = 499.35
+offset_right = 208.0
+offset_bottom = 611.35
+
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Prices_miltiplier_price"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -38.0
+offset_bottom = 62.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 100
+text = "999"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Current" type="Control" parent="Loader_UI/Upgrades_UI/Page_2"]
+anchors_preset = 0
+offset_left = 1358.42
+offset_top = 281.675
+offset_right = 1582.42
+offset_bottom = 875.675
+
+[node name="Harvesting_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
+anchors_preset = 0
+offset_top = -41.6125
+offset_right = 224.0
+offset_bottom = 70.3875
+
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Harvesting_time_current"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -38.0
+offset_right = 84.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 100
+text = "999"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Delivery_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
+anchors_preset = 0
+offset_top = 232.0
+offset_right = 224.0
+offset_bottom = 344.0
+
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Delivery_time_current"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -38.0
+offset_right = 84.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 100
+text = "999"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Prices_miltiplier_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
+anchors_preset = 0
+offset_top = 499.35
+offset_right = 224.0
+offset_bottom = 611.35
+
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Prices_miltiplier_current"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -38.0
+offset_right = 84.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_b1es6")
+theme_override_font_sizes/normal_font_size = 100
+text = "999"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Exit_button" parent="Loader_UI/Upgrades_UI/Page_2" instance=ExtResource("23_nx70o")]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -1712.0
+offset_bottom = -984.0
+path = "Main_loader_UI"
+parent_node = NodePath("../../..")
+
+[node name="To_left" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+layout_mode = 0
+offset_left = 717.815
+offset_top = 20.8062
+offset_right = 721.815
+offset_bottom = 27.8062
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_5m4a2")
+texture_pressed = SubResource("AtlasTexture_t7fba")
+texture_hover = SubResource("AtlasTexture_e22l8")
+texture_disabled = SubResource("AtlasTexture_0qxgi")
+
+[node name="To_right" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+layout_mode = 0
+offset_left = 1019.51
+offset_top = 20.8062
+offset_right = 1023.51
+offset_bottom = 27.8062
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_lpm0p")
+texture_pressed = SubResource("AtlasTexture_8pfnv")
+texture_hover = SubResource("AtlasTexture_s588i")
+texture_disabled = SubResource("AtlasTexture_32jbv")
+
+[node name="Page_3" type="Control" parent="Loader_UI/Upgrades_UI"]
 visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+[node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3"]
 texture = ExtResource("18_38wgu")
 centered = false
 
-[node name="Exit_button" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades" instance=ExtResource("23_nx70o")]
+[node name="Exit_button" parent="Loader_UI/Upgrades_UI/Page_3" instance=ExtResource("23_nx70o")]
 layout_mode = 1
 offset_left = 24.0
 offset_top = 24.0
@@ -1281,25 +1566,25 @@ offset_bottom = -984.0
 path = "Main_upgrades"
 parent_node = NodePath("../..")
 
-[node name="Layer_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+[node name="Layer_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3"]
 anchors_preset = 0
-offset_left = 360.0
-offset_top = 720.0
-offset_right = 1560.0
-offset_bottom = 984.0
+offset_left = 395.319
+offset_top = 749.025
+offset_right = 1595.32
+offset_bottom = 1013.02
 
-[node name="Slot_1_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+[node name="Slot_1_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1"]
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_1"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_1"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 frame = 1
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_1"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_1"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1310,7 +1595,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_1"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_1"]
 visible = false
 layout_mode = 0
 offset_left = 72.0
@@ -1321,19 +1606,19 @@ theme = ExtResource("16_b1es6")
 text = "price: free"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Slot_1_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+[node name="Slot_1_2" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1"]
 anchors_preset = 0
 offset_left = 408.0
 offset_right = 792.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_2"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_2"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 frame = 1
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_2"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_2"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1344,7 +1629,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_2"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_2"]
 visible = false
 layout_mode = 0
 offset_left = 64.0
@@ -1355,18 +1640,18 @@ theme = ExtResource("16_b1es6")
 text = "price: free"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Slot_1_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+[node name="Slot_1_3" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1"]
 anchors_preset = 0
 offset_left = 816.0
 offset_right = 1200.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_3"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_3"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_3"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_3"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1376,7 +1661,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1/Slot_1_3"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_3"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 16.0
@@ -1386,11 +1671,11 @@ theme = ExtResource("16_b1es6")
 text = "price: 50"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1"]
 position = Vector2(-112, 176)
 texture = ExtResource("26_ipyfd")
 
-[node name="Label" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_1"]
+[node name="Label" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1"]
 layout_mode = 0
 offset_left = -136.0
 offset_top = 128.0
@@ -1400,24 +1685,24 @@ theme = ExtResource("16_b1es6")
 text = "1"
 label_settings = SubResource("LabelSettings_3jlum")
 
-[node name="Layer_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+[node name="Layer_2" type="Control" parent="Loader_UI/Upgrades_UI/Page_3"]
 anchors_preset = 0
-offset_left = 360.0
-offset_top = 384.0
-offset_right = 1560.0
-offset_bottom = 648.0
+offset_left = 395.319
+offset_top = 436.931
+offset_right = 1595.32
+offset_bottom = 700.931
 
-[node name="Slot_2_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+[node name="Slot_2_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2"]
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_1"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_1"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_1"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_1"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1427,7 +1712,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_1"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_1"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 16.0
@@ -1437,18 +1722,18 @@ theme = ExtResource("16_b1es6")
 text = "price: 100"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Slot_2_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+[node name="Slot_2_2" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2"]
 anchors_preset = 0
 offset_left = 408.0
 offset_right = 792.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_2"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_2"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_2"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_2"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1458,7 +1743,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_2"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_2"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 16.0
@@ -1468,18 +1753,18 @@ theme = ExtResource("16_b1es6")
 text = "price: 100"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Slot_2_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+[node name="Slot_2_3" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2"]
 anchors_preset = 0
 offset_left = 816.0
 offset_right = 1200.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_3"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_3"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_3"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_3"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1489,7 +1774,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2/Slot_2_3"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_3"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 16.0
@@ -1499,11 +1784,11 @@ theme = ExtResource("16_b1es6")
 text = "price: 100"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2"]
 position = Vector2(-112, 176)
 texture = ExtResource("26_ipyfd")
 
-[node name="Label" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_2"]
+[node name="Label" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2"]
 layout_mode = 0
 offset_left = -144.0
 offset_top = 128.0
@@ -1513,24 +1798,24 @@ theme = ExtResource("16_b1es6")
 text = "2"
 label_settings = SubResource("LabelSettings_3jlum")
 
-[node name="Layer_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades"]
+[node name="Layer_3" type="Control" parent="Loader_UI/Upgrades_UI/Page_3"]
 anchors_preset = 0
-offset_left = 360.0
-offset_top = 64.0
-offset_right = 1560.0
-offset_bottom = 328.0
+offset_left = 395.319
+offset_top = 124.837
+offset_right = 1595.32
+offset_bottom = 388.837
 
-[node name="Slot_3_1" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+[node name="Slot_3_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3"]
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_1"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_1"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_1"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_1"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1540,7 +1825,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_1"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_1"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 16.0
@@ -1550,18 +1835,18 @@ theme = ExtResource("16_b1es6")
 text = "price: 200"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Slot_3_2" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+[node name="Slot_3_2" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3"]
 anchors_preset = 0
 offset_left = 408.0
 offset_right = 792.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_2"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_2"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_2"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_2"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1571,7 +1856,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_2"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_2"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 16.0
@@ -1581,18 +1866,18 @@ theme = ExtResource("16_b1es6")
 text = "price: 200"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Slot_3_3" type="Control" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+[node name="Slot_3_3" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3"]
 anchors_preset = 0
 offset_left = 816.0
 offset_right = 1200.0
 offset_bottom = 264.0
 
-[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_3"]
+[node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_3"]
 texture = ExtResource("24_d11jn")
 centered = false
 hframes = 2
 
-[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_3"]
+[node name="Build_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_3"]
 layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
@@ -1602,7 +1887,7 @@ texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
 texture_disabled = SubResource("AtlasTexture_bnya1")
 
-[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3/Slot_3_3"]
+[node name="Price" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_3"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 16.0
@@ -1612,11 +1897,11 @@ theme = ExtResource("16_b1es6")
 text = "price: 200"
 label_settings = SubResource("LabelSettings_dr0hq")
 
-[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+[node name="Sprite2D" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3"]
 position = Vector2(-112, 176)
 texture = ExtResource("26_ipyfd")
 
-[node name="Label" type="Label" parent="Loader_UI/Upgrades_UI/Aqueducts_upgrades/Layer_3"]
+[node name="Label" type="Label" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3"]
 layout_mode = 0
 offset_left = -144.0
 offset_top = 128.0
@@ -1626,7 +1911,40 @@ theme = ExtResource("16_b1es6")
 text = "3"
 label_settings = SubResource("LabelSettings_3jlum")
 
+[node name="To_left" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3"]
+layout_mode = 0
+offset_left = 717.815
+offset_top = 20.8062
+offset_right = 721.815
+offset_bottom = 27.8062
+scale = Vector2(12, 12)
+texture_normal = SubResource("AtlasTexture_5m4a2")
+texture_pressed = SubResource("AtlasTexture_t7fba")
+texture_hover = SubResource("AtlasTexture_e22l8")
+texture_disabled = SubResource("AtlasTexture_0qxgi")
+
+[node name="To_right" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_3"]
+layout_mode = 0
+offset_left = 1019.51
+offset_top = 20.8062
+offset_right = 1023.51
+offset_bottom = 27.8062
+scale = Vector2(12, 12)
+disabled = true
+texture_normal = SubResource("AtlasTexture_lpm0p")
+texture_pressed = SubResource("AtlasTexture_8pfnv")
+texture_hover = SubResource("AtlasTexture_s588i")
+texture_disabled = SubResource("AtlasTexture_32jbv")
+
+[node name="Selector" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3"]
+position = Vector2(893.368, 62.4187)
+scale = Vector2(10, 10)
+texture = ExtResource("23_xsr71")
+hframes = 3
+frame = 2
+
 [node name="Market_UI" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -1862,11 +2180,12 @@ label_settings = SubResource("LabelSettings_4tmhv")
 [connection signal="animation_finished" from="Main_UI/Blackout_animation_player" to="." method="_on_blackout_animation_player_animation_finished"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Fade_prob_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_fade_prob_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Harvest_prob_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_harvest_prob_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Growth_time_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_growth_time_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/Delivery_time_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_delivery_time_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Main_upgrades/To_aqueducts_button" to="Loader_UI/Upgrades_UI/Main_upgrades" method="_on_to_aqueducts_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Fade_prob_button" to="Loader_UI/Upgrades_UI/Page_1" method="_on_fade_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Harvest_prob_button" to="Loader_UI/Upgrades_UI/Page_1" method="_on_harvest_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Growth_time_button" to="Loader_UI/Upgrades_UI/Page_1" method="_on_growth_time_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Harvesting_time_button" to="Loader_UI/Upgrades_UI/Page_2" method="_on_fade_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Delivery_time_button" to="Loader_UI/Upgrades_UI/Page_2" method="_on_harvest_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Prices_multiplier_button" to="Loader_UI/Upgrades_UI/Page_2" method="_on_growth_time_button_pressed"]
 [connection signal="pressed" from="Market_UI/Wheat_buy_button" to="Market_UI" method="_on_wheat_buy_button_pressed"]
 [connection signal="pressed" from="Market_UI/Carrot_buy_button" to="Market_UI" method="_on_carrot_buy_button_pressed"]
 [connection signal="pressed" from="Market_UI/Cabbage_buy_button" to="Market_UI" method="_on_cabbage_buy_button_pressed"]

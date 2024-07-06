@@ -1,5 +1,43 @@
 extends Control
 
+var upgrades = {
+	'fading_probability':{
+		'max_value': 0.1,
+		'min_value': 0,
+		'step': 0.01,
+		'price': 99
+	},
+	'harvest_probability':{
+		'max_value': 0.5,
+		'min_value': 0,
+		'step': 0.1,
+		'price': 98
+	},
+	'multiplier':{
+		'max_value': 2,
+		'min_value': 1,
+		'step': 0.2,
+		'price': 97
+	},
+	'harvesting_time':{
+		'max_value': 0.4,
+		'min_value': 2,
+		'step': 0.2,
+		'price': 96
+	},
+	'delivery_time':{
+		'max_value': BackgroundScene.delivery_duration*2,
+		'min_value': BackgroundScene.seconds_to_ticks(20),
+		'step': BackgroundScene.seconds_to_ticks(88),
+		'price': 95
+	},
+	'prices_multiplier':{
+		'max_value': 2,
+		'min_value': 1,
+		'step': 0.1,
+		'price': 94
+	}
+}
 
 func _on_to_aqueducts_button_pressed():
 	$"..".change_UI("Aqueducts_upgrades")

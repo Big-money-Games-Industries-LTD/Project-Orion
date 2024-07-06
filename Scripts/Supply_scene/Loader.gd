@@ -21,6 +21,9 @@ func _on_body_exited(body):
 		player = null
 		UI.change_UI('Main_UI')
 		
+		
+func _ready():
+	$Loader.play("default")
 func _process(_delta):
 	if action_enable and Input.is_action_just_pressed("action0"):
 		UI.change_UI('Loader_UI')
