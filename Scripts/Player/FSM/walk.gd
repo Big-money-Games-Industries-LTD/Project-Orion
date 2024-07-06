@@ -28,6 +28,6 @@ func inner_physics_process(_delta):
 
 	player.move_and_slide()
 
-	if player.velocity.x == 0 and direction == 0:
+	if player.velocity.x == 0 and direction == 0 or BackgroundScene.is_movement_available == false:
 		state_machine.change_to("Idle")
 	player.animation.play("Walk")
