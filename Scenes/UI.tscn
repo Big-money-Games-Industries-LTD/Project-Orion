@@ -759,6 +759,7 @@ libraries = {
 }
 
 [node name="Loader_UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -859,7 +860,6 @@ offset_bottom = 1080.0
 script = ExtResource("13_es01d")
 
 [node name="Page_1" type="Control" parent="Loader_UI/Upgrades_UI"]
-visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -875,7 +875,12 @@ scale = Vector2(10, 10)
 texture = ExtResource("23_xsr71")
 hframes = 3
 
-[node name="Fade_prob_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
+[node name="Buttons" type="Control" parent="Loader_UI/Upgrades_UI/Page_1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fading_probability" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1/Buttons"]
 layout_mode = 0
 offset_left = 1663.42
 offset_top = 232.062
@@ -887,7 +892,7 @@ texture_pressed = SubResource("AtlasTexture_67bne")
 texture_hover = SubResource("AtlasTexture_6xpen")
 texture_disabled = SubResource("AtlasTexture_tuwu4")
 
-[node name="Harvest_prob_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
+[node name="Harvest_probability" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1/Buttons"]
 layout_mode = 0
 offset_left = 1663.42
 offset_top = 505.675
@@ -899,7 +904,7 @@ texture_pressed = SubResource("AtlasTexture_f3d1f")
 texture_hover = SubResource("AtlasTexture_tn08l")
 texture_disabled = SubResource("AtlasTexture_jms1e")
 
-[node name="Growth_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1"]
+[node name="Multiplier" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_1/Buttons"]
 layout_mode = 0
 offset_left = 1663.42
 offset_top = 773.025
@@ -1015,13 +1020,13 @@ offset_top = 281.675
 offset_right = 398.419
 offset_bottom = 875.675
 
-[node name="Fade_prob_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
+[node name="Fading_probability" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
 anchors_preset = 0
 offset_top = -41.6125
 offset_right = 208.0
 offset_bottom = 70.3875
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Fade_prob_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Fading_probability"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1039,13 +1044,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Harvest_prob_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
+[node name="Harvest_probability" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
 anchors_preset = 0
 offset_top = 232.0
 offset_right = 208.0
 offset_bottom = 344.0
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Harvest_prob_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Harvest_probability"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1063,13 +1068,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Growth_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
+[node name="Multiplier" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Prices"]
 anchors_preset = 0
 offset_top = 499.35
 offset_right = 208.0
 offset_bottom = 611.35
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Growth_time_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Prices/Multiplier"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1094,13 +1099,13 @@ offset_top = 281.675
 offset_right = 1582.42
 offset_bottom = 875.675
 
-[node name="Fade_prob_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
+[node name="Fading_probability" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
 anchors_preset = 0
 offset_top = -41.6125
 offset_right = 224.0
 offset_bottom = 70.3875
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Fade_prob_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Fading_probability"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1119,13 +1124,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Harvest_prob_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
+[node name="Harvest_probability" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
 anchors_preset = 0
 offset_top = 232.0
 offset_right = 224.0
 offset_bottom = 344.0
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Harvest_prob_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Harvest_probability"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1144,13 +1149,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Growth_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
+[node name="Multiplier" type="Control" parent="Loader_UI/Upgrades_UI/Page_1/Current"]
 anchors_preset = 0
 offset_top = 499.35
 offset_right = 224.0
 offset_bottom = 611.35
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Growth_time_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_1/Current/Multiplier"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1204,6 +1209,7 @@ texture_hover = SubResource("AtlasTexture_s588i")
 texture_disabled = SubResource("AtlasTexture_32jbv")
 
 [node name="Page_2" type="Control" parent="Loader_UI/Upgrades_UI"]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -1220,7 +1226,12 @@ texture = ExtResource("23_xsr71")
 hframes = 3
 frame = 1
 
-[node name="Harvesting_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+[node name="Buttons" type="Control" parent="Loader_UI/Upgrades_UI/Page_2"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Harvesting_time" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2/Buttons"]
 layout_mode = 0
 offset_left = 1663.42
 offset_top = 232.062
@@ -1232,7 +1243,7 @@ texture_pressed = SubResource("AtlasTexture_67bne")
 texture_hover = SubResource("AtlasTexture_6xpen")
 texture_disabled = SubResource("AtlasTexture_tuwu4")
 
-[node name="Delivery_time_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+[node name="Delivery_time" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2/Buttons"]
 layout_mode = 0
 offset_left = 1663.42
 offset_top = 505.675
@@ -1244,7 +1255,7 @@ texture_pressed = SubResource("AtlasTexture_f3d1f")
 texture_hover = SubResource("AtlasTexture_tn08l")
 texture_disabled = SubResource("AtlasTexture_jms1e")
 
-[node name="Prices_multiplier_button" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2"]
+[node name="Prices_multiplier" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2/Buttons"]
 layout_mode = 0
 offset_left = 1663.42
 offset_top = 773.025
@@ -1360,13 +1371,13 @@ offset_top = 281.675
 offset_right = 398.419
 offset_bottom = 875.675
 
-[node name="Harvesting_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
+[node name="Harvesting_time" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
 anchors_preset = 0
 offset_top = -41.6125
 offset_right = 208.0
 offset_bottom = 70.3875
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Harvesting_time_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Harvesting_time"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1384,13 +1395,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Delivery_time_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
+[node name="Delivery_time" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
 anchors_preset = 0
 offset_top = 232.0
 offset_right = 208.0
 offset_bottom = 344.0
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Delivery_time_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Delivery_time"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1408,13 +1419,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Prices_miltiplier_price" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
+[node name="Prices_multiplier" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Prices"]
 anchors_preset = 0
 offset_top = 499.35
 offset_right = 208.0
 offset_bottom = 611.35
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Prices_miltiplier_price"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Prices/Prices_multiplier"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1439,13 +1450,13 @@ offset_top = 281.675
 offset_right = 1582.42
 offset_bottom = 875.675
 
-[node name="Harvesting_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
+[node name="Harvesting_time" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
 anchors_preset = 0
 offset_top = -41.6125
 offset_right = 224.0
 offset_bottom = 70.3875
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Harvesting_time_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Harvesting_time"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1464,13 +1475,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Delivery_time_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
+[node name="Delivery_time" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
 anchors_preset = 0
 offset_top = 232.0
 offset_right = 224.0
 offset_bottom = 344.0
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Delivery_time_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Delivery_time"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1489,13 +1500,13 @@ text = "999"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Prices_miltiplier_current" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
+[node name="Prices_multiplier" type="Control" parent="Loader_UI/Upgrades_UI/Page_2/Current"]
 anchors_preset = 0
 offset_top = 499.35
 offset_right = 224.0
 offset_bottom = 611.35
 
-[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Prices_miltiplier_current"]
+[node name="Label" type="RichTextLabel" parent="Loader_UI/Upgrades_UI/Page_2/Current/Prices_multiplier"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1552,6 +1563,7 @@ visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+script = ExtResource("22_diijn")
 
 [node name="Background" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3"]
 texture = ExtResource("18_38wgu")
@@ -2180,12 +2192,18 @@ label_settings = SubResource("LabelSettings_4tmhv")
 [connection signal="animation_finished" from="Main_UI/Blackout_animation_player" to="." method="_on_blackout_animation_player_animation_finished"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Fade_prob_button" to="Loader_UI/Upgrades_UI/Page_1" method="_on_fade_prob_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Harvest_prob_button" to="Loader_UI/Upgrades_UI/Page_1" method="_on_harvest_prob_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Growth_time_button" to="Loader_UI/Upgrades_UI/Page_1" method="_on_growth_time_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Harvesting_time_button" to="Loader_UI/Upgrades_UI/Page_2" method="_on_fade_prob_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Delivery_time_button" to="Loader_UI/Upgrades_UI/Page_2" method="_on_harvest_prob_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Prices_multiplier_button" to="Loader_UI/Upgrades_UI/Page_2" method="_on_growth_time_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Buttons/Fading_probability" to="Loader_UI/Upgrades_UI/Page_1" method="_on_fade_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Buttons/Harvest_probability" to="Loader_UI/Upgrades_UI/Page_1" method="_on_harvest_prob_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Buttons/Multiplier" to="Loader_UI/Upgrades_UI/Page_1" method="_on_growth_time_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/To_left" to="Loader_UI/Upgrades_UI/Page_1" method="_on_to_left_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/To_right" to="Loader_UI/Upgrades_UI/Page_1" method="_on_to_right_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Buttons/Harvesting_time" to="Loader_UI/Upgrades_UI/Page_2" method="_on_harvesting_time_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Buttons/Delivery_time" to="Loader_UI/Upgrades_UI/Page_2" method="_on_delivery_time_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Buttons/Prices_multiplier" to="Loader_UI/Upgrades_UI/Page_2" method="_on_prices_multiplier_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/To_left" to="Loader_UI/Upgrades_UI/Page_2" method="_on_to_left_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/To_right" to="Loader_UI/Upgrades_UI/Page_2" method="_on_to_right_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/To_left" to="Loader_UI/Upgrades_UI/Page_3" method="_on_to_left_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/To_right" to="Loader_UI/Upgrades_UI/Page_3" method="_on_to_right_pressed"]
 [connection signal="pressed" from="Market_UI/Wheat_buy_button" to="Market_UI" method="_on_wheat_buy_button_pressed"]
 [connection signal="pressed" from="Market_UI/Carrot_buy_button" to="Market_UI" method="_on_carrot_buy_button_pressed"]
 [connection signal="pressed" from="Market_UI/Cabbage_buy_button" to="Market_UI" method="_on_cabbage_buy_button_pressed"]

@@ -36,7 +36,7 @@ func delayed_ready():
 			printerr('wrong string BackgroundScene.position_saver')
 	
 
-func _process(delta):
+func _process(_delta):
 	if not scenes_list:
 		scenes_list = BackgroundScene.scenes_list
 		current_scene_index = BackgroundScene.current_scene_index

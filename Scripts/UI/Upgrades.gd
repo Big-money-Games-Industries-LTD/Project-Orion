@@ -10,7 +10,7 @@ func change_UI(_name):
 			
 			
 func _draw():
-	change_UI("Main_upgrades")
+	change_UI("Page_1")
 	
 	
 func _process(_delta):
