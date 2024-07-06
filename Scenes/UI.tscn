@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dvj6fnd61fh7t" path="res://Assets/Textures/UI/Loader/UP_DOWN_button.png" id="14_4dmc2"]
 [ext_resource type="Texture2D" uid="uid://dyi4pmd8g40b3" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="14_hng1o"]
 [ext_resource type="Texture2D" uid="uid://d0ag4miah0t6f" path="res://Assets/Textures/UI/Loader/Upgrades_text_field.png" id="15_rldhs"]
-[ext_resource type="Theme" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
+[ext_resource type="Theme" uid="uid://dq22ojeg8wln8" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
 [ext_resource type="Texture2D" uid="uid://dt3eva6xonvcu" path="res://Assets/Textures/UI/Loader/Next_button.png" id="17_ms78c"]
 [ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="18_38wgu"]
 [ext_resource type="Script" path="res://Scripts/UI/Upgrades_pages.gd" id="22_diijn"]
@@ -759,7 +759,6 @@ libraries = {
 }
 
 [node name="Loader_UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -2194,7 +2193,7 @@ label_settings = SubResource("LabelSettings_4tmhv")
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Delivery_button" to="Loader_UI/Main_loader_UI" method="_on_delivery_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Buttons/Fading_probability" to="Loader_UI/Upgrades_UI/Page_1" method="_on_fade_prob_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Buttons/Harvest_probability" to="Loader_UI/Upgrades_UI/Page_1" method="_on_harvest_prob_button_pressed"]
-[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Buttons/Multiplier" to="Loader_UI/Upgrades_UI/Page_1" method="_on_growth_time_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/Buttons/Multiplier" to="Loader_UI/Upgrades_UI/Page_1" method="_on_multiplier_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/To_left" to="Loader_UI/Upgrades_UI/Page_1" method="_on_to_left_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_1/To_right" to="Loader_UI/Upgrades_UI/Page_1" method="_on_to_right_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Buttons/Harvesting_time" to="Loader_UI/Upgrades_UI/Page_2" method="_on_harvesting_time_button_pressed"]

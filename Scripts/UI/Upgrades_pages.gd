@@ -1,11 +1,11 @@
 extends Control
 
-var current_page:int = 1
+@onready var current_page:int = int(name.right(1))
 
 var upgrades = {
 	'fading_probability':{
-		'max_value': 0.1,
-		'min_value': 0,
+		'min_value': 0.1,
+		'max_value': 0,
 		'step': 0.01,
 		'price': 99,
 		'var': BackgroundScene.fading_probability
@@ -73,7 +73,7 @@ func _on_harvest_prob_button_pressed():
 	else:
 		pass
 
-func _on_growth_time_button_pressed():
+func _on_multiplier_pressed():
 	if BackgroundScene.multiplier != 0.5:
 		BackgroundScene.multiplier += 0.1
 	else:
@@ -95,14 +95,17 @@ func _on_harvesting_time_button_pressed():
 func _on_prices_multiplier_button_pressed():
 	pass # Replace with function body.
 	
+func _on_to_left_pressed():
+	$"..".change_UI("Page_" + str(current_page - 1))
+
+func _on_to_right_pressed():
+	$"..".change_UI("Page_" + str(current_page + 1))
+
 func _process(_delta):
 	update()
 
 
-func _on_to_left_pressed():
-	$"..".change_UI("Page_" + str(current_page - 1))
-	current_page -= 1 
 
-func _on_to_right_pressed():
-	$"..".change_UI("Page_" + str(current_page + 1))
-	current_page += 1
+
+
+
