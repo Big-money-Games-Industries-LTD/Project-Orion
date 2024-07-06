@@ -1,9 +1,9 @@
 extends Control
 
 
-func change_UI(name_):
+func change_UI(_name):
 	for i in get_children():
-		if not i.name == name_:
+		if not i.name == _name:
 			i.hide()
 		else:
 			i.show()

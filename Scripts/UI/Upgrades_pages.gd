@@ -50,15 +50,21 @@ var upgrades = {
 func update():
 	if name != "Page_3":
 		for i in $Buttons.get_children():
-			if upgrades[i.name.to_lower()]['var']:
+			if not upgrades[i.name.to_lower()]['var'] is bool:
+#				print(i.name.to_lower())
+#				print(upgrades[i.name.to_lower()]['var'])
+#				print(i.disabled)
 				if upgrades[i.name.to_lower()]['max_value'] == upgrades[i.name.to_lower()]['var']:
 					i.disabled = true
+					print(0)
 				else:
 					i.disabled = false
 		for i in $Prices.get_children():
 			i.get_child(0).text = str(upgrades[i.name.to_lower()]['price'])
 		for i in $Current.get_children():
-			upgrades[i.name.to_lower()]['var'] = BackgroundScene.Iupgrades_pages(i.name.to_lower())
+			upgrades[i.name.to_lower()]['var'] = BackgroundScene.Iupgrades_pages(i.name.to_lower())#FIXME: not effective because someone else changes var, we need to fix it
+#			if(i.name.to_lower()) == 'fading_probability':
+#			print(upgrades[i.name.to_lower()]['var'])
 			i.get_child(0).text = str(upgrades[i.name.to_lower()]['var'])
 		
 
@@ -92,9 +98,7 @@ func _on_to_right_pressed():
 
 func _process(_delta):
 	update()
-
-
-
-
-
-
+#	print(upgrades['fading_probability']['max_value'])
+#	print(upgrades['fading_probability']['var'])
+#	print(BackgroundScene.fading_probability)
+#	print()
