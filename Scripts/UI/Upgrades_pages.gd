@@ -8,7 +8,7 @@ var upgrades = {
 		'min_value': 0.1,
 		'step': 0.01,
 		'price': 99,
-		'var': BackgroundScene.fading_probability #FIXME: this is a variable, not a pointer it will never change from its initial value, this is the reason behind indicators not working
+		'var': BackgroundScene.fading_probability
 	},
 	'harvest_probability':{
 		'max_value': 0.5,
@@ -58,6 +58,7 @@ func update():
 		for i in $Prices.get_children():
 			i.get_child(0).text = str(upgrades[i.name.to_lower()]['price'])
 		for i in $Current.get_children():
+			upgrades[i.name.to_lower()]['var'] = BackgroundScene.Iupgrades_pages(i.name.to_lower())
 			i.get_child(0).text = str(upgrades[i.name.to_lower()]['var'])
 		
 

@@ -232,6 +232,16 @@ func day_skip():
 	update()
 	$day_end_timer.start()
 
+func Iupgrades_pages(variable:String):
+	var values = {
+		'fading_probability': fading_probability,
+		'harvest_probability': increased_harvest_probability,
+		'multiplier': multiplier,
+		'harvesting_time': harvesting_time,
+		'delivery_time': delivery_duration,
+		'prices_multiplier': false
+		}
+	return values[variable]
 
 func _ready():
 	randomize()
@@ -264,7 +274,6 @@ func _process(_delta):
 			is_delivery_started = false
 			if current_load_scene:
 				current_load_scene.on_delivery_ends()
-	print(harvesting_time)
 
 func _physics_process(_delta):
 	update()

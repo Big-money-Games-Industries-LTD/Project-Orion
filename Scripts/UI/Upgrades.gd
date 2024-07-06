@@ -2,7 +2,6 @@ extends Control
 
 
 func change_UI(name_):
-	print(name_)
 	for i in get_children():
 		if not i.name == name_:
 			i.hide()
