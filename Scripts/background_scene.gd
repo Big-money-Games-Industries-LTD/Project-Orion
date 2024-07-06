@@ -17,6 +17,7 @@ var before_cutscene_position_saver: Vector2 #for delivery cutscene
 var money:int = 0
 var current_load_scene = null
 var aqueducts_in_fields = []
+var harvesting_time:float = 2
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -263,6 +264,7 @@ func _process(_delta):
 			is_delivery_started = false
 			if current_load_scene:
 				current_load_scene.on_delivery_ends()
+	print(harvesting_time)
 
 func _physics_process(_delta):
 	update()

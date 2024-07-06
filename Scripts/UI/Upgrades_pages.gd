@@ -4,11 +4,11 @@ extends Control
 
 var upgrades = {
 	'fading_probability':{
-		'min_value': 0.1,
 		'max_value': 0,
+		'min_value': 0.1,
 		'step': 0.01,
 		'price': 99,
-		'var': BackgroundScene.fading_probability
+		'var': BackgroundScene.fading_probability #FIXME: this is a variable, not a pointer it will never change from its initial value, this is the reason behind indicators not working
 	},
 	'harvest_probability':{
 		'max_value': 0.5,
@@ -29,7 +29,7 @@ var upgrades = {
 		'min_value': 2,
 		'step': 0.2,
 		'price': 96,
-		'var': false #TODO: ADD VAR
+		'var': BackgroundScene.harvesting_time
 	},
 	'delivery_time':{
 		'max_value': BackgroundScene.delivery_duration*2,
@@ -62,34 +62,22 @@ func update():
 		
 
 func _on_fade_prob_button_pressed():#TODO:add money check(for all buttons), maybe add a unified checking function in main_upgrades
-	if BackgroundScene.fading_probability != 0:
-		BackgroundScene.fading_probability -= 0.01
-	else:
-		pass#TODO: notify him about it(for all buttons)
+	BackgroundScene.fading_probability -= 0.01
 
 func _on_harvest_prob_button_pressed():
-	if BackgroundScene.increased_harvest_probability != 0.5:
-		BackgroundScene.increased_harvest_probability += 0.1
-	else:
-		pass
+	BackgroundScene.increased_harvest_probability += 0.1
 
 func _on_multiplier_pressed():
-	if BackgroundScene.multiplier != 0.5:
-		BackgroundScene.multiplier += 0.1
-	else:
-		pass
+	BackgroundScene.multiplier += 0.1
 
 func _on_delivery_time_button_pressed():
-	if BackgroundScene.delivery_duration != BackgroundScene.seconds_to_ticks(20):
-		BackgroundScene.delivery_duration -= BackgroundScene.seconds_to_ticks(88)
-		if BackgroundScene.delivery_duration < BackgroundScene.seconds_to_ticks(20):
-			BackgroundScene.delivery_duration = BackgroundScene.seconds_to_ticks(20)
-	else:
-		pass
+	BackgroundScene.delivery_duration -= BackgroundScene.seconds_to_ticks(88)
+	if BackgroundScene.delivery_duration < BackgroundScene.seconds_to_ticks(20):
+		BackgroundScene.delivery_duration = BackgroundScene.seconds_to_ticks(20)
 
 
 func _on_harvesting_time_button_pressed():
-	pass # Replace with function body.
+	BackgroundScene.harvesting_time-=upgrades['harvesting_time']['step']
 
 
 func _on_prices_multiplier_button_pressed():
