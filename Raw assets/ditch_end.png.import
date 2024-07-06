@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmu8dx4iokyd1"
-path="res://.godot/imported/Ditch.png-936ff278f04b3293d80e5d0b626210f3.ctex"
+uid="uid://jqlbg5wieoqr"
+path="res://.godot/imported/ditch_end.png-93e46ebf28733bf704aaba9b454d0630.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw assets/Ditch.png"
-dest_files=["res://.godot/imported/Ditch.png-936ff278f04b3293d80e5d0b626210f3.ctex"]
+source_file="res://Raw assets/ditch_end.png"
+dest_files=["res://.godot/imported/ditch_end.png-93e46ebf28733bf704aaba9b454d0630.ctex"]
 
 [params]
 

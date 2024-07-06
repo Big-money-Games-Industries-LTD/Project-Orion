@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmu8dx4iokyd1"
-path="res://.godot/imported/Ditch.png-936ff278f04b3293d80e5d0b626210f3.ctex"
+uid="uid://dpjbmr1vvwko8"
+path="res://.godot/imported/watering_can.png-6abaeb65ccd8b3a65ca4aec4fa462a08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw assets/Ditch.png"
-dest_files=["res://.godot/imported/Ditch.png-936ff278f04b3293d80e5d0b626210f3.ctex"]
+source_file="res://Raw assets/watering_can.png"
+dest_files=["res://.godot/imported/watering_can.png-6abaeb65ccd8b3a65ca4aec4fa462a08.ctex"]
 
 [params]
 
