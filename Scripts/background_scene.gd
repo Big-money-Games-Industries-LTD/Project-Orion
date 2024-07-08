@@ -18,6 +18,7 @@ var money:int = 0
 var current_load_scene = null
 var aqueducts_in_fields = [2,0,0]
 var harvesting_time:float = 2
+var prices_multiplier:float = 1
 
 func seconds_to_ticks(time): #seconds to tics
 	return time*ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
@@ -239,7 +240,7 @@ func Iupgrades_pages(variable:String):
 		'multiplier': multiplier,
 		'harvesting_time': harvesting_time,
 		'delivery_time': delivery_duration,
-		'prices_multiplier': false
+		'prices_multiplier': prices_multiplier
 		}
 	return values[variable]
 
