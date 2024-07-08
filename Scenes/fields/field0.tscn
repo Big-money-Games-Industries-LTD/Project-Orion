@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cc62uqe3o5c4a"]
 
 [ext_resource type="Script" path="res://Scripts/Field_scene/field.gd" id="1_lrtvv"]
-[ext_resource type="TileSet" uid="uid://biv1l7t62yo0d" path="res://Assets/Objects/default_ground_tileset.tres" id="2_jukuv"]
+[ext_resource type="TileSet" uid="uid://b3ro1c31mducq" path="res://Assets/Objects/default_ground_tileset.tres" id="2_jukuv"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_xav0w"]
 [ext_resource type="PackedScene" uid="uid://sscsq3sgtfwa" path="res://Assets/Objects/Plants/bed.tscn" id="3_xei41"]
 [ext_resource type="Texture2D" uid="uid://cmu8dx4iokyd1" path="res://Raw assets/Ditch.png" id="4_bbu7t"]

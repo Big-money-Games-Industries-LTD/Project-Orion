@@ -257,8 +257,6 @@ func _ready():
 		beds_list.append([])
 		file_name = dir.get_next()
 	scenes_list.append("res://Scenes/home_scene.tscn")
-	for i in scenes_list:
-		aqueducts_in_fields.append(0)
 
 
 func _process(_delta):

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Field_scene/bed.gd" id="1_pmvdf"]
 [ext_resource type="Texture2D" uid="uid://b2mijn7ra1fl0" path="res://Assets/Textures/UI/Plant/E-button.png" id="2_y1on4"]
 [ext_resource type="Texture2D" uid="uid://p12klhh6r6y8" path="res://Assets/Textures/UI/Plant/Timer.png" id="3_wi6s5"]
-[ext_resource type="TileSet" uid="uid://biv1l7t62yo0d" path="res://Assets/Objects/default_ground_tileset.tres" id="4_vu3nl"]
+[ext_resource type="TileSet" uid="uid://b3ro1c31mducq" path="res://Assets/Objects/default_ground_tileset.tres" id="4_vu3nl"]
 [ext_resource type="Texture2D" uid="uid://jqlbg5wieoqr" path="res://Raw assets/ditch_end.png" id="5_p4wh2"]
 [ext_resource type="Texture2D" uid="uid://cmu8dx4iokyd1" path="res://Raw assets/Ditch.png" id="6_gssek"]
 

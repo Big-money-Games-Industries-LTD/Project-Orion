@@ -77,4 +77,7 @@ func _ready():
 	for i in beds_list:
 		i.delayed_ready()
 	%Player.delayed_ready()
+	#set_aqueduct(BackgroundScene.aqueducts_in_fields[self_index])
+
+func _process(delta):
 	set_aqueduct(BackgroundScene.aqueducts_in_fields[self_index])

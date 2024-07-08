@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=83 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -29,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://balddw8hi7hu5" path="res://Assets/Textures/UI/Loader/Build_button.png" id="24_b3mky"]
 [ext_resource type="Texture2D" uid="uid://b7g7ksquy2fg0" path="res://Assets/Textures/UI/Loader/Slot_icon.png" id="24_d11jn"]
 [ext_resource type="Texture2D" uid="uid://cmqbm8vc5vt26" path="res://Assets/Textures/UI/Loader/Number_field.png" id="26_ipyfd"]
+[ext_resource type="Script" path="res://Scripts/UI/Layer_script.gd" id="27_kg4rj"]
+[ext_resource type="Script" path="res://Scripts/UI/Slot_script.gd" id="28_28b0p"]
 [ext_resource type="Script" path="res://Scripts/UI/Market_UI.gd" id="29_0lllj"]
 [ext_resource type="Texture2D" uid="uid://ckcgksiandwgq" path="res://Assets/Textures/UI/Market/Buy.png" id="29_7cilq"]
 [ext_resource type="Texture2D" uid="uid://bsdxiisfpovp8" path="res://Assets/Textures/UI/Market/Seed_field.png" id="30_clb15"]
@@ -859,6 +861,7 @@ offset_bottom = 1080.0
 script = ExtResource("13_es01d")
 
 [node name="Page_1" type="Control" parent="Loader_UI/Upgrades_UI"]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -1558,7 +1561,6 @@ texture_hover = SubResource("AtlasTexture_s588i")
 texture_disabled = SubResource("AtlasTexture_32jbv")
 
 [node name="Page_3" type="Control" parent="Loader_UI/Upgrades_UI"]
-visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -1583,11 +1585,13 @@ offset_left = 395.319
 offset_top = 749.025
 offset_right = 1595.32
 offset_bottom = 1013.02
+script = ExtResource("27_kg4rj")
 
 [node name="Slot_1_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1"]
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_1"]
 texture = ExtResource("24_d11jn")
@@ -1600,7 +1604,6 @@ layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
 offset_bottom = 264.0
-disabled = true
 texture_normal = SubResource("AtlasTexture_ere8d")
 texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
@@ -1622,6 +1625,7 @@ anchors_preset = 0
 offset_left = 408.0
 offset_right = 792.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_2"]
 texture = ExtResource("24_d11jn")
@@ -1634,7 +1638,6 @@ layout_mode = 0
 offset_top = 88.0
 offset_right = 384.0
 offset_bottom = 264.0
-disabled = true
 texture_normal = SubResource("AtlasTexture_ere8d")
 texture_pressed = SubResource("AtlasTexture_eyybo")
 texture_hover = SubResource("AtlasTexture_jbmdp")
@@ -1656,6 +1659,7 @@ anchors_preset = 0
 offset_left = 816.0
 offset_right = 1200.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_3"]
 texture = ExtResource("24_d11jn")
@@ -1702,11 +1706,13 @@ offset_left = 395.319
 offset_top = 436.931
 offset_right = 1595.32
 offset_bottom = 700.931
+script = ExtResource("27_kg4rj")
 
 [node name="Slot_2_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2"]
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_1"]
 texture = ExtResource("24_d11jn")
@@ -1738,6 +1744,7 @@ anchors_preset = 0
 offset_left = 408.0
 offset_right = 792.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_2"]
 texture = ExtResource("24_d11jn")
@@ -1769,6 +1776,7 @@ anchors_preset = 0
 offset_left = 816.0
 offset_right = 1200.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_3"]
 texture = ExtResource("24_d11jn")
@@ -1815,11 +1823,13 @@ offset_left = 395.319
 offset_top = 124.837
 offset_right = 1595.32
 offset_bottom = 388.837
+script = ExtResource("27_kg4rj")
 
 [node name="Slot_3_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3"]
 anchors_preset = 0
 offset_right = 384.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_1"]
 texture = ExtResource("24_d11jn")
@@ -1851,6 +1861,7 @@ anchors_preset = 0
 offset_left = 408.0
 offset_right = 792.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_2"]
 texture = ExtResource("24_d11jn")
@@ -1882,6 +1893,7 @@ anchors_preset = 0
 offset_left = 816.0
 offset_right = 1200.0
 offset_bottom = 264.0
+script = ExtResource("28_28b0p")
 
 [node name="Icon" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_3"]
 texture = ExtResource("24_d11jn")
@@ -2201,6 +2213,15 @@ label_settings = SubResource("LabelSettings_4tmhv")
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/Buttons/Prices_multiplier" to="Loader_UI/Upgrades_UI/Page_2" method="_on_prices_multiplier_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/To_left" to="Loader_UI/Upgrades_UI/Page_2" method="_on_to_left_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_2/To_right" to="Loader_UI/Upgrades_UI/Page_2" method="_on_to_right_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_1/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_1" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_2/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_2" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_3/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_1/Slot_1_3" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_1/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_1" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_2/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_2" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_3/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_2/Slot_2_3" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_1/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_1" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_2/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_2" method="_on_build_button_pressed"]
+[connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_3/Build_button" to="Loader_UI/Upgrades_UI/Page_3/Layer_3/Slot_3_3" method="_on_build_button_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/To_left" to="Loader_UI/Upgrades_UI/Page_3" method="_on_to_left_pressed"]
 [connection signal="pressed" from="Loader_UI/Upgrades_UI/Page_3/To_right" to="Loader_UI/Upgrades_UI/Page_3" method="_on_to_right_pressed"]
 [connection signal="pressed" from="Market_UI/Wheat_buy_button" to="Market_UI" method="_on_wheat_buy_button_pressed"]
