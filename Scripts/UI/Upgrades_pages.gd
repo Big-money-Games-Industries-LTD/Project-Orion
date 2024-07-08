@@ -54,9 +54,10 @@ func update():
 #				print(i.name.to_lower())
 #				print(upgrades[i.name.to_lower()]['var'])
 #				print(i.disabled)
-				if upgrades[i.name.to_lower()]['max_value'] == upgrades[i.name.to_lower()]['var']:
+				if upgrades[i.name.to_lower()]['max_value'] == float(get_node('Current/'+ i.name +'/Label').text):
+					print(upgrades[i.name.to_lower()]['max_value'])
+					print(get_node('Current/'+ i.name +'/Label').text)
 					i.disabled = true
-					print(0)
 				else:
 					i.disabled = false
 		for i in $Prices.get_children():
