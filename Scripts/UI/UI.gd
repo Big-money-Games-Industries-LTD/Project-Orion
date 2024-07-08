@@ -10,7 +10,7 @@ const icons = {
 	'cabbage': preload("res://Assets/Textures/Plants/Result/Cabbage_result.png"),
 	'carrot': preload("res://Assets/Textures/Plants/Result/Carrot_result.png"),
 	'wheat': preload("res://Assets/Textures/Plants/Result/Wheat_result.png"),
-	'leica': preload("res://Raw assets/Leica.png"),
+	'leica': preload("res://Raw assets/watering_can.png"),
 	'transparent': preload("res://Assets/Textures/Transparent.png")
 }
 

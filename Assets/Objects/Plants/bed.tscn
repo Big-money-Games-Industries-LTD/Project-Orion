@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Field_scene/bed.gd" id="1_pmvdf"]
 [ext_resource type="Texture2D" uid="uid://b2mijn7ra1fl0" path="res://Assets/Textures/UI/Plant/E-button.png" id="2_y1on4"]
 [ext_resource type="Texture2D" uid="uid://p12klhh6r6y8" path="res://Assets/Textures/UI/Plant/Timer.png" id="3_wi6s5"]
-[ext_resource type="Texture2D" uid="uid://4pxiww5w1bpd" path="res://Raw assets/bed_ground.png" id="4_ma11u"]
+[ext_resource type="TileSet" uid="uid://biv1l7t62yo0d" path="res://Assets/Objects/default_ground_tileset.tres" id="4_vu3nl"]
+[ext_resource type="Texture2D" uid="uid://jqlbg5wieoqr" path="res://Raw assets/ditch_end.png" id="5_p4wh2"]
+[ext_resource type="Texture2D" uid="uid://cmu8dx4iokyd1" path="res://Raw assets/Ditch.png" id="6_gssek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28r3f"]
 size = Vector2(128, 64)
@@ -304,28 +306,9 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6v1d3"]
-texture = ExtResource("4_ma11u")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_m2yhs"]
-sources/0 = SubResource("TileSetAtlasSource_6v1d3")
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_c84v1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lemo"]
+atlas = ExtResource("6_gssek")
+region = Rect2(80, 0, 16, 32)
 
 [node name="Bed" type="Node2D" groups=["Beds"]]
 script = ExtResource("1_pmvdf")
@@ -351,17 +334,22 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ri82g")
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 scale = Vector2(4, 4)
-tile_set = SubResource("TileSet_m2yhs")
+tile_set = ExtResource("4_vu3nl")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 131072, 0, 2, 65537, 0, 1, 131073, 0, 2, 65536, 0, 1)
+layer_0/name = "Ground"
+layer_0/tile_data = PackedInt32Array(0, 196609, 0, 1, 196609, 0, 131072, 6, 1, 65537, 65542, 0, 131073, 65542, 1, 65536, 6, 0, 196608, 6, 2, 196609, 65542, 2)
+layer_1/name = "Aqueduct"
+layer_1/tile_data = PackedInt32Array()
 
 [node name="Aqueduct" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(64, 25.5)
-scale = Vector2(0.25, 0.0996094)
-texture = SubResource("NoiseTexture2D_c84v1")
+position = Vector2(186, 152)
+scale = Vector2(4, 4)
+texture = ExtResource("5_p4wh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Aqueduct"]
+position = Vector2(-6.5, -6)
+texture = SubResource("AtlasTexture_7lemo")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
