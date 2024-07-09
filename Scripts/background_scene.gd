@@ -14,7 +14,7 @@ var increased_harvest_probability:float = 0
 var increased_harvest_increment:int = 1
 var was_the_scene_loaded_after_cutscene: bool #for delivery cutscene
 var before_cutscene_position_saver: Vector2 #for delivery cutscene
-var money:int = 0
+var money:int = 9999
 var current_load_scene = null
 var aqueducts_in_fields = [2,0,0]
 var harvesting_time:float = 2
@@ -273,6 +273,7 @@ func _process(_delta):
 			is_delivery_started = false
 			if current_load_scene:
 				current_load_scene.on_delivery_ends()
+	print(money)
 
 func _physics_process(_delta):
 	update()
