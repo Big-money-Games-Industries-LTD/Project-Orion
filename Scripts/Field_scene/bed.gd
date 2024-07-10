@@ -29,8 +29,8 @@ func _on_timer_animation_finished():
 	$Timer.visible = false
 	BackgroundScene.is_movement_available = true
 
-func set_harvesting_time(target):
-	$Timer.set_animation_speed('default', target/37)
+func update_harvesting_time():
+	$Timer.set_animation_speed('default', BackgroundScene.harvesting_time/37)
 
 func _process(_delta):
 	var not_more_than_one_bed = %Player.beds_i_touch.len()<2#see if we are the only bed player touches, if not, dont allow him to harvest or plant anything
@@ -85,7 +85,7 @@ func _process(_delta):
 		$Timer.stop()
 		$Timer.visible = false
 		BackgroundScene.is_movement_available = true
-#	print(BackgroundScene.is_movement_available)
+	update_harvesting_time()
 	
 func _ready():
 	randomize()

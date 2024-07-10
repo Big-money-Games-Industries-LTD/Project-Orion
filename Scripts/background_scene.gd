@@ -268,7 +268,7 @@ func _process(_delta):
 			is_delivery_started = false
 			if current_load_scene:
 				current_load_scene.on_delivery_ends()
-	print(money)
+	
 
 func _physics_process(_delta):
 	update()
