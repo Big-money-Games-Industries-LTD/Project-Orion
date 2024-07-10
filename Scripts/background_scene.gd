@@ -87,19 +87,12 @@ class Bed:
 			ready_to_harvest = true
 		else:
 			next_step_time += (types_dict[type]['growth_time']/types_dict[type]['frames'])*BackgroundScene.multiplier
-			print('frames:' + str(types_dict[type]['frames']))
-			print('growth time:' + str(types_dict[type]['growth_time']))
-			print('Global time:' + str(BackgroundScene.global_time))
-			print('Global time + (growth time/frames) = ' + str(next_step_time))
 			if randf_range(0,1)<BackgroundScene.fading_probability and not has_been_watered:#see if it fades
 				is_faded = true
 				ready_to_harvest = false
+				frame += 6
 			has_been_watered = false
-			print(has_been_watered)
 			if next_step_time < BackgroundScene.global_time:
-				print("startred by recursion due to:")
-				print("Next step: " + str(next_step_time))
-				print("global time: " + str(BackgroundScene.global_time))
 				update()
 			else:
 				return

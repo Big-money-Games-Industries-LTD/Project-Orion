@@ -12,16 +12,19 @@ position = Vector2(0, -42)
 texture = ExtResource("2_hmdjr")
 centered = false
 hframes = 6
+vframes = 2
 
 [node name="Sprite1" type="Sprite2D" parent="."]
 position = Vector2(40, -42)
 texture = ExtResource("2_hmdjr")
 centered = false
 hframes = 6
+vframes = 2
 
 [node name="Sprite2" type="Sprite2D" parent="."]
 position = Vector2(80, -42)
 texture = ExtResource("2_hmdjr")
 centered = false
 hframes = 6
+vframes = 2
 metadata/bed_pointer = -1

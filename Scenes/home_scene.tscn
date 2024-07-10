@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://c4ktn17l1n2mi"]
+[gd_scene load_steps=17 format=3 uid="uid://c4ktn17l1n2mi"]
 
 [ext_resource type="Script" path="res://Scripts/Home_scene/house.gd" id="1_6cbpi"]
 [ext_resource type="Script" path="res://Scripts/Home_scene/home_scene.gd" id="1_yoip0"]
 [ext_resource type="Texture2D" uid="uid://d3r1eurv0o5eo" path="res://Raw assets/Road_ground.png" id="2_43kck"]
 [ext_resource type="PackedScene" uid="uid://bg0sekmpwuin1" path="res://Assets/Objects/Entities/Player.tscn" id="2_58bpr"]
+[ext_resource type="Texture2D" uid="uid://c3uoilox275k" path="res://Raw assets/Sky.png" id="2_xfloi"]
 [ext_resource type="Texture2D" uid="uid://bchuhk57skc71" path="res://Raw assets/Downpic.cc-1189292548.png" id="3_elm5e"]
 [ext_resource type="SpriteFrames" uid="uid://q73xuo0u1sec" path="res://Assets/Objects/UI_elements/E_button_hint.tres" id="5_t1s58"]
 [ext_resource type="Texture2D" uid="uid://uoh04vge2ejt" path="res://Raw assets/Market.png" id="6_mxmkb"]
@@ -91,6 +92,11 @@ size = Vector2(120, 156)
 
 [node name="HomeScene" type="Node2D"]
 script = ExtResource("1_yoip0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(128, -220)
+scale = Vector2(1.46667, 1)
+texture = ExtResource("2_xfloi")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)

@@ -12,6 +12,7 @@ position = Vector2(71.6667, -16.3333)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_h3n3h")
 hframes = 6
+vframes = 2
 frame = 5
 
 [node name="Sprite1" type="Sprite2D" parent="."]
@@ -19,6 +20,7 @@ position = Vector2(44.667, -16.333)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_h3n3h")
 hframes = 6
+vframes = 2
 frame = 5
 
 [node name="Sprite2" type="Sprite2D" parent="."]
@@ -26,4 +28,5 @@ position = Vector2(17.6667, -16.3333)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_h3n3h")
 hframes = 6
+vframes = 2
 frame = 5
