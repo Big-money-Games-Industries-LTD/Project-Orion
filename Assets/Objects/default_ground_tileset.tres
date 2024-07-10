@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://b3ro1c31mducq"]
 
 [ext_resource type="Texture2D" uid="uid://bj2w18e7hmaur" path="res://Raw assets/green_ground.png" id="1_3i8kd"]
-[ext_resource type="Texture2D" path="res://Raw assets/ground.png" id="1_ssqqg"]
+[ext_resource type="Texture2D" uid="uid://sshr2hbyvidl" path="res://Raw assets/ground.png" id="1_ssqqg"]
 [ext_resource type="Texture2D" uid="uid://cmu8dx4iokyd1" path="res://Raw assets/Ditch.png" id="3_s753d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ev8vf"]
