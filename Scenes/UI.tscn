@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=113 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -107,50 +107,71 @@ region = Rect2(16, 9, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_67bne"]
 atlas = ExtResource("14_4dmc2")
-region = Rect2(48, 0, 16, 9)
+region = Rect2(48, 9, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xpen"]
 atlas = ExtResource("14_4dmc2")
-region = Rect2(32, 0, 16, 9)
+region = Rect2(32, 9, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tuwu4"]
 atlas = ExtResource("14_4dmc2")
-region = Rect2(0, 0, 16, 9)
+region = Rect2(0, 9, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_or1od"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1s1n"]
 atlas = SubResource("CompressedTexture2D_or1od")
-region = Rect2(16, 9, 16, 9)
+region = Rect2(16, 0, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dslco"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f3d1f"]
 atlas = SubResource("CompressedTexture2D_dslco")
-region = Rect2(48, 9, 16, 9)
+region = Rect2(48, 0, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_amt2a"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tn08l"]
 atlas = SubResource("CompressedTexture2D_amt2a")
-region = Rect2(32, 9, 16, 9)
+region = Rect2(32, 0, 16, 9)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hhhnu"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jms1e"]
 atlas = SubResource("CompressedTexture2D_hhhnu")
-region = Rect2(0, 9, 16, 9)
+region = Rect2(0, 0, 16, 9)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2dbfm"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5e72p"]
 load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_30cga"]
-atlas = SubResource("CompressedTexture2D_2dbfm")
-region = Rect2(16, 0, 16, 9)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iygq"]
+atlas = SubResource("CompressedTexture2D_5e72p")
+region = Rect2(16, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ljqkx"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gsyl"]
+atlas = SubResource("CompressedTexture2D_ljqkx")
+region = Rect2(48, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ht8sf"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_httcu"]
+atlas = SubResource("CompressedTexture2D_ht8sf")
+region = Rect2(32, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_srt5t"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kdtk"]
+atlas = SubResource("CompressedTexture2D_srt5t")
+region = Rect2(0, 9, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5m4a2"]
 atlas = ExtResource("17_ms78c")
@@ -183,6 +204,90 @@ region = Rect2(20, 0, 4, 7)
 [sub_resource type="AtlasTexture" id="AtlasTexture_32jbv"]
 atlas = ExtResource("17_ms78c")
 region = Rect2(4, 0, 4, 7)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_l8xkn"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c04yn"]
+atlas = SubResource("CompressedTexture2D_l8xkn")
+region = Rect2(16, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_33hjq"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nonp0"]
+atlas = SubResource("CompressedTexture2D_33hjq")
+region = Rect2(48, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u52tt"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jern"]
+atlas = SubResource("CompressedTexture2D_u52tt")
+region = Rect2(32, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kf462"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynlb2"]
+atlas = SubResource("CompressedTexture2D_kf462")
+region = Rect2(0, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r2mfd"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35iw6"]
+atlas = SubResource("CompressedTexture2D_r2mfd")
+region = Rect2(16, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_llwux"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7a5w"]
+atlas = SubResource("CompressedTexture2D_llwux")
+region = Rect2(48, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_moacc"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1iog"]
+atlas = SubResource("CompressedTexture2D_moacc")
+region = Rect2(32, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ede7w"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en0ch"]
+atlas = SubResource("CompressedTexture2D_ede7w")
+region = Rect2(0, 9, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_me58k"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4m7r"]
+atlas = SubResource("CompressedTexture2D_me58k")
+region = Rect2(16, 0, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0j6xm"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmaao"]
+atlas = SubResource("CompressedTexture2D_0j6xm")
+region = Rect2(48, 0, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cf6fm"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpk2g"]
+atlas = SubResource("CompressedTexture2D_cf6fm")
+region = Rect2(32, 0, 16, 9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qqvkp"]
+load_path = "res://.godot/imported/UP_DOWN_button.png-8397673405dc67ef3afe29fdb4364737.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2o8w"]
+atlas = SubResource("CompressedTexture2D_qqvkp")
+region = Rect2(0, 0, 16, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ere8d"]
 atlas = ExtResource("24_b3mky")
@@ -761,6 +866,7 @@ libraries = {
 }
 
 [node name="Loader_UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
@@ -913,10 +1019,10 @@ offset_top = 773.025
 offset_right = 1679.42
 offset_bottom = 782.025
 scale = Vector2(14, 18)
-texture_normal = SubResource("AtlasTexture_30cga")
-texture_pressed = SubResource("AtlasTexture_67bne")
-texture_hover = SubResource("AtlasTexture_6xpen")
-texture_disabled = SubResource("AtlasTexture_tuwu4")
+texture_normal = SubResource("AtlasTexture_6iygq")
+texture_pressed = SubResource("AtlasTexture_1gsyl")
+texture_hover = SubResource("AtlasTexture_httcu")
+texture_disabled = SubResource("AtlasTexture_4kdtk")
 
 [node name="Text_field_1" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_1"]
 position = Vector2(846.419, 312.062)
@@ -1211,7 +1317,6 @@ texture_hover = SubResource("AtlasTexture_s588i")
 texture_disabled = SubResource("AtlasTexture_32jbv")
 
 [node name="Page_2" type="Control" parent="Loader_UI/Upgrades_UI"]
-visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -1240,10 +1345,10 @@ offset_top = 232.062
 offset_right = 1679.42
 offset_bottom = 241.062
 scale = Vector2(14, 18)
-texture_normal = SubResource("AtlasTexture_r4gfh")
-texture_pressed = SubResource("AtlasTexture_67bne")
-texture_hover = SubResource("AtlasTexture_6xpen")
-texture_disabled = SubResource("AtlasTexture_tuwu4")
+texture_normal = SubResource("AtlasTexture_c04yn")
+texture_pressed = SubResource("AtlasTexture_nonp0")
+texture_hover = SubResource("AtlasTexture_8jern")
+texture_disabled = SubResource("AtlasTexture_ynlb2")
 
 [node name="Delivery_time" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2/Buttons"]
 layout_mode = 0
@@ -1252,10 +1357,10 @@ offset_top = 505.675
 offset_right = 1679.42
 offset_bottom = 514.675
 scale = Vector2(14, 18)
-texture_normal = SubResource("AtlasTexture_f1s1n")
-texture_pressed = SubResource("AtlasTexture_f3d1f")
-texture_hover = SubResource("AtlasTexture_tn08l")
-texture_disabled = SubResource("AtlasTexture_jms1e")
+texture_normal = SubResource("AtlasTexture_35iw6")
+texture_pressed = SubResource("AtlasTexture_s7a5w")
+texture_hover = SubResource("AtlasTexture_l1iog")
+texture_disabled = SubResource("AtlasTexture_en0ch")
 
 [node name="Prices_multiplier" type="TextureButton" parent="Loader_UI/Upgrades_UI/Page_2/Buttons"]
 layout_mode = 0
@@ -1264,10 +1369,10 @@ offset_top = 773.025
 offset_right = 1679.42
 offset_bottom = 782.025
 scale = Vector2(14, 18)
-texture_normal = SubResource("AtlasTexture_30cga")
-texture_pressed = SubResource("AtlasTexture_67bne")
-texture_hover = SubResource("AtlasTexture_6xpen")
-texture_disabled = SubResource("AtlasTexture_tuwu4")
+texture_normal = SubResource("AtlasTexture_n4m7r")
+texture_pressed = SubResource("AtlasTexture_mmaao")
+texture_hover = SubResource("AtlasTexture_qpk2g")
+texture_disabled = SubResource("AtlasTexture_f2o8w")
 
 [node name="Text_field_1" type="Sprite2D" parent="Loader_UI/Upgrades_UI/Page_2"]
 position = Vector2(846.419, 312.062)
@@ -1561,6 +1666,7 @@ texture_hover = SubResource("AtlasTexture_s588i")
 texture_disabled = SubResource("AtlasTexture_32jbv")
 
 [node name="Page_3" type="Control" parent="Loader_UI/Upgrades_UI"]
+visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -1576,8 +1682,8 @@ offset_left = 24.0
 offset_top = 24.0
 offset_right = -1712.0
 offset_bottom = -984.0
-path = "Main_upgrades"
-parent_node = NodePath("../..")
+path = "Main_loader_UI"
+parent_node = NodePath("../../..")
 
 [node name="Layer_1" type="Control" parent="Loader_UI/Upgrades_UI/Page_3"]
 anchors_preset = 0
@@ -1967,7 +2073,6 @@ hframes = 3
 frame = 2
 
 [node name="Market_UI" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -2191,14 +2296,16 @@ scale = Vector2(6, 6)
 texture = ExtResource("12_dl7rw")
 
 [node name="Money" type="Label" parent="Market_UI"]
+layout_direction = 3
 layout_mode = 0
-offset_left = 1616.39
-offset_top = 84.5254
-offset_right = 1733.39
-offset_bottom = 155.525
+offset_left = 172.287
+offset_top = 83.225
+offset_right = 211.287
+offset_bottom = 154.225
 theme = ExtResource("16_b1es6")
-text = "999"
+text = "0"
 label_settings = SubResource("LabelSettings_4tmhv")
+horizontal_alignment = 2
 
 [connection signal="animation_finished" from="Main_UI/Blackout_animation_player" to="." method="_on_blackout_animation_player_animation_finished"]
 [connection signal="pressed" from="Loader_UI/Main_loader_UI/Upgrades_button" to="Loader_UI/Main_loader_UI" method="_on_upgrades_button_pressed"]

@@ -187,7 +187,7 @@ func sell():
 	for i in pallet_inventory:
 		if i:
 			if i[0] in prices:
-				money += prices[i[0]] * i[1]
+				money += prices[i[0]] * i[1] * prices_multiplier
 				pallet_inventory[enumerate] = false
 		enumerate += 1
 					

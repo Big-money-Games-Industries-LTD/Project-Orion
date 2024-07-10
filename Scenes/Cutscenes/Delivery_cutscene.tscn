@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhtkvcomukno8"]
+[gd_scene load_steps=15 format=3 uid="uid://bhtkvcomukno8"]
 
 [ext_resource type="Script" path="res://Scripts/Delivery_cutscene.gd" id="1_0jvs7"]
 [ext_resource type="Texture2D" uid="uid://dwsc1tj7p6lla" path="res://Assets/Textures/Objects/Food_van.png" id="2_uana0"]
 [ext_resource type="Texture2D" uid="uid://d3r1eurv0o5eo" path="res://Raw assets/Road_ground.png" id="3_ilek3"]
 [ext_resource type="Texture2D" uid="uid://copq21xtpkela" path="res://Assets/Textures/Objects/Pallet.png" id="5_wlqly"]
+[ext_resource type="Texture2D" uid="uid://vnf7houywgch" path="res://Raw assets/gruzovic-waiting.png" id="6_jh17q"]
 [ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="7_bskhp"]
-[ext_resource type="Texture2D" uid="uid://b6twkwk535baf" path="res://Assets/Textures/Entities/Loader.png" id="8_ctv33"]
 [ext_resource type="Texture2D" uid="uid://3gx70v55lcyv" path="res://Assets/Textures/Objects/Fence.png" id="9_ew8fm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pt5e"]
@@ -75,6 +75,28 @@ texture = ExtResource("3_ilek3")
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_2pt5e")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7qql"]
+atlas = ExtResource("6_jh17q")
+region = Rect2(0, 0, 23, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ysqt"]
+atlas = ExtResource("6_jh17q")
+region = Rect2(23, 0, 23, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqw0g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7qql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ysqt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
 
 [sub_resource type="Animation" id="Animation_lvoll"]
 resource_name = "Delivery"
@@ -151,11 +173,10 @@ position = Vector2(704, -48)
 texture = ExtResource("9_ew8fm")
 centered = false
 
-[node name="Loader2" type="Sprite2D" parent="."]
-position = Vector2(1667, -84)
-scale = Vector2(4, 4)
-texture = ExtResource("8_ctv33")
-centered = false
+[node name="Loader" type="AnimatedSprite2D" parent="."]
+position = Vector2(1692, -41)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jqw0g")
 
 [node name="Fence2" type="Sprite2D" parent="."]
 position = Vector2(2240, -48)

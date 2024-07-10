@@ -1,11 +1,12 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://b3ro1c31mducq"]
 
 [ext_resource type="Texture2D" uid="uid://bj2w18e7hmaur" path="res://Raw assets/green_ground.png" id="1_3i8kd"]
-[ext_resource type="Texture2D" uid="uid://4pxiww5w1bpd" path="res://Raw assets/bed_ground.png" id="2_8qqwh"]
+[ext_resource type="Texture2D" path="res://Raw assets/ground.png" id="1_ssqqg"]
 [ext_resource type="Texture2D" uid="uid://cmu8dx4iokyd1" path="res://Raw assets/Ditch.png" id="3_s753d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ev8vf"]
-texture = ExtResource("1_3i8kd")
+resource_name = "Ground"
+texture = ExtResource("1_ssqqg")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -68,7 +69,7 @@ texture = ExtResource("1_3i8kd")
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tkdyw"]
-texture = ExtResource("2_8qqwh")
+texture = ExtResource("1_3i8kd")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0

@@ -338,7 +338,7 @@ scale = Vector2(4, 4)
 tile_set = ExtResource("4_vu3nl")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(0, 196609, 0, 1, 196609, 0, 131072, 6, 1, 65537, 65542, 0, 131073, 65542, 1, 65536, 6, 0, 196608, 6, 2, 196609, 65542, 2)
+layer_0/tile_data = PackedInt32Array(65536, 6, 0, 196608, 6, 2, 196609, 65542, 2, 0, 65537, 0, 1, 131073, 0, 65537, 65542, 0, 131073, 65542, 1, 131072, 6, 1)
 layer_1/name = "Aqueduct"
 layer_1/tile_data = PackedInt32Array()
 

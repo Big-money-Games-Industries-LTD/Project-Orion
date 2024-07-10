@@ -7,42 +7,42 @@ var upgrades = {
 		'max_value': 0,
 		'min_value': 0.1,
 		'step': 0.01,
-		'price': 99,
+		'price': 60,
 		'var': BackgroundScene.fading_probability
 	},
 	'harvest_probability':{
 		'max_value': 0.5,
 		'min_value': 0,
 		'step': 0.1,
-		'price': 98,
+		'price': 55,
 		'var': BackgroundScene.increased_harvest_probability
 	},
 	'multiplier':{
 		'max_value': 2,
 		'min_value': 1,
 		'step': 0.2,
-		'price': 97,
+		'price': 80,
 		'var': BackgroundScene.multiplier
 	},
 	'harvesting_time':{
 		'max_value': 0.4,
 		'min_value': 2,
 		'step': 0.2,
-		'price': 96,
+		'price': 45,
 		'var': BackgroundScene.harvesting_time
 	},
 	'delivery_time':{
 		'max_value': 20,
 		'min_value': BackgroundScene.delivery_duration,
 		'step': BackgroundScene.seconds_to_ticks(88),
-		'price': 95,
+		'price': 70,
 		'var': BackgroundScene.delivery_duration
 	},
 	'prices_multiplier':{
 		'max_value': 2,
 		'min_value': 1,
 		'step': 0.1,
-		'price': 94,
+		'price': 90,
 		'var': BackgroundScene.prices_multiplier
 	}
 }

@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://q73xuo0u1sec"]
+
+[ext_resource type="Texture2D" uid="uid://b2mijn7ra1fl0" path="res://Assets/Textures/UI/Plant/E-button.png" id="1_xyk2q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vowhs"]
+atlas = ExtResource("1_xyk2q")
+region = Rect2(0, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c357u"]
+atlas = ExtResource("1_xyk2q")
+region = Rect2(0, 15, 16, 15)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vowhs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c357u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]

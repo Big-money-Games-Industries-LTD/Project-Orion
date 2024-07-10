@@ -14,4 +14,6 @@ func _process(delta):
 	var aqueducts_existing = BackgroundScene.aqueducts_in_fields[self_layer-1]
 	for i in range(aqueducts_existing,0,-1):
 		get_node('Slot_'+str(self_layer)+'_'+str(i)+'/Build_button').disabled=true
+		get_node('Slot_'+str(self_layer)+'_'+str(i)+'/Icon').frame = 1
+		get_node('Slot_'+str(self_layer)+'_'+str(i)+'/Price').hide()
 		
