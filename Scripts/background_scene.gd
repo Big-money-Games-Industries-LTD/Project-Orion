@@ -49,7 +49,7 @@ class Bed:
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(5)},
+			'growth_time': BackgroundScene.minutes_to_ticks(5)},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
 			'frames': 6,
@@ -229,6 +229,8 @@ func update():#update every known bed and restart timer if needed
 func day_skip():
 	var time_left = seconds_to_ticks($day_end_timer.get_time_left())
 	$day_end_timer.stop()
+	if is_delivery_started is int:
+		is_delivery_started-=time_left
 	global_time += time_left-1
 	update()
 	$day_end_timer.start()
@@ -269,7 +271,7 @@ func _process(_delta):
 	if inventory_pos < 0:
 		inventory_pos = 4
 	if is_delivery_started:
-		if is_delivery_started == global_time:
+		if is_delivery_started <= global_time:
 			is_delivery_started = false
 			if current_load_scene:
 				current_load_scene.on_delivery_ends()
