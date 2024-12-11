@@ -4,8 +4,9 @@ extends Control
 var price_list = [50,100,200]
 
 func button_pressed():
-	BackgroundScene.aqueducts_in_fields[self_layer-1] += 1
-	BackgroundScene.money -= price_list[self_layer-1]
+	if BackgroundScene.money >= price_list[self_layer-1]:
+		BackgroundScene.aqueducts_in_fields[self_layer-1] += 1
+		BackgroundScene.money -= price_list[self_layer-1]
 
 func _ready():
 	pass

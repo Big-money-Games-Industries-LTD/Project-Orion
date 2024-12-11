@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c4ktn17l1n2mi"]
+[gd_scene load_steps=23 format=3 uid="uid://c4ktn17l1n2mi"]
 
 [ext_resource type="Script" path="res://Scripts/Home_scene/house.gd" id="1_6cbpi"]
 [ext_resource type="Script" path="res://Scripts/Home_scene/home_scene.gd" id="1_yoip0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://uoh04vge2ejt" path="res://Raw assets/Market.png" id="6_mxmkb"]
 [ext_resource type="Texture2D" uid="uid://3gx70v55lcyv" path="res://Assets/Textures/Objects/Fence.png" id="7_3lof2"]
 [ext_resource type="Script" path="res://Scripts/Home_scene/Market.gd" id="7_ro4me"]
+[ext_resource type="Texture2D" uid="uid://oqr48wdga7w" path="res://Assets/Textures/Entities/seed_guy.png" id="8_gqcra"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6isxs"]
 texture = ExtResource("2_43kck")
@@ -87,6 +88,42 @@ size = Vector2(44, 384)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdapc"]
 size = Vector2(16, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlw45"]
+atlas = ExtResource("8_gqcra")
+region = Rect2(0, 0, 44, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_330lb"]
+atlas = ExtResource("8_gqcra")
+region = Rect2(44, 0, 44, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgolk"]
+atlas = ExtResource("8_gqcra")
+region = Rect2(88, 0, 44, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03ijw"]
+atlas = ExtResource("8_gqcra")
+region = Rect2(132, 0, 44, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s33uq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlw45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_330lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgolk")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_03ijw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tf7f1"]
 size = Vector2(120, 156)
 
@@ -158,6 +195,12 @@ flip_h = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fence_right"]
 position = Vector2(-308, -24)
 shape = SubResource("RectangleShape2D_hdapc")
+
+[node name="Seller" type="AnimatedSprite2D" parent="."]
+position = Vector2(-156, -32)
+scale = Vector2(1.84286, 1.84286)
+sprite_frames = SubResource("SpriteFrames_s33uq")
+frame_progress = 0.277613
 
 [node name="Market" type="Area2D" parent="."]
 collision_mask = 3

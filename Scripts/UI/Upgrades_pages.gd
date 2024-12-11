@@ -53,6 +53,8 @@ func update():
 			if not upgrades[i.name.to_lower()]['var'] is bool:
 				if upgrades[i.name.to_lower()]['max_value'] == float(get_node('Current/'+ i.name +'/Label').text):
 					i.disabled = true
+				elif BackgroundScene.money <= upgrades[i.name.to_lower()]['price']:
+					i.disabled = true
 				else:
 					i.disabled = false
 		for i in $Prices.get_children():
@@ -66,32 +68,38 @@ func update():
 		
 
 func _on_fade_prob_button_pressed():#TODO:add money check(for all buttons), maybe add a unified checking function in main_upgrades
-	BackgroundScene.fading_probability -= 0.01
-	BackgroundScene.money -= upgrades['fading_probability']['price']
+	if BackgroundScene.money >= upgrades['fading_probability']['price']:
+		BackgroundScene.fading_probability -= 0.01
+		BackgroundScene.money -= upgrades['fading_probability']['price']
 
 func _on_harvest_prob_button_pressed():
-	BackgroundScene.increased_harvest_probability += 0.1
-	BackgroundScene.money -= upgrades['harvest_probability']['price']
+	if BackgroundScene.money >= upgrades['harvest_probability']['price']:
+		BackgroundScene.increased_harvest_probability += 0.1
+		BackgroundScene.money -= upgrades['harvest_probability']['price']
 
 func _on_multiplier_pressed():
-	BackgroundScene.multiplier += 0.1
-	BackgroundScene.money -= upgrades['multiplier']['price']
+	if BackgroundScene.money >= upgrades['multiplier']['price']:
+		BackgroundScene.multiplier += 0.1
+		BackgroundScene.money -= upgrades['multiplier']['price']
 
 func _on_delivery_time_button_pressed():
-	BackgroundScene.delivery_duration -= BackgroundScene.seconds_to_ticks(88)
-	BackgroundScene.money -= upgrades['delivery_time']['price']
-	if BackgroundScene.delivery_duration < BackgroundScene.seconds_to_ticks(20):
-		BackgroundScene.delivery_duration = BackgroundScene.seconds_to_ticks(20)
+	if BackgroundScene.money >= upgrades['delivery_time']['price']:
+		BackgroundScene.delivery_duration -= BackgroundScene.seconds_to_ticks(88)
+		BackgroundScene.money -= upgrades['delivery_time']['price']
+		if BackgroundScene.delivery_duration < BackgroundScene.seconds_to_ticks(20):
+			BackgroundScene.delivery_duration = BackgroundScene.seconds_to_ticks(20)
 
 
 func _on_harvesting_time_button_pressed():
-	BackgroundScene.harvesting_time-=upgrades['harvesting_time']['step']
-	BackgroundScene.money -= upgrades['harvesting_time']['price']
+	if BackgroundScene.money >= upgrades['harvesting_time']['price']:
+		BackgroundScene.harvesting_time-=upgrades['harvesting_time']['step']
+		BackgroundScene.money -= upgrades['harvesting_time']['price']
 
 
 func _on_prices_multiplier_button_pressed():
-	BackgroundScene.prices_multiplier += 0.1
-	BackgroundScene.money -= upgrades['prices_multiplier']['price']
+	if BackgroundScene.money >= upgrades['prices_multiplier']['price']:
+		BackgroundScene.prices_multiplier += 0.1
+		BackgroundScene.money -= upgrades['prices_multiplier']['price']
 	
 func _on_to_left_pressed():
 	$"..".change_UI("Page_" + str(current_page - 1))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://bwxa58w1xhf8x"]
+[gd_scene load_steps=112 format=3 uid="uid://bwxa58w1xhf8x"]
 
 [ext_resource type="Script" path="res://Scripts/UI/UI.gd" id="1_wy3ne"]
 [ext_resource type="Script" path="res://Scripts/UI/Pallet.gd" id="2_g3ksp"]
@@ -9,7 +9,6 @@
 [ext_resource type="LabelSettings" uid="uid://clyvwch01q8xr" path="res://Assets/Textures/UI/Player/settings_inventory.tres" id="4_sul3h"]
 [ext_resource type="Script" path="res://Scripts/UI/Inventory_slots.gd" id="5_d7gim"]
 [ext_resource type="Script" path="res://Scripts/UI/Main_UI.gd" id="7_2fciu"]
-[ext_resource type="Script" path="res://Scripts/UI/scene_indicator.gd" id="8_h7sdr"]
 [ext_resource type="Texture2D" uid="uid://3g3wismm50ad" path="res://Assets/Textures/UI/Loader/Delivery_button.png" id="9_no2up"]
 [ext_resource type="Script" path="res://Scripts/UI/Loader.gd" id="11_47f2h"]
 [ext_resource type="FontFile" uid="uid://cw8mcnxusknuo" path="res://Assets/Fonts/Minecraft.ttf" id="11_akgup"]
@@ -20,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dvj6fnd61fh7t" path="res://Assets/Textures/UI/Loader/UP_DOWN_button.png" id="14_4dmc2"]
 [ext_resource type="Texture2D" uid="uid://dyi4pmd8g40b3" path="res://Assets/Textures/UI/Loader/Loader_UI.png" id="14_hng1o"]
 [ext_resource type="Texture2D" uid="uid://d0ag4miah0t6f" path="res://Assets/Textures/UI/Loader/Upgrades_text_field.png" id="15_rldhs"]
-[ext_resource type="Theme" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
+[ext_resource type="Theme" uid="uid://dq22ojeg8wln8" path="res://Assets/Textures/UI/Default_theme.tres" id="16_b1es6"]
 [ext_resource type="Texture2D" uid="uid://dt3eva6xonvcu" path="res://Assets/Textures/UI/Loader/Next_button.png" id="17_ms78c"]
 [ext_resource type="Texture2D" uid="uid://bkhanf1c80yq2" path="res://Assets/Textures/UI/Loader/Transparent_BG.png" id="18_38wgu"]
 [ext_resource type="Script" path="res://Scripts/UI/Upgrades_pages.gd" id="22_diijn"]
@@ -683,17 +682,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 script = ExtResource("7_2fciu")
 
-[node name="Debug_Info" type="RichTextLabel" parent="Main_UI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_bottom = 112.0
-grow_horizontal = 0
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
 [node name="inventory" type="Sprite2D" parent="Main_UI"]
 position = Vector2(953, 967)
 scale = Vector2(6, 6)
@@ -830,14 +818,6 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "90"
 label_settings = ExtResource("4_sul3h")
-
-[node name="scene_indicator" type="RichTextLabel" parent="Main_UI"]
-layout_mode = 0
-offset_left = 1255.0
-offset_top = 83.0
-offset_right = 1866.0
-offset_bottom = 158.0
-script = ExtResource("8_h7sdr")
 
 [node name="Money_icon" type="Sprite2D" parent="Main_UI"]
 position = Vector2(31.2094, 915.475)

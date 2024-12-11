@@ -14,7 +14,7 @@ var increased_harvest_probability:float = 0
 var increased_harvest_increment:int = 1
 var was_the_scene_loaded_after_cutscene: bool #for delivery cutscene
 var before_cutscene_position_saver: Vector2 #for delivery cutscene
-var money:int = 9999
+var money:int = 1000
 var current_load_scene = null
 var aqueducts_in_fields = [2,0,0]
 var harvesting_time:float = 2
@@ -49,15 +49,15 @@ class Bed:
 		'cabbage':{
 			'texture': preload("res://Assets/Objects/Plants/cabbage.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.minutes_to_ticks(5)},
+			'growth_time': BackgroundScene.minutes_to_ticks(10)},
 		'carrot':{
 			'texture': preload("res://Assets/Objects/Plants/carrot.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(5)},
+			'growth_time': BackgroundScene.minutes_to_ticks(7)},
 		'wheat':{
 			'texture': preload("res://Assets/Objects/Plants/wheat.tscn"),
 			'frames': 6,
-			'growth_time': BackgroundScene.seconds_to_ticks(5)}
+			'growth_time': BackgroundScene.minutes_to_ticks(4)}
 		}
 	var type: String
 	var next_step_time: int
@@ -118,7 +118,7 @@ var beds_list = []
 #////////////////////////////////////////////////////////////////////////////
 #///////////////////INVENTORY SECTION////////////////////////////////////////
 #////////////////////////////////////////////////////////////////////////////
-var inventory = [['cabbage_seed', 4], ['carrot_seed', 4], ['wheat_seed', 4], ['leica', 1], ['wheat', 1]]
+var inventory = [['leica', 1], false, false, false, false]
 #[['cabbage_seed', 1], ['cabbage', 3], [false], [false]]
 var inventory_pos = 0
 func add_to_inventory(object, amount = 1):

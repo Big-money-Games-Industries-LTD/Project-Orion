@@ -6,3 +6,6 @@ func _on_border_right_body_entered(body):
 		BackgroundScene.current_scene_index = BackgroundScene.scene_saver
 		get_tree().change_scene_to_file(BackgroundScene.scenes_list[BackgroundScene.current_scene_index])
 		BackgroundScene.position_saver = 'right'
+		
+func _ready():
+	$Seller.play("default")

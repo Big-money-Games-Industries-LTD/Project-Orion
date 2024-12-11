@@ -30,7 +30,6 @@ func _on_blackout_animation_player_animation_finished(_anim_name):
 	
 func _process(_delta):
 	BackgroundScene.current_UI = current_UI
-	$Main_UI/Debug_Info.text = 'Day timer: ' + str(round(BackgroundScene.get_child(0).time_left)) + '\n' + "Global time: " + str(BackgroundScene.global_time) 
 	global_position = %Camera2D.get_screen_center_position() + Vector2(-960, -540) * Vector2(1/1.3, 1/1.3) #attach UI to screen
 			
 func _ready():
